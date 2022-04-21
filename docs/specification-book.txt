@@ -1,0 +1,8 @@
+Pflichtenheft
+Menu
+linkes Menu:
+	- Home
+
+rechtes Menu:
+	- Login/Logout
+	- Register
