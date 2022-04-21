@@ -6,3 +6,8 @@ linkes Menu:
 rechtes Menu:
 	- Login/Logout
 	- Register
+
+
+Database
+Tabellen:
+	- users
