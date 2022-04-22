@@ -5,6 +5,7 @@
 /public/css
 /storage/*.key
 /vendor
+mix-manifest.json
 .env
 .env.backup
 .htaccess
