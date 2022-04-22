@@ -1,6 +1,6 @@
-Pflichtenheft
-Menu
-linkes Menu:
+# Pflichtenheft
+## Menu
+### linkes Menu:
 	- Home
 	- Lebenslauf erstellen
 
@@ -22,8 +22,8 @@ rechtes Menu:
 	- Login
 	- Register
 
-Nach der Registrierung:
-rechtes Menu:
+### Nach der Registrierung:
+#### rechtes Menu:
     - Logout
     - Mein Profil
 
@@ -46,8 +46,8 @@ Unterseite "Mein Profil":
 
 Database
 Tabellen:
-	- users
-	- customers
+	[ ] users
+	[ ] customers
 	    - firstname VARCHAR 50
 	    - lastname VARCHAR 50
 	    - birthdate DATE NULLABLE
@@ -63,19 +63,20 @@ Tabellen:
 	    - confirmed BOOL DEFAULT 0
 	    - created_at TIMESTAMP NULLABLE
 	    - updated_at TIMESTAMP NULLABLE
+	[ ] cvs (customer_id, link VARCHAR 100)
+	[x] programming_languages (name VARCHAR 50)
+	[ ] customer_programming_languages (customer_id, programming_language_id, level)
+	[x] frameworks (name VARCHAR 50)
+	[ ] customer_frameworks (customer_id, framework_id, level)
+	[ ] education (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
+	[ ] working_experience (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
+	[ ] voluntary_work (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
+	[ ] projects (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
+	[ ] customer_documents (customer_id, filename VARCHAR 50, type VARCHAR 10)
+	[x] languages (name VARCHAR 50)
+	[ ] customer_languages (customer_id, language_id, level)
+	[ ] soft_skills (customer_id, name VARCHAR, description TEXT NULLABLE)
+	[ ] hard_skills (customer_id, name VARCHAR, description TEXT NULLABLE)
+	[ ] interests (customer_id, name VARCHAR, description TEXT NULLABLE)
 
-	- cvs (customer_id, link VARCHAR 100)
-	- programming_languages (name VARCHAR 50)
-	- customer_programming_languages (customer_id, programming_language_id, level)
-	- frameworks (name VARCHAR 50)
-	- customer_frameworks (customer_id, framework_id, level)
-	- education (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
-	- working_experience (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
-	- voluntary_work (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
-	- projects (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
-	- customer_documents (customer_id, filename VARCHAR 50, type VARCHAR 10)
-	- languages (name VARCHAR 50)
-	- customer_languages (customer_id, language_id, level)
-	- soft_skills (customer_id, name VARCHAR, description TEXT NULLABLE)
-	- hard_skills (customer_id, name VARCHAR, description TEXT NULLABLE)
-	- interests (customer_id, name VARCHAR, description TEXT NULLABLE)
+
