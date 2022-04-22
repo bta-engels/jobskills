@@ -2,12 +2,39 @@ Pflichtenheft
 Menu
 linkes Menu:
 	- Home
+	- Lebenslauf erstellen
+
+Unterseite "Lebenslauf erstellen":
+    -
 
 rechtes Menu:
-	- Login/Logout
+	- Login
 	- Register
 
+Nach der Registrierung:
+rechtes Menu:
+    - Logout
+    - Mein Profil
+
+
+Unterseite "Mein Profil":
+        - Mein Account
+        - Persönliche Daten
+        - Mein CV
+            - Arbeitserfahrung
+            - schulische/berufliche Ausbildung
+            - Programmierskills (Chekboxen Sprache + icon, grafische Balken - skills in %)
+            - Links zu Codewars/Github
+            - Projekte
+            - Sprachen
+            - Hobbies
 
 Database
 Tabellen:
 	- users
+	- Programmiersprachen
+	- Frameworks
+	-
+
+	Mit Bernd Tabellenaufteilung absprechen
+	- Unis/Arbeitgeber...
