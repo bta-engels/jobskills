@@ -63,6 +63,7 @@ Tabellen:
 	    - confirmed BOOL DEFAULT 0
 	    - created_at TIMESTAMP NULLABLE
 	    - updated_at TIMESTAMP NULLABLE
+
 	- cvs (customer_id, link VARCHAR 100)
 	- programming_languages (name VARCHAR 50)
 	- customer_programming_languages (customer_id, programming_language_id, level)
@@ -78,5 +79,3 @@ Tabellen:
 	- soft_skills (customer_id, name VARCHAR, description TEXT NULLABLE)
 	- hard_skills (customer_id, name VARCHAR, description TEXT NULLABLE)
 	- interests (customer_id, name VARCHAR, description TEXT NULLABLE)
-
-
