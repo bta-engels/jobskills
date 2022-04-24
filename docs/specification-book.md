@@ -35,10 +35,10 @@ Unterseite "Lebenslauf erstellen":
    - Schule/Universität
    - Berufserfahrung
    - Ehrenamtliche Tätigkeiten
-   - Projekte
+   - Projekte (Codewars/Github)
    - Dokumentenupload
    - Sprachen (Balken)
-   - Programmiersprachen (Codewars/Github) (Balken, Logos)
+   - Programmiersprachen (Balken, Logos)
    - Frameworks
    - Soft Skills
    - Kenntnisse (Balken)
