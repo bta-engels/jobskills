@@ -46,9 +46,9 @@ Unterseite "Lebenslauf erstellen":
 Database
 Tabellen:
 - [x] users
-- [ ] customers
-    - firstname VARCHAR 50
-    - lastname VARCHAR 50
+  - [ ] customers
+    - id 
+    - name VARCHAR 50
     - birthdate DATE NULLABLE
     - street VARCHAR 50
     - city VARCHAR 50
