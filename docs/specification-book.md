@@ -11,8 +11,8 @@ Unterseite "Lebenslauf erstellen":
    - Schule/Universität
    - Berufserfahrung
    - Ehrenamtliche Tätigkeiten
-   - Projekte
-   - Programmiersprachen (Codewars/Github) (Balken, Logos)
+   - Projekte (Codewars/Github)
+   - Programmiersprachen (Balken, Logos)
    - Sprachen (Balken)
    - (Soft Skills)
    - Kenntnisse (Balken)
@@ -30,15 +30,16 @@ Unterseite "Lebenslauf erstellen":
 #### Unterseite "Mein Profil":
 - Mein Account
 - Mein Lebenslauf
-   - Foto/persönliche Daten
-   - About me
+   - persönliche Daten
+   - Foto, About me
    - Schule/Universität
    - Berufserfahrung
    - Ehrenamtliche Tätigkeiten
    - Projekte
    - Dokumentenupload
-   - Programmiersprachen (Codewars/Github) (Balken, Logos)
    - Sprachen (Balken)
+   - Programmiersprachen (Codewars/Github) (Balken, Logos)
+   - Frameworks
    - Soft Skills
    - Kenntnisse (Balken)
    - Interessen/Hobbies
@@ -77,3 +78,22 @@ Tabellen:
 - [ ] soft_skills (customer_id, name VARCHAR, description TEXT NULLABLE)
 - [ ] hard_skills (customer_id, name VARCHAR, description TEXT NULLABLE)
 - [ ] interests (customer_id, name VARCHAR, description TEXT NULLABLE)
+
+### persönliche Daten
+![persönliche Daten](./img/personal_data.jpg)
+
+### Foto, About me
+![Foto, About me](./img/about_me.jpg)
+
+### Schule/Universität
+![Schule/Universität](./img/education.jpg)
+
+### Sprachen (Balken)
+![Sprachen](./img/languages.jpg)
+
+### Programmiersprachen (Balken, Logos?)
+![Programmiersprachen (Balken, Logos)](./img/programming_languages.jpg)
+
+### Frameworks (Balken)
+![Frameworks](./img/frameworks.jpg)
+
