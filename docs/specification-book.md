@@ -44,6 +44,10 @@ Unterseite "Lebenslauf erstellen":
    - Kenntnisse (Balken)
    - Interessen/Hobbies
 
+#### Localisation (de, en ...)
+- locale controller, route
+- locale middleware
+
 Database
 Tabellen:
 - [x] users
