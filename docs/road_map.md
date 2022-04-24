@@ -14,7 +14,8 @@
   - [ ] laravel/dusk
 
 ### working steps
-- [ ] migrations
+- [ ] add migrations
+- [ ] add foreignKey migrations
 - [ ] migrate db
 - [ ] customer auth (login, registration, pw-reset)
 - [ ] customer profile
