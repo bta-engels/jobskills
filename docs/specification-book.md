@@ -1,24 +1,11 @@
 # Pflichtenheft
+
 ## Menu
 ### linkes Menu:
-	- Home
-	- Lebenslauf erstellen
+- Home
+- Lebenslauf erstellen
 
-Unterseite "Lebenslauf erstellen":
-- Mein Lebenslauf
-   - persönliche Daten
-   - Foto, About me
-   - Schule/Universität
-   - Berufserfahrung
-   - Ehrenamtliche Tätigkeiten
-   - Projekte (Codewars/Github)
-   - Programmiersprachen (Balken, Logos)
-   - Sprachen (Balken)
-   - (Soft Skills)
-   - Kenntnisse (Balken)
-   - Interessen/Hobbies
-
-#### rechtes Menu Public-Ansicht:
+### rechtes Menu:
 - Login
 - Register
 
@@ -27,7 +14,23 @@ Unterseite "Lebenslauf erstellen":
     - Logout
     - Mein Profil
 
-#### Unterseite "Mein Profil":
+## Unterseiten
+
+### Unterseite "Lebenslauf erstellen":
+- Mein Lebenslauf
+	- Foto/persönliche Daten
+	- About me
+	- Schule/Universität
+	- Berufserfahrung
+	- Ehrenamtliche Tätigkeiten
+	- Projekte
+	- Programmiersprachen (Codewars/Github) (Balken, Logos)
+	- Sprachen (Balken)
+	- (Soft Skills)
+	- Kenntnisse (Balken)
+	- Interessen/Hobbies
+
+### Unterseite "Mein Profil":
 - Mein Account
 - Mein Lebenslauf
    - persönliche Daten
@@ -49,11 +52,11 @@ Unterseite "Lebenslauf erstellen":
 - locale middleware
 
 #### Test
--UnitTest
--Dusk Test
+- UnitTest
+- Dusk Test
 
-Database
-Tabellen:
+## Database
+### Tabellen:
 - [x] users
   - [ ] customers
     - id 
