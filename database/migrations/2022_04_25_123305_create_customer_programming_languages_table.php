@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('customer_id');
             $table->unsignedInteger('programming_language_id');
-            $table->unsignedSmallInteger('level');
+            $table->unsignedSmallInteger('level')->default(0);
         });
     }
 
