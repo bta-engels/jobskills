@@ -8,7 +8,7 @@
   - [ ] protonemedia/laravel-form-components
   - [ ] graham-campbell/markdown
   - [ ] mews/captcha
-  - [ ] spatie/laravel-db-snapshots"
+  - [ ] spatie/laravel-db-snapshots
   - [ ] symfony/mailer
   - [ ] kitloong/laravel-migrations-generator
   - [ ] laravel/dusk
