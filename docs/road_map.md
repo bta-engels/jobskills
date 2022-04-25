@@ -17,6 +17,7 @@
 - [ ] add migrations
 - [ ] add foreignKey migrations
 - [ ] migrate db
+- [ ] create db seeder (data-import for languages, programming_languages, frameworks)
 - [ ] customer auth (login, registration, pw-reset)
 - [ ] customer profile
 - [ ] smtp configuration

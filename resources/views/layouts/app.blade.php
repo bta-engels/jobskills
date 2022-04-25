@@ -54,5 +54,6 @@
             </div>
         </main>
     </div>
+    {{-- phpinfo() --}}
 </body>
 </html>
