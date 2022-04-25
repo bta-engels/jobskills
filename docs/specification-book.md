@@ -74,7 +74,7 @@
     - confirmed BOOL DEFAULT 0
     - created_at TIMESTAMP NULLABLE
     - updated_at TIMESTAMP NULLABLE
-- [ ] cvs (customer_id, link VARCHAR 100)
+- [x] cvs (customer_id, link VARCHAR 100)
 - [x] programming_languages (name VARCHAR 50)
 - [ ] customer_programming_languages (customer_id, programming_language_id, level)
 - [x] frameworks (name VARCHAR 50)
