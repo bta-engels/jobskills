@@ -15,7 +15,19 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedTinyInteger('level');
+            $table->string('name', 50);
+            $table->string('email', 50);
+            $table->string('password', 255);
+            $table->date('birthdate')->nullable();
+            $table->string('street', 50)->nullable();
+            $table->string('city', 50)->nullable();
+            $table->string('postcode', 50)->nullable();
+            $table->string('img', 100)->nullable();
+            $table->string('phone', 50)->nullable();
+            $table->string('remember_token', 50)->nullable();
+            $table->text('about_me')->nullable();
+            $table->boolean('confirmed')->default(0);
+            $table->timestamps();
         });
     }
 
