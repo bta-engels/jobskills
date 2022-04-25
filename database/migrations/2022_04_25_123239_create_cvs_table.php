@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('cvs', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger(‘customer_id’);
+            $table->unsignedInteger('customer_id');
             $table->string('link', 100);
         });
     }
