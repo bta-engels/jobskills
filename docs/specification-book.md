@@ -48,6 +48,10 @@ Unterseite "Lebenslauf erstellen":
 - locale controller, route
 - locale middleware
 
+#### Test
+-UnitTest
+-Dusk Test
+
 Database
 Tabellen:
 - [x] users
