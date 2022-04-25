@@ -79,7 +79,7 @@
 - [x] customer_programming_languages (customer_id, programming_language_id, level)
 - [x] frameworks (name VARCHAR 50)
 - [x] customer_frameworks (customer_id, framework_id, level)
-- [ ] education (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
+- [x] education (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
 - [ ] working_experience (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
 - [ ] voluntary_work (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
 - [ ] projects (name VARCHAR 50, description TEXT NULLABLE, from DATE, until DATE)
