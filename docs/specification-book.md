@@ -6,8 +6,8 @@
 
 Unterseite "Lebenslauf erstellen":
 - Mein Lebenslauf
-   - Foto/persönliche Daten
-   - About me
+   - persönliche Daten
+   - Foto, About me
    - Schule/Universität
    - Berufserfahrung
    - Ehrenamtliche Tätigkeiten
