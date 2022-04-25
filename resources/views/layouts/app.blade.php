@@ -43,5 +43,6 @@
             @yield('content')
         </main>
     </div>
+    {{-- phpinfo() --}}
 </body>
 </html>
