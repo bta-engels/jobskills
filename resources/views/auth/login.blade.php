@@ -9,12 +9,12 @@
 
                 <div class="card-body">
                     <x-form method="POST" action="{{ route('login') }}">
-                        <x-form-input type="email" class="mb-3" name="email" label="{{ __('Email') }}" required autocomplete="email" autofocus />
+                        <x-form-input type="email" class="mb-3" name="email" label="{{ __('Email Address') }}" required autocomplete="email" autofocus />
                         <x-form-input type="password" class="mb-3" name="password" label="{{ __('Password') }}" required autocomplete="current-password" />
                         <x-form-checkbox name="remember" label="{{ __('Remember me') }}" />
                         <x-form-submit class="mt-3">{{ __('Login') }}</x-form-submit>
 
-                        @if (Route::has('password.request'))
+                        @if(Route::has('password.request'))
                             <a class="btn btn-link mt-3" href="{{ route('password.request') }}">
                                 {{ __('Forgot Your Password?') }}
                             </a>
