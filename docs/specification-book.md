@@ -1,5 +1,7 @@
 # Pflichtenheft
 
+Lorem Ipsum, hier könnte Ihre Beschreibung stehen.
+
 ## Menu
 ### linkes Menu:
 - Home
