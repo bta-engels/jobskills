@@ -31,4 +31,19 @@
             </div>
         </li>
     @endguest
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ __('Languages') }}</a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li class="dropdown-item">
+                <a class="nav-link" href="{{ route('locale','en') }}">{{ __('English') }}</a>
+            </li>
+            <li class="dropdown-item">
+                <a class="nav-link" href="{{ route('locale','de') }}">{{ __('German') }}</a>
+            </li>
+            <li class="dropdown-item">
+                <a class="nav-link" href="{{ route('locale','sr') }}">{{ __('Serbian') }}</a>
+            </li>
+        </ul>
+    </li>
 </ul>

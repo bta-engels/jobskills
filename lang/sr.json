@@ -4,5 +4,12 @@
     "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",
     "The :attribute must contain at least one uppercase and one lowercase letter.": "The :attribute must contain at least one uppercase and one lowercase letter.",
     "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "The given :attribute has appeared in a data leak. Please choose a different :attribute.",
-    "Das ist meine Homepage": "This is my Homepage"
+    "Das ist meine Homepage": "Почетна Страница",
+    "Login": "Пријава",
+    "Register": "Регистрација",
+    "Home": "Почетна",
+    "Languages": "Језици",
+    "English": "Eнглески",
+    "German": "Немачки",
+    "Serbian": "Српски"
 }

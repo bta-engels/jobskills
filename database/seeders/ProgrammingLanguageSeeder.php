@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+
 use App\Models\ProgrammingLanguage;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +14,8 @@ class ProgrammingLanguageSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+
+        public function run()
     {
         DB::table('programming_languages')->truncate();
         foreach (config('data.programming_languages') as $name) {
