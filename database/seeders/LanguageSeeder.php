@@ -16,7 +16,7 @@ class LanguageSeeder extends Seeder
     public function run()
     {
         DB::table('languages')->truncate();
-        foreach (config('data.languages') as $name){
+        foreach (config('data.languages') as $name) {
             Language::create(['name' => $name]);
         }
     }
