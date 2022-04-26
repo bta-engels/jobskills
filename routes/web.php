@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
+Route::get('/lang/{locale}', [\App\Http\Controllers\LocaleController::class, 'set'])->name('locale');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
