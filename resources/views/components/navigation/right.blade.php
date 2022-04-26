@@ -31,4 +31,10 @@
             </div>
         </li>
     @endguest
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('locale','en') }}">EN</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('locale','de') }}">DE</a>
+    </li>
 </ul>
