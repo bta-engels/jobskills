@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Language
+ * App\Models\Framework
  *
  * @property int $id
  * @property string $name
- * @method static Builder|Language newModelQuery()
- * @method static Builder|Language newQuery()
- * @method static Builder|Language query()
- * @method static Builder|Language whereId($value)
- * @method static Builder|Language whereName($value)
+ * @method static Builder|Framework newModelQuery()
+ * @method static Builder|Framework newQuery()
+ * @method static Builder|Framework query()
+ * @method static Builder|Framework whereId($value)
+ * @method static Builder|Framework whereName($value)
  * @mixin Eloquent
  */
-class Language extends Model
+class Framework extends Model
 {
     use HasFactory;
     public $timestamps = false;
