@@ -2,7 +2,7 @@
 return [
     'C/C++',
     'Java',
-    'Phyton',
+    'Python',
     'C#',
     'Visual Basic',
     'JavaScript',
