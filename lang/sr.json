@@ -4,9 +4,31 @@
     "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",
     "The :attribute must contain at least one uppercase and one lowercase letter.": "The :attribute must contain at least one uppercase and one lowercase letter.",
     "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "The given :attribute has appeared in a data leak. Please choose a different :attribute.",
-    "Das ist meine Homepage": "Почетна Страница",
+    "This is my home page": "Почетна Страница",
+    "Home": "Почетна",
     "Login": "Пријава",
+    "Logout": "Одјава",
     "Register": "Регистрација",
-    "Home": "Почетна"
+    "Verify Your Email Address": "Верификујте вашу адресу Е-Поште",
+    "A fresh verification link has been sent to your email address.": "Нови верификациони линк је послат на вашу адресу Е-Поште.",
+    "Before proceeding, please check your email for a verification link.": "Пре него наставите, проверите вашу Е-Пошту за верификациони линк",
+    "If you did not receive the email": "Ако нисте примили Е-Пошту",
+    "click here to request another": "Кликните овде да затражите другу",
+    "Name": "Име",
+    "Email Address": "Адреса Е-Поште",
+    "Password": "Лозинка",
+    "Password repeat": "Поновите лозинку",
+    "Remember me": "Запамти ме",
+    "Forgot Your Password?": "Заборавили сте лозинку?",
+    "Reset Password": "Ресетуј лозинку",
+    "Send Password Reset Link": "Пошаљи линк за ресетовање лозинке",
+    "Confirm Password": "Потврдитe лозинку",
+    "Please confirm your password before continuing.": "Молимо потврдите вашу лозинку пре него што наставите."
+
+
+
+
+
+
 
 }

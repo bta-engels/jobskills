@@ -2,5 +2,5 @@
 
 @section('headerTitle', 'Homepage')
 @section('content')
-    {{ __('Das ist meine Homepage') }}
+    {{ __('This is my home page') }}
 @endsection
