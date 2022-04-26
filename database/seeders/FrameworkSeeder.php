@@ -19,5 +19,6 @@ class FrameworkSeeder extends Seeder
         foreach (config('data.frameworks') as $name) {
             Framework::create(['name' => $name]);
         }
+
     }
 }

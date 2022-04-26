@@ -19,11 +19,11 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next)
     {
-        echo __METHOD__ . '<br>';
         $locale = session()->get('locale');
-        if ($locale) {
+        if($locale) {
             App::setLocale($locale);
         }
+
         return $next($request);
     }
 }
