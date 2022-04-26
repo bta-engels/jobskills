@@ -9,6 +9,7 @@ return [
     'Portugiesisch',
     'Polnisch',
     'Tschechisch',
+    'Türkisch',
     'Slowakisch',
     'Serbisch',
     'Griechisch',

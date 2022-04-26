@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-
-Route::get('/lang/{locale}', [LocaleController::class, 'set'])->name('locale');
+Route::get('/lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('/', [HomeController::class, 'index'])->name('home');
