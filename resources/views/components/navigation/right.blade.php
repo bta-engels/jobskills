@@ -37,4 +37,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ route('locale','de') }}">DE</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('locale','sr') }}">SR</a>
+    </li>
 </ul>
