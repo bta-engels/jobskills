@@ -3,11 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\Framework;
+use App\Models\ProgrammingLanguage;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class FrameworkSeeder extends Seeder
+class ProgrammingLanguageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,9 +17,9 @@ class FrameworkSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('frameworks')->truncate();
-        foreach (config('data.frameworks') as $name) {
-            Framework::create(['name' => $name]);
+        DB::table('programming_languages')->truncate();
+        foreach (config('data.programming_languages') as $name) {
+            ProgrammingLanguage::create(['name' => $name]);
         }
     }
 }
