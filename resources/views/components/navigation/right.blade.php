@@ -31,4 +31,11 @@
             </div>
         </li>
     @endguest
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('register') }}">DE</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('register') }}">EN</a>
+    </li>
 </ul>
