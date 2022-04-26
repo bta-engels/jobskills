@@ -3,5 +3,13 @@
     "The :attribute must contain at least one number.": ":attribute musí obsahovat nejméně jedno číslo.",
     "The :attribute must contain at least one symbol.": ":attribute musí obsahovat nejméně jeden zvláštní znak.",
     "The :attribute must contain at least one uppercase and one lowercase letter.": ":attribute musí obsahovat nejméně jedno velké a jedno malé písmeno.",
-    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": ":attribute se objevilo v seznamu uniklých dat. Prosím zvolty jiné :attribute."
+    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": ":attribute se objevilo v seznamu uniklých dat. Prosím zvolty jiné :attribute.",
+    "Das ist meine Homepage": "Toto je moje hlavní stránka",
+    "Login": "Přihlásit se",
+    "Register": "Registrace",
+    "Languages": "Jazyky",
+    "English": "Angličtina",
+    "German": "Němčina",
+    "Serbian": "Srbština",
+    "Czech": "Čeština"
 }
