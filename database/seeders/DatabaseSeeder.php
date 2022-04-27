@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             MyUserSeeder::class,
             FrameworkSeeder::class,
             LanguageSeeder::class,
-            ProgrammingLanguageSeeder::class,
+            ProgrammingLanguageSeeder::class
         ]);
     }
 }

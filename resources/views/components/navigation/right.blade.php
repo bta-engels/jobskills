@@ -44,6 +44,9 @@
             <li class="dropdown-item">
                 <a class="nav-link" href="{{ route('locale','sr') }}">{{ __('Serbian') }}</a>
             </li>
+            <li class="dropdown-item">
+                <a class="nav-link" href="{{ route('locale','cs') }}">{{ __('Czech') }}</a>
+            </li>
         </ul>
     </li>
 </ul>
