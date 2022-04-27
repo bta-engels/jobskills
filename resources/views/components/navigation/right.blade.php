@@ -49,4 +49,7 @@
             </li>
         </ul>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('locale','tr') }}">TR</a>
+    </li>
 </ul>

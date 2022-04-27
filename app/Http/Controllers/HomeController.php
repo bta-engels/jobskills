@@ -14,6 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        echo __METHOD__ . '<br>';
         return view('home');
     }
 }

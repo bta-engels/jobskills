@@ -1,0 +1,20 @@
+{
+    "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
+    "The :attribute must contain at least one number.": "The :attribute must contain at least one number.",
+    "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",
+    "The :attribute must contain at least one uppercase and one lowercase letter.": "The :attribute must contain at least one uppercase and one lowercase letter.",
+    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "The given :attribute has appeared in a data leak. Please choose a different :attribute.",
+    "Das ist meine Homepage": "Bu benim web sitem",
+    "Register": "Kayıt",
+    "Login": "Giriş",
+    "Password": "Şifre",
+    "Email Address": "E-posta adresi",
+    "Remember me": "Beni hatırla",
+    "Forgot Your Password?": "Parolanızı mı unuttunuz?",
+    "Password repeat": "Şifre tekrarlama",
+    "Name": "Isim",
+    "Home": "Ana Sayfa",
+    "Logout": "Çıkış Yap",
+    "Reset Password": "Şifreyi yenile",
+    "Send Password Reset Link": "Şifre sıfırlama bağlantısı gönder"
+}
