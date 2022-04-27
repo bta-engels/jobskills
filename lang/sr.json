@@ -23,7 +23,13 @@
     "Reset Password": "Ресетуј лозинку",
     "Send Password Reset Link": "Пошаљи линк за ресетовање лозинке",
     "Confirm Password": "Потврдитe лозинку",
-    "Please confirm your password before continuing.": "Молимо потврдите вашу лозинку пре него што наставите."
+    "Please confirm your password before continuing.": "Молимо потврдите вашу лозинку пре него што наставите.",
+    "Languages": "Језици",
+    "English": "Енглески",
+    "German": "Немачки",
+    "Serbian": "Српски",
+    "Czech": "Чешки",
+    "Turkish": "Турски"
 
 
 
