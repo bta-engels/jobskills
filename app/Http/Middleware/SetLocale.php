@@ -23,7 +23,6 @@ class SetLocale
         if($locale) {
             App::setLocale($locale);
         }
-//        dd($next);
         return $next($request);
     }
 }
