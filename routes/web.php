@@ -20,5 +20,7 @@ Route::group([
     Auth::routes();
 });
 
+
+
 Route::get('/lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('/', [HomeController::class, 'index'])->name('home');
