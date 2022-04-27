@@ -23,5 +23,11 @@
     "Reset Password": "Passwort zurücksetzen",
     "Send Password Reset Link": "Link zum Zurücksetzen des Passworts senden",
     "Confirm Password": "Bestätige das Passwort",
-    "Please confirm your password before continuing.": "Bitte bestätigen Sie Ihr Passwort, bevor Sie fortfahren."
+    "Please confirm your password before continuing.": "Bitte bestätigen Sie Ihr Passwort, bevor Sie fortfahren.",
+    "Languages": "Sprachen",
+    "English": "Englisch",
+    "German": "Deutsch",
+    "Serbian": "Serbisch",
+    "Czech": "Tschechisch"
+
 }
