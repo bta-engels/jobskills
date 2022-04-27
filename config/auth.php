@@ -99,7 +99,7 @@ return [
         ],
         'customers' => [
             'provider' => 'customers',
-            'table' => 'password_resets',
+            'table' => 'customer_password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],
