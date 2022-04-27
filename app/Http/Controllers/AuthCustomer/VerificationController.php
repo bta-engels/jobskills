@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
-class CustomerVerificationController extends Controller
+class VerificationController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
