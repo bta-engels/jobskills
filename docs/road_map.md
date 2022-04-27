@@ -19,7 +19,7 @@
 - [ ] add foreignKey migrations
 - [x] migrate db
 - [x] create db seeder (data-import for languages, programming_languages, frameworks)
-- [ ] localisation (de, en, mne) route, links, middleware 
+- [x] localisation (de, en, mne) route, links, middleware 
 - [ ] customer auth (login, registration, pw-reset)
 - [ ] create customer personal_data request (for validation)
 - [ ] customer profile
