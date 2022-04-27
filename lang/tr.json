@@ -14,5 +14,7 @@
     "Password repeat": "Şifre tekrarlama",
     "Name": "Isim",
     "Home": "Ana Sayfa",
-    "Logout": "Çıkış Yap"
+    "Logout": "Çıkış Yap",
+    "Reset Password": "Şifreyi yenile",
+    "Send Password Reset Link": "Şifre sıfırlama bağlantısı gönder"
 }
