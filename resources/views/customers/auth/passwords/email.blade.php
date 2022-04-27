@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <x-form method="POST" action="{{ route('admin.password.email') }}">
+                    <x-form method="POST" action="{{ route('password.email') }}">
                         <x-form-input type="email" class="mb-3" name="email" label="{{ __('Email Address') }}" default="{{ old('email') }}" required autocomplete="email" />
                         <x-form-submit class="mt-3">{{ __('Send Password Reset Link') }}</x-form-submit>
                     </x-form>

@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Models\ProgrammingLanguage;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App\Models\Customer;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCustomerRequest;
+use App\Http\Requests\UpdateCustomerRequest;
+use Illuminate\Http\Response;
 
-class AdminProgrammingLanguageController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +33,10 @@ class AdminProgrammingLanguageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param StoreCustomerRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(StoreCustomerRequest $request)
     {
         //
     }
@@ -43,10 +44,10 @@ class AdminProgrammingLanguageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param ProgrammingLanguage $programmingLanguage
+     * @param Customer $customer
      * @return Response
      */
-    public function show(ProgrammingLanguage $programmingLanguage)
+    public function show(Customer $customer)
     {
         //
     }
@@ -54,10 +55,10 @@ class AdminProgrammingLanguageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param ProgrammingLanguage $programmingLanguage
+     * @param Customer $customer
      * @return Response
      */
-    public function edit(ProgrammingLanguage $programmingLanguage)
+    public function edit(Customer $customer)
     {
         //
     }
@@ -65,11 +66,11 @@ class AdminProgrammingLanguageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param ProgrammingLanguage $programmingLanguage
+     * @param UpdateCustomerRequest $request
+     * @param Customer $customer
      * @return Response
      */
-    public function update(Request $request, ProgrammingLanguage $programmingLanguage)
+    public function update(UpdateCustomerRequest $request, Customer $customer)
     {
         //
     }
@@ -77,10 +78,10 @@ class AdminProgrammingLanguageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param ProgrammingLanguage $programmingLanguage
+     * @param Customer $customer
      * @return Response
      */
-    public function destroy(ProgrammingLanguage $programmingLanguage)
+    public function destroy(Customer $customer)
     {
         //
     }
