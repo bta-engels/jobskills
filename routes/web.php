@@ -25,6 +25,9 @@ Route::group([
 
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [CustomerRegisterController::class, 'register'])->name('register');
+
+Route::get('login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [CustomerLoginController::class, 'login'])->name('login');
 Route::post('logout', [CustomerLoginController::class, 'logout'])->name('logout');
 
 Route::get('/lang/{locale}',[LocaleController::class,'set'])->name('locale');
