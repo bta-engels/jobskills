@@ -13,6 +13,12 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.'
+], function () {
+    Auth::routes();
+});
+
 Route::get('/lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('/', [HomeController::class, 'index'])->name('home');
