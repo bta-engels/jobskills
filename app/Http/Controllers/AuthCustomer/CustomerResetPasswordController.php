@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AuthCustomer;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
 
 class CustomerResetPasswordController extends Controller
 {
@@ -27,4 +28,15 @@ class CustomerResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function showResetForm(Request $request)
+    {
+        $token = $request->route()->parameter('token');
+
+        return view('customers.auth.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
+    }
+
+
 }

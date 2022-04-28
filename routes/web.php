@@ -36,5 +36,8 @@ Route::post('login', [CustomerLoginController::class, 'login'])->name('login');
 Route::get('password/reset', [CustomerForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('password/reset', [CustomerResetPasswordController::class, 'reset'])->name('password.update');
 
+Route::post('password/email', [CustomerForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}', [CustomerResetPasswordController::class, 'showResetForm'])->name('password.reset');
+
 Route::get('/lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('/', [HomeController::class, 'index'])->name('home');
