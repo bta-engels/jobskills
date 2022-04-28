@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LocaleController;
@@ -29,11 +30,9 @@ Route::group([
 
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [CustomerRegisterController::class, 'register'])->name('register');
-
 Route::get('login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [CustomerLoginController::class, 'login'])->name('login');
 Route::post('logout', [CustomerLoginController::class, 'logout'])->name('logout');
-
 Route::get('password/reset', [CustomerForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('password/reset', [CustomerResetPasswordController::class, 'reset'])->name('password.update');
 Route::get('password/reset/{token}', [CustomerResetPasswordController::class, 'showResetForm'])->name('password.reset');
@@ -41,3 +40,5 @@ Route::post('password/email', [CustomerForgotPasswordController::class, 'sendRes
 
 Route::get('lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('', [HomeController::class, 'index'])->name('home');
+
+Route::resource('customers', CustomerController::class);

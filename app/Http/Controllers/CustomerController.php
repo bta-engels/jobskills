@@ -48,7 +48,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return view('customers.profile.show', compact('customer'));
     }
 
     /**
@@ -59,7 +59,8 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        $customer->password = null;
+        return view('customers.profile.edit', compact('customer'));
     }
 
     /**
@@ -82,6 +83,5 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
     }
 }
