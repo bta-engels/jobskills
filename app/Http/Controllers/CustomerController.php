@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customer;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use App\Models\Customer;
 use Illuminate\Http\Response;
 
 class CustomerController extends Controller
@@ -60,6 +59,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
+        $customer->password = null;
         return view('customers.profile.edit', compact('customer'));
     }
 
@@ -72,8 +72,9 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
+//        dd($request->validated());
         $customer->update($request->validated());
-            return $this->show($cutomer);
+        return $this->show($customer);
     }
 
     /**
@@ -84,6 +85,5 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
     }
 }

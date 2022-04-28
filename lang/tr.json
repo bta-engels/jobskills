@@ -12,9 +12,11 @@
     "Remember me": "Beni hatırla",
     "Forgot Your Password?": "Parolanızı mı unuttunuz?",
     "Password repeat": "Şifre tekrarlama",
-    "Name": "Isim",
+    "Name": "İsim",
     "Home": "Ana Sayfa",
     "Logout": "Çıkış Yap",
     "Reset Password": "Şifreyi yenile",
-    "Send Password Reset Link": "Şifre sıfırlama bağlantısı gönder"
+    "Send Password Reset Link": "Şifre sıfırlama bağlantısı gönder",
+    "Languages": "Diller",
+    "Vor- und Nachname": "İsim ve soyisim"
 }

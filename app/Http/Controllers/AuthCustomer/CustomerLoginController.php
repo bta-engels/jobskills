@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AuthCustomer;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class CustomerLoginController extends Controller
 {
@@ -42,5 +43,4 @@ class CustomerLoginController extends Controller
     {
         return view('customers.auth.login');
     }
-
 }
