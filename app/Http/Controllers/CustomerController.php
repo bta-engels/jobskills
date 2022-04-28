@@ -48,9 +48,8 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return view('customers.profile.show', compact('customer'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -59,7 +58,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('customers.profile.edit', compact('customer'));
     }
 
     /**
