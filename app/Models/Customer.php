@@ -12,5 +12,6 @@ class Customer extends Authenticatable
 
     public $timestamps = true;
     protected $guarded = ['id'];
-    
+
+
 }
