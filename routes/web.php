@@ -28,5 +28,6 @@ Route::post('logout', [CustomerLoginController::class, 'logout'])->name('logout'
 Route::get('login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [CustomerLoginController::class, 'login'])->name('login');
 
+
 Route::get('/lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('/', [HomeController::class, 'index'])->name('home');
