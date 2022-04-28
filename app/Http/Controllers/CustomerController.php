@@ -70,7 +70,9 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        //
+        //dd($request->validation);
+        $customer->update($request->validated());
+        return $this->show($customer);
     }
 
     /**
