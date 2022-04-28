@@ -24,8 +24,8 @@ class UpdateCustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'requiered|min:3',
-            'email' => 'required|email',
+            'name' => 'required|min:3',
+            'email'  => 'required|email',
             'phone' => '',
         ];
     }

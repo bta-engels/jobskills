@@ -50,6 +50,7 @@ class CustomerController extends Controller
     {
         return view('customers.profile.show', compact('customer'));
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -58,6 +59,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
+        $customer->password = null;
         return view('customers.profile.edit', compact('customer'));
     }
 
@@ -70,7 +72,7 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        //dd($request->validation);
+//        dd($request->validated());
         $customer->update($request->validated());
         return $this->show($customer);
     }
@@ -83,6 +85,5 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
     }
 }
