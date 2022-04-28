@@ -20,12 +20,12 @@
 - [x] migrate db
 - [x] create db seeder (data-import for languages, programming_languages, frameworks)
 - [x] localisation (de, en, mne) route, links, middleware 
+- [x] add customer guard to auth
+- [x] change user guard to admin
 - [ ] customer auth (login, registration, pw-reset)
 - [ ] create customer personal_data request (for validation)
 - [ ] customer profile
 - [ ] customer add registration event, admin notification (email)
-- [ ] add customer guard to auth
-- [ ] change user guard to admin
 - [ ] sidebar (route array in config, view-component)
 - [ ] cv CRUD, views
 - [ ] admin CRUD, views 

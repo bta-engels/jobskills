@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
-                    <x-form method="POST" action="{{ route('password.update') }}">
+                    <x-form method="POST" action="{{ route('admin.password.update') }}">
                         <input type="hidden" name="token" value="{{ $token }}">
                         <x-form-input type="email" class="mb-3" name="email" label="{{ __('Email Address') }}" default="{{ old('email') }}" required autocomplete="email" />
                         <x-form-input type="password" class="mb-3" name="password" label="{{ __('Password') }}" required autocomplete="new-password" />
