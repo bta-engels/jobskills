@@ -6,6 +6,7 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 
 /**
@@ -48,7 +49,7 @@ use Illuminate\Support\Carbon;
  */
 class Customer extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
     public $timestamps = true;
     protected $guarded = ['id'];
 }
