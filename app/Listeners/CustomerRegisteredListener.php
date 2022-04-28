@@ -3,6 +3,8 @@
 namespace App\Listeners;
 
 use App\Events\CustomerRegistered;
+use App\Models\User;
+use App\Notifications\AdminCustomerRegisteredNotify;
 use App\Notifications\CustomerRegisteredNotify;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -10,6 +12,7 @@ use Illuminate\Support\Facades\Notification;
 
 class CustomerRegisteredListener
 {
+    private $users;
     /**
      * Create the event listener.
      *
@@ -17,7 +20,7 @@ class CustomerRegisteredListener
      */
     public function __construct()
     {
-        //
+        $this->users = User::all(['email']);
     }
 
     /**
@@ -28,6 +31,7 @@ class CustomerRegisteredListener
      */
     public function handle(CustomerRegistered $event)
     {
-        Notification::send($event->customer->email, new CustomerRegisteredNotify($event->customer));
+        Notification::send([$event->customer], new CustomerRegisteredNotify($event->customer));
+        Notification::send($this->users, new AdminCustomerRegisteredNotify($event->customer));
     }
 }

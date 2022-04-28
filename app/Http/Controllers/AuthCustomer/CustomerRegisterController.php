@@ -89,13 +89,13 @@ class CustomerRegisterController extends Controller
 
 //        $this->guard()->login($customer);
 
-        if ($response = $this->registered($request, $user)) {
+        if ($response = $this->registered($request, $customer)) {
             return $response;
         }
 
         return $request->wantsJson()
             ? new JsonResponse([], 201)
-            : redirect($this->redirectPath());
+            : redirect($this->redirectPath())->with('info', __('Thanks for your registration. Please wait for a confirmation mail'));
 
     }
 
