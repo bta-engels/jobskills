@@ -1,10 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthCustomer\CustomerRegisterController;
 use App\Http\Controllers\AuthCustomer\CustomerLoginController;
+use App\Http\Controllers\AuthCustomer\CustomerConfirmPasswordController;
+use App\Http\Controllers\AuthCustomer\CustomerForgotPasswordController;
+use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +33,9 @@ Route::post('register', [CustomerRegisterController::class, 'register'])->name('
 Route::get('login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [CustomerLoginController::class, 'login'])->name('login');
 Route::post('logout', [CustomerLoginController::class, 'logout'])->name('logout');
+
+Route::get('/password/reset', [CustomerForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/reset/', [CustomerForgotPasswordController::class, 'reset'])->name('password.update');
 
 Route::get('/lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('/', [HomeController::class, 'index'])->name('home');
