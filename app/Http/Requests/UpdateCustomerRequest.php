@@ -31,8 +31,7 @@ class UpdateCustomerRequest extends FormRequest
             'street'    => 'required',
             'city'      => 'required',
             'postcode'  => 'required',
-            'birthdate' => 'date',
-            ''  => '',
+            'birthdate' => 'required|date',
         ];
     }
 }
