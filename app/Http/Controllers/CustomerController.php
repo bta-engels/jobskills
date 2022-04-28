@@ -49,7 +49,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return view('customers.profile.show', compact('customer'));
     }
 
     /**
@@ -60,7 +60,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('customers.profile.edit', compact('customer'));
     }
 
     /**
@@ -72,7 +72,8 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        //
+        $customer->update($request->validated());
+            return $this->show($cutomer);
     }
 
     /**

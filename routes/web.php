@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthCustomer\CustomerLoginController;
 use App\Http\Controllers\AuthCustomer\CustomerForgotPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerConfirmPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,9 +33,11 @@ Route::get('login',[CustomerLoginController::class,'showLoginForm'])->name('logi
 Route::post('login',[CustomerLoginController::class,'login'])->name('login');
 Route::get('password/reset',[CustomerForgotPasswordController::class,'showLinkRequestForm'])->name('password.request');
 Route::post('password/reset',[CustomerResetPasswordController::class,'reset'])->name('password.update');
-Route::get('password/reset/{token}',[CustomerResetPasswordController::class,'showResetForm'])->name('password.reset');
 Route::post('password/email',[CustomerForgotPasswordController::class,'sendResetLinkEmail'])->name('password.email');
-
+Route::get('password/reset/{token}',[CustomerResetPasswordController::class,'showResetForm'])->name('password.reset');
+Route::post('password/reset/{token}',[CustomerResetPasswordController::class,'reset'])->name('password.reset');
 
 Route::get('lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::resource('customers', CustomerController::class);
