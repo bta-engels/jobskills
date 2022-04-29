@@ -26,7 +26,12 @@ class UpdateCustomerRequest extends FormRequest
         return [
             'name' => 'required|min:3',
             'email'  => 'required|email',
-            'phone' => '',
+            'phone' => 'numeric',
+            'street' => 'string|min:3',
+            'city' => 'string|min:3',
+            'postcode' => 'digits:5',
+            'img' => 'file',
+            'birthdate' => 'date',
         ];
     }
 }
