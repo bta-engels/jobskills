@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\AuthCustomer;
 
+use App\Events\CustomerRegistered;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Providers\RouteServiceProvider;
@@ -69,10 +70,12 @@ class CustomerRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Customer::create([
+        $customer = Customer::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        event(new CustomerRegistered($customer));
+        return ($customer);
     }
 }
