@@ -27,6 +27,10 @@ class UpdateCustomerRequest extends FormRequest
             'name' => 'required|min:3',
             'email'  => 'required|email',
             'phone' => '',
+            'street' => 'required',
+            'city' => 'required',
+
+
         ];
     }
 }
