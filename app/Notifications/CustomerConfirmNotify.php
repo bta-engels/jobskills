@@ -4,7 +4,7 @@ namespace App\Notifications;
 
 use Illuminate\Notifications\Messages\MailMessage;
 
-class CustomerConfirmedNotify extends CustomerNotify
+class CustomerConfirmNotify extends CustomerNotify
 {
     /**
      * Get the mail representation of the notification.

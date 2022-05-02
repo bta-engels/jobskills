@@ -3,7 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Customer;
-use App\Notifications\CustomerConfirmedNotify;
+use App\Notifications\CustomerConfirmNotify;
 use Illuminate\Support\Facades\Notification;
 
 class CustomerObserver
@@ -26,9 +26,6 @@ class CustomerObserver
      */
     public function updated(Customer $customer)
     {
-        if($customer->confirmed && $customer->confirmed !== $customer->getOriginal('confirmed')) {
-            Notification::send($customer, new CustomerConfirmedNotify($customer));
-        }
     }
 
     /**
