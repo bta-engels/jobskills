@@ -6,10 +6,7 @@ use App\Events\NewCustomerCreatedEvent;
 use App\Events\NewCustomerHasRegisteredEvent;
 use App\Listeners\NewCustomerCreatedListener;
 use App\Listeners\WelcomeNewCustomerListener;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -23,7 +20,6 @@ class EventServiceProvider extends ServiceProvider
             WelcomeNewCustomerListener::class,
             NewCustomerCreatedListener::class,
         ],
-
     ];
 
     /**

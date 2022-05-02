@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\AuthCustomer;
 
-
 use App\Events\NewCustomerHasRegisteredEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
@@ -85,9 +84,7 @@ class CustomerRegisterController extends Controller
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-
         $customer = $this->create($request->all());
-        event(new CustomerRegistered($customer));
 
 //        $this->guard()->login($customer);
 
@@ -100,6 +97,4 @@ class CustomerRegisterController extends Controller
             : redirect($this->redirectPath())->with('info', __('Thanks for your registration. Please wait for a confirmation mail'));
 
     }
-
-
 }

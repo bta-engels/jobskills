@@ -16,8 +16,8 @@ class CustomerConfirmNotify extends CustomerNotify
     {
         return (new MailMessage)
             ->level('success')
-            ->line('Dear ' .$this->customer->name.', your registration is confirmed')
-            ->action('Please login via ', route('login'))
+            ->line('Dear ' .$this->customer->name.', please confirm your registration here')
+            ->action('confirm', route('login'))
             ->line('Best regards your jobskills team!')
         ;
     }
