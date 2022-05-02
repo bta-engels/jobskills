@@ -46,6 +46,6 @@ Route::get('confirm/{customer}', [CustomerController::class, 'confirm'])->name('
 Route::get('lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('', [HomeController::class, 'index'])->name('home');
 
-Route::resource('customers', CustomerController::class);
+Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 
 

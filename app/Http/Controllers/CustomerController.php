@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Mail\WelcomeNewUserMail;
 use App\Models\Customer;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
@@ -97,6 +98,9 @@ class CustomerController extends Controller
         if($request->hasValidSignature()) {
             $customer->update(['confirmed' => true]);
             return redirect()->route('login');
+        }
+        else {
+            // @todo: show error page with link for resend validation mail
         }
     }
 }
