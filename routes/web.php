@@ -39,11 +39,13 @@ Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm
 Route::post('register', [CustomerRegisterController::class, 'register'])->name('register');
 Route::get('login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [CustomerLoginController::class, 'login'])->name('login');
-Route::get('logout', [CustomerLoginController::class, 'logout'])->name('logout');
+Route::post('logout', [CustomerLoginController::class, 'logout'])->name('logout');
 Route::get('password/reset', [CustomerForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('password/reset', [CustomerResetPasswordController::class, 'reset'])->name('password.update');
 Route::get('password/reset/{token}', [CustomerResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/email', [CustomerForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+Route::get('/confirm/{customer}', [CustomerController::class, 'confirm'])->name('confirm');
 
 Route::get('lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('', [HomeController::class, 'index'])->name('home');

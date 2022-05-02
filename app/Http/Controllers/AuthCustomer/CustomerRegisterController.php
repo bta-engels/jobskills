@@ -6,6 +6,7 @@ use App\Events\NewCustomerHasRegisteredEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -84,9 +85,8 @@ class CustomerRegisterController extends Controller
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-        $customer = $this->create($request->all());
 
-//        $this->guard()->login($customer);
+        $customer = $this->create($request->all());
 
         if ($response = $this->registered($request, $customer)) {
             return $response;
@@ -94,7 +94,8 @@ class CustomerRegisterController extends Controller
 
         return $request->wantsJson()
             ? new JsonResponse([], 201)
-            : redirect($this->redirectPath())->with('info', __('Thanks for your registration. Please wait for a confirmation mail'));
-
+            : redirect($this->redirectPath());
     }
+
+
 }
