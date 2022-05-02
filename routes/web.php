@@ -12,6 +12,7 @@ use App\Http\Controllers\AuthCustomer\CustomerForgotPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,14 +26,15 @@ use App\Http\Controllers\Auth\RegisterController;
 
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin.'
+    'as' => 'admin.',
+
+
 ], function () {
     Auth::routes();
 });
 
-Route::get('/admin', [RegisterController::class, 'RegistrationForm'])->name('register');
-Route::post('/admin', [RegisterController::class, 'auth.register'])->name('register');
 
+//customer
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [CustomerRegisterController::class, 'register'])->name('register');
 Route::get('login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
@@ -48,4 +50,4 @@ Route::get('', [HomeController::class, 'index'])->name('home');
 
 Route::resource('customers', CustomerController::class);
 
-Route::get('/event', [EventController::class, 'index']);
+

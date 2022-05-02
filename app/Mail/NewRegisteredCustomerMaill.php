@@ -8,10 +8,12 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class WelcomeNewCustomerMail extends Mailable
+class NewRegisteredCustomerMaill extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $customer;
+
     /**
      * Create a new message instance.
      *
@@ -29,6 +31,6 @@ class WelcomeNewCustomerMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.new.welcome', ['customer'=>$this->customer]);
+        return $this->markdown('emails.new.newcustomer',['customer'=>$this->customer]);
     }
 }
