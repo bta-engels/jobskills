@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\NewCustomerCreatedEvent;
 use App\Events\NewCustomerHasRegisteredEvent;
+use App\Listeners\NewCustomerCreatedListener;
 use App\Listeners\WelcomeNewCustomerListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -19,7 +21,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         NewCustomerHasRegisteredEvent::class => [
             WelcomeNewCustomerListener::class,
+            NewCustomerCreatedListener::class,
         ],
+
     ];
 
     /**
