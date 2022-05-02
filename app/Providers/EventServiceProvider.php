@@ -2,11 +2,10 @@
 
 namespace App\Providers;
 
-use App\Events\CustomerRegistered;
-use App\Listeners\AdminCustomerRegisteredListener;
-use App\Listeners\CustomerRegisteredListener;
-use App\Models\Customer;
-use App\Observers\CustomerObserver;
+use App\Events\NewCustomerCreatedEvent;
+use App\Events\NewCustomerHasRegisteredEvent;
+use App\Listeners\NewCustomerCreatedListener;
+use App\Listeners\WelcomeNewCustomerListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -20,12 +19,11 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
+        NewCustomerHasRegisteredEvent::class => [
+            WelcomeNewCustomerListener::class,
+            NewCustomerCreatedListener::class,
         ],
-        CustomerRegistered::class => [
-            CustomerRegisteredListener::class,
-        ],
+
     ];
 
     /**
@@ -35,7 +33,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Customer::observe(CustomerObserver::class);
+
     }
 
     /**

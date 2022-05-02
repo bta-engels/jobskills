@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewCustomerHasRegisteredEvent;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use App\Mail\WelcomeNewUserMail;
 use App\Models\Customer;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 
 class CustomerController extends Controller
 {
@@ -37,7 +40,9 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-        //
+
+
+
     }
 
     /**
