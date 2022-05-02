@@ -86,8 +86,6 @@ class CustomerRegisterController extends Controller
         $this->validator($request->all())->validate();
         $customer = $this->create($request->all());
 
-//        $this->guard()->login($customer);
-
         if ($response = $this->registered($request, $customer)) {
             return $response;
         }

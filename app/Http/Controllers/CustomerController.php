@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Mail\WelcomeNewUserMail;
 use App\Models\Customer;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
 
@@ -89,5 +90,13 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
+    }
+
+    public function confirm(Request $request, Customer $customer)
+    {
+        if($request->hasValidSignature()) {
+            $customer->update(['confirmed' => true]);
+            return redirect()->route('login');
+        }
     }
 }
