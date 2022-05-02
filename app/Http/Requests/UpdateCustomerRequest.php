@@ -27,7 +27,7 @@ class UpdateCustomerRequest extends FormRequest
             'name'      => 'required|min:3',
             'email'     => 'required|email',
             'phone'     => 'required',
-            'img'       => 'nullable,image',
+            'img'       => 'nullable|image',
             'street'    => 'required',
             'city'      => 'required',
             'postcode'  => 'required',

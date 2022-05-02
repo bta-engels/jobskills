@@ -31,7 +31,8 @@ class CustomerRegisteredListener
      */
     public function handle(CustomerRegistered $event)
     {
+        $users = User::all(['email']);
         Notification::send([$event->customer], new CustomerRegisteredNotify($event->customer));
-        Notification::send($this->users, new AdminCustomerRegisteredNotify($event->customer));
+        Notification::send($users, new AdminCustomerRegisteredNotify($event->customer));
     }
 }

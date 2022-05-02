@@ -78,6 +78,7 @@ class CustomerRegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
     }
 
     public function register(Request $request)
