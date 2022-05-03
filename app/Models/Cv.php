@@ -11,4 +11,8 @@ class Cv extends Model
     public $timestamps = false;
     protected $guarded = ['id'];
 
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

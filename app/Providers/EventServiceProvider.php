@@ -6,6 +6,8 @@ use App\Events\NewCustomerCreatedEvent;
 use App\Events\NewCustomerHasRegisteredEvent;
 use App\Listeners\NewCustomerCreatedListener;
 use App\Listeners\WelcomeNewCustomerListener;
+use App\Models\Customer;
+use App\Observers\CustomerObserver;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -29,7 +31,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        Customer::observe(CustomerObserver::class);
     }
 
     /**
