@@ -4,8 +4,7 @@ namespace App\Observers;
 
 use App\Events\NewCustomerHasRegisteredEvent;
 use App\Models\Customer;
-use App\Notifications\CustomerConfirmNotify;
-use Illuminate\Support\Facades\Notification;
+use App\Models\Cv;
 use Illuminate\Support\Facades\URL;
 
 class CustomerObserver
@@ -20,7 +19,14 @@ class CustomerObserver
     {
         event(new NewCustomerHasRegisteredEvent($customer));
         $link = URL::signedRoute('cvLink', $customer);
-     
+/*
+ * klassische create anweisung
+        Cv::create([
+            'customer_id' => $customer->id,
+            'link'  => $link,
+        ]);
+*/
+        $customer->cv()->create(['link' => $link]);
     }
 
     /**

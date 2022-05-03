@@ -15,5 +15,4 @@ class Cv extends Model
     {
         return $this->belongsTo(Customer::class);
     }
-
 }
