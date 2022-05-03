@@ -7,10 +7,12 @@ use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Mail\WelcomeNewUserMail;
 use App\Models\Customer;
+use App\Notifications\CustomerConfirm;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 
 class CustomerController extends Controller
 {
@@ -100,7 +102,14 @@ class CustomerController extends Controller
             return redirect()->route('login');
         }
         else {
-            // @todo: show error page with link for resend validation mail
+            // @todo: show page with link for resend validation mail
+            return view('customers.resend', compact('customer'));
         }
+    }
+
+    public function resend(Customer $customer)
+    {
+        Notification::send($customer, new CustomerConfirm($customer));
+        return back()->with('success',__('Confirmation mail successful sent'));
     }
 }
