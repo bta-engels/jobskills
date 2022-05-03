@@ -2,4 +2,6 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
     </li>
+
+    <!-- auth checks -->
 </ul>

@@ -31,6 +31,8 @@ Route::group([
     Auth::routes();
 });
 
+Route::match(['get','post'],'admin/register', fn() => redirect('/'))->name('remove.admin.register');
+
 //customer
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [CustomerRegisterController::class, 'register'])->name('register');
