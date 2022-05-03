@@ -2,9 +2,11 @@
 
 namespace App\Observers;
 
+use App\Events\NewCustomerHasRegisteredEvent;
 use App\Models\Customer;
 use App\Notifications\CustomerConfirmNotify;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\URL;
 
 class CustomerObserver
 {
@@ -16,6 +18,9 @@ class CustomerObserver
      */
     public function created(Customer $customer)
     {
+        event(new NewCustomerHasRegisteredEvent($customer));
+        $link = URL::signedRoute('cvLink', $customer);
+     
     }
 
     /**

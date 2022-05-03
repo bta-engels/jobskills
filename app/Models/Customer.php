@@ -66,4 +66,9 @@ class Customer extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function cv()
+    {
+        return $this->hasOne(Cv::class);
+    }
 }
