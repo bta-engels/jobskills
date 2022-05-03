@@ -77,6 +77,7 @@ class CustomerRegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
         event(new NewCustomerHasRegisteredEvent($customer));
         return $customer;
     }
