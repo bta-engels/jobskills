@@ -38,7 +38,7 @@ Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm
 Route::post('register', [CustomerRegisterController::class, 'register'])->name('register');
 Route::get('login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [CustomerLoginController::class, 'login'])->name('login');
-Route::get('logout', [CustomerLoginController::class, 'logout'])->name('logout');
+Route::post('logout', [CustomerLoginController::class, 'logout'])->name('logout');
 Route::get('password/reset', [CustomerForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('password/reset', [CustomerResetPasswordController::class, 'reset'])->name('password.update');
 Route::get('password/reset/{token}', [CustomerResetPasswordController::class, 'showResetForm'])->name('password.reset');
@@ -48,6 +48,8 @@ Route::get('resend/{customer}', [CustomerController::class, 'resend'])->name('re
 
 Route::get('lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('', [HomeController::class, 'index'])->name('home');
+
+Route::get('cvLink/{customer}', [CustomerController::class, 'cvLink'])->name('cvLink');
 
 
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
