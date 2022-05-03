@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\AuthCustomer;
 
+use App\Events\NewCustomerHasRegisteredEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -69,10 +72,27 @@ class CustomerRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Customer::create([
+        $customer = Customer::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        event(new NewCustomerHasRegisteredEvent($customer));
+        return $customer;
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $customer = $this->create($request->all());
+
+        if ($response = $this->registered($request, $customer)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 201)
+            : redirect($this->redirectPath())->with('info', __('Thanks for your registration. Please wait for a confirmation mail'));
+
     }
 }

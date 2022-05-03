@@ -30,7 +30,7 @@ class UpdateCustomerRequest extends FormRequest
             'street' => 'string|min:3',
             'city' => 'string|min:3',
             'postcode' => 'digits:5',
-            'img' => 'file',
+            'img' => 'image',
             'birthdate' => 'date',
         ];
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AuthCustomer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -42,5 +43,10 @@ class CustomerLoginController extends Controller
     public function showLoginForm()
     {
         return view('customers.auth.login');
+    }
+
+    protected function credentials(Request $request)
+    {
+        return $request->only($this->username(), 'password') + ['confirmed' => true];
     }
 }

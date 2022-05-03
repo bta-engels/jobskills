@@ -10,6 +10,9 @@ use App\Http\Controllers\AuthCustomer\CustomerLoginController;
 use App\Http\Controllers\AuthCustomer\CustomerConfirmPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerForgotPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\Auth\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,11 +26,12 @@ use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
 
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin.'
+    'as' => 'admin.',
 ], function () {
     Auth::routes();
 });
 
+//customer
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [CustomerRegisterController::class, 'register'])->name('register');
 Route::get('login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
@@ -37,8 +41,12 @@ Route::get('password/reset', [CustomerForgotPasswordController::class, 'showLink
 Route::post('password/reset', [CustomerResetPasswordController::class, 'reset'])->name('password.update');
 Route::get('password/reset/{token}', [CustomerResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/email', [CustomerForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('confirm/{customer}', [CustomerController::class, 'confirm'])->name('confirm');
+Route::get('resend/{customer}', [CustomerController::class, 'resend'])->name('resend');
 
 Route::get('lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('', [HomeController::class, 'index'])->name('home');
 
-Route::resource('customers', CustomerController::class);
+Route::resource('customers', CustomerController::class)->middleware('auth:customer');
+
+
