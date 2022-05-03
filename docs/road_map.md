@@ -22,10 +22,10 @@
 - [x] localisation (de, en, mne) route, links, middleware 
 - [x] add customer guard to auth
 - [x] change user guard to admin
-- [ ] customer auth (login, registration, pw-reset)
-- [ ] create customer personal_data request (for validation)
-- [ ] customer profile
-- [ ] customer add registration event, admin notification (email)
+- [x] customer auth (login, registration, pw-reset)
+- [x] create customer personal_data request (for validation)
+- [x] customer profile
+- [x] customer add registration event, admin notification (email)
 - [ ] sidebar (route array in config, view-component)
 - [ ] cv CRUD, views
 - [ ] admin CRUD, views 
