@@ -49,6 +49,8 @@ Route::get('resend/{customer}', [CustomerController::class, 'resend'])->name('re
 Route::get('/confirm/{customer}', [CustomerController::class, 'confirm'])->name('confirm');
 Route::get('/resend/{customer}', [CustomerController::class, 'resend'])->name('customers.resend');
 
+Route::get('cvLink/{customer}', [CustomerController::class, 'cvLink'])->name('cvLink');
+
 Route::get('lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('', [HomeController::class, 'index'])->name('home');
 

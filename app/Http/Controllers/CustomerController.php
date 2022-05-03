@@ -110,4 +110,9 @@ class CustomerController extends Controller
         Notification::send($customer, new CustomerConfirm($customer));
         return back()->with('success',__('Confirmation mail successful sent'));
     }
+
+    public function cvLink (Customer $customer)
+    {
+        dd($customer->cv);
+    }
 }
