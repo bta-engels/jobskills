@@ -101,7 +101,7 @@ class CustomerController extends Controller
             $customer->update(['confirmed' => true]);
             return redirect()->route('login');
         }
-        // @todo: show page with link for resend validation mail
+        // show view with link for resend validation mail
         return view('customers.resend', compact('customer'));
     }
 
