@@ -44,4 +44,10 @@ class CustomerLoginController extends Controller
     {
         return view('customers.auth.login');
     }
+
+    protected function credentials(Request $request)
+    {
+        return $request->only($this->username(), 'password') + ['confirmed' => true];
+    }
+
 }
