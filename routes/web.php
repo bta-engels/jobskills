@@ -49,6 +49,7 @@ Route::get('resend/{customer}', [CustomerController::class, 'resend'])->name('re
 Route::get('lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('', [HomeController::class, 'index'])->name('home');
 
+
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 
 
