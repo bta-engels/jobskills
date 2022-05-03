@@ -46,10 +46,11 @@ Route::get('password/reset/{token}', [CustomerResetPasswordController::class, 's
 Route::post('password/email', [CustomerForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
 Route::get('/confirm/{customer}', [CustomerController::class, 'confirm'])->name('confirm');
+Route::get('/resend/{customer}', [CustomerController::class, 'resend'])->name('customers.resend');
 
 Route::get('lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('', [HomeController::class, 'index'])->name('home');
 
-Route::resource('customers', CustomerController::class);
+Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 
 
