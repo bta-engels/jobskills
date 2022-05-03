@@ -104,6 +104,6 @@ class CustomerController extends Controller
     }
     public function resend (Customer $customer) {
         Notification::send($customer, new CustomerConfirm($customer));
-        return back()->with('success',__('Confirmation mail successful sent'))
+        return back()->with('success',__('Confirmation mail successful sent'));
     }
 }
