@@ -27,12 +27,9 @@ use App\Http\Controllers\Auth\RegisterController;
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
-
-
 ], function () {
     Auth::routes();
 });
-
 
 //customer
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');
@@ -44,6 +41,8 @@ Route::get('password/reset', [CustomerForgotPasswordController::class, 'showLink
 Route::post('password/reset', [CustomerResetPasswordController::class, 'reset'])->name('password.update');
 Route::get('password/reset/{token}', [CustomerResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/email', [CustomerForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('confirm/{customer}', [CustomerController::class, 'confirm'])->name('confirm');
+Route::get('resend/{customer}', [CustomerController::class, 'resend'])->name('resend');
 
 Route::get('/confirm/{customer}', [CustomerController::class, 'confirm'])->name('confirm');
 Route::get('/resend/{customer}', [CustomerController::class, 'resend'])->name('customers.resend');

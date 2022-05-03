@@ -48,7 +48,5 @@ class CustomerLoginController extends Controller
     protected function credentials(Request $request)
     {
         return $request->only($this->username(), 'password') + ['confirmed' => true];
-
     }
-
 }

@@ -8,11 +8,11 @@ use App\Http\Requests\UpdateCustomerRequest;
 use App\Mail\WelcomeNewUserMail;
 use App\Models\Customer;
 use App\Notifications\CustomerConfirm;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
-use function PHPUnit\Framework\logicalAnd;
 
 class CustomerController extends Controller
 {
@@ -95,19 +95,19 @@ class CustomerController extends Controller
     {
     }
 
-    public function confirm(Request $request, Customer $customer )
+    public function confirm(Request $request, Customer $customer)
     {
-        if ($request->hasValidSignature())
-        {
-            $customer->update(['confirmed' => true ]);
+        if($request->hasValidSignature()) {
+            $customer->update(['confirmed' => true]);
             return redirect()->route('login');
         }
-            return view('customers.resend', compact('customer'));
+        // show view with link for resend validation mail
+        return view('customers.resend', compact('customer'));
     }
-    public function resend (Customer $customer)
+
+    public function resend(Customer $customer)
     {
         Notification::send($customer, new CustomerConfirm($customer));
-        return back()->with('success';__('Confirmation Mail successfull sent'))
-
+        return back()->with('success',__('Confirmation mail successful sent'));
     }
 }

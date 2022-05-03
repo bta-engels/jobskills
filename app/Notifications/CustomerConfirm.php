@@ -9,7 +9,6 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\URL;
 
-
 class CustomerConfirm extends Notification
 {
     use Queueable;
@@ -49,7 +48,7 @@ class CustomerConfirm extends Notification
         );
 
         $mailMessage = new MailMessage();
-        return (new MailMessage)
+        return $mailMessage
             ->level('success')
             ->line('Dear ' .$this->customer->name.', please confirm your registration here')
             ->action('confirm', $link)
