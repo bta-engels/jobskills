@@ -81,8 +81,8 @@ Route::group([
     'prefix'        => 'admin',
     'as'            => 'admin.',
 ], function () {
-    Route::resource('frameworks', AdminFrameworkController::class);
-    Route::resource('languages', AdminLanguageController::class);
-    Route::resource('programmingLanguages', AdminProgrammingLanguageController::class);
+    Route::resource('frameworks', AdminFrameworkController::class)->except('show');
+    Route::resource('languages', AdminLanguageController::class)->except('show');
+    Route::resource('programmingLanguages', AdminProgrammingLanguageController::class)->except('show');
 });
 
