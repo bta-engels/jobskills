@@ -6,7 +6,7 @@
                 $active = Route::is($route) ? 'active' : ''
             @endphp
             <li class="nav-item {{ $active }}">
-                <a class="nav-link {{ $active }}" href="{{ route($route, auth('customer')->user()) }}">{{ __($item) }}</a>
+                <a class="nav-link" href="{{ route($route, auth('customer')->user()) }}">{{ __($item) }}</a>
             </li>
         @endforeach
     </ul>
