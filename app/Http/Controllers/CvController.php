@@ -95,7 +95,8 @@ class CvController extends Controller
 
     public function personalDataStore(PersonalDataRequest $request, Customer $customer)
     {
-
+        $customer->update($request->validated());
+        return redirect()->route('cv.aboutMeEdit', $customer);
     }
 
     public function aboutMeEdit(Customer $customer)
