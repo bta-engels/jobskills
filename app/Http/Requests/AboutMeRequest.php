@@ -25,7 +25,7 @@ class AboutMeRequest extends FormRequest
     {
         return [
             'about_me'  => 'required|min:3',
-            'img'       => 'image',
+            'img'       => 'nullable|image',
         ];
     }
 }
