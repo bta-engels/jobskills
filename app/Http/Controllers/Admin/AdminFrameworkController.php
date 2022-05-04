@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Framework;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FrameworkRequest;
 
 class AdminFrameworkController extends Controller
 {
@@ -16,7 +16,8 @@ class AdminFrameworkController extends Controller
      */
     public function index()
     {
-        //
+        $data = Framework::paginate($this->paginationLimit);
+        return view('admin.frameworks.index', compact('data'));
     }
 
     /**
@@ -26,18 +27,19 @@ class AdminFrameworkController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.frameworks.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param FrameworkRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(FrameworkRequest $request)
     {
-        //
+        Framework::create($request->validated());
+        return $this->index();
     }
 
     /**
@@ -48,7 +50,6 @@ class AdminFrameworkController extends Controller
      */
     public function show(Framework $framework)
     {
-        //
     }
 
     /**
@@ -59,19 +60,20 @@ class AdminFrameworkController extends Controller
      */
     public function edit(Framework $framework)
     {
-        //
+        return view('admin.frameworks.edit', compact('framework'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param FrameworkRequest $request
      * @param Framework $framework
      * @return Response
      */
-    public function update(Request $request, Framework $framework)
+    public function update(FrameworkRequest $request, Framework $framework)
     {
-        //
+        $framework->update($request->validated());
+        return $this->index();
     }
 
     /**
@@ -82,6 +84,7 @@ class AdminFrameworkController extends Controller
      */
     public function destroy(Framework $framework)
     {
-        //
+        $framework->delete();
+        return $this->index();
     }
 }

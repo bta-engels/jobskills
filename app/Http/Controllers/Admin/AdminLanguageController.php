@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Language;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Requests\LanguageRequest;
 
 class AdminLanguageController extends Controller
 {
@@ -16,7 +16,8 @@ class AdminLanguageController extends Controller
      */
     public function index()
     {
-        //
+        $data = Language::paginate($this->paginationLimit);
+        return view('admin.languages.index', compact('data'));
     }
 
     /**
@@ -26,18 +27,19 @@ class AdminLanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.languages.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param LanguageRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(LanguageRequest $request)
     {
-        //
+        Language::create($request->validated());
+        return $this->index();
     }
 
     /**
@@ -46,10 +48,7 @@ class AdminLanguageController extends Controller
      * @param Language $language
      * @return Response
      */
-    public function show(Language $language)
-    {
-        //
-    }
+//    public function show(Language $language) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -59,19 +58,20 @@ class AdminLanguageController extends Controller
      */
     public function edit(Language $language)
     {
-        //
+        return view('admin.languages.edit', compact('language'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param LanguageRequest $request
      * @param Language $language
      * @return Response
      */
-    public function update(Request $request, Language $language)
+    public function update(LanguageRequest $request, Language $language)
     {
-        //
+        $language->update($request->validated());
+        return $this->index();
     }
 
     /**
@@ -82,6 +82,7 @@ class AdminLanguageController extends Controller
      */
     public function destroy(Language $language)
     {
-        //
+        $language->delete();
+        return $this->index();
     }
 }

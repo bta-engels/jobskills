@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminFrameworkController;
+use App\Http\Controllers\Admin\AdminLanguageController;
+use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CvController;
 use Illuminate\Support\Facades\Route;
@@ -73,4 +76,13 @@ Route::group([
 
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 
+Route::group([
+    'middleware'    => 'auth:admin',
+    'prefix'        => 'admin',
+    'as'            => 'admin.',
+], function () {
+    Route::resource('frameworks', AdminFrameworkController::class);
+    Route::resource('languages', AdminLanguageController::class);
+    Route::resource('programmingLanguages', AdminProgrammingLanguageController::class);
+});
 
