@@ -90,6 +90,7 @@ class CvController extends Controller
 
     public function personalDataEdit(Customer $customer)
     {
+
     }
 
     public function personalDataStore(PersonalDataRequest $request, Customer $customer)
