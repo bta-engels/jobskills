@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AboutMeRequest;
+use App\Http\Requests\PersonalDataRequest;
 use App\Http\Requests\StoreCvRequest;
 use App\Http\Requests\UpdateCvRequest;
+use App\Models\Customer;
 use App\Models\Cv;
 use Illuminate\Http\Response;
 
@@ -85,14 +88,19 @@ class CvController extends Controller
         //
     }
 
-    public function personalDataEdit(Cv $cv)
+    public function personalDataEdit(Customer $customer)
     {
-
     }
 
-    public function personalDataStore(Cv $cv)
+    public function personalDataStore(PersonalDataRequest $request, Customer $customer)
     {
-
     }
 
+    public function aboutMeEdit(Customer $customer)
+    {
+    }
+
+    public function aboutMeStore(AboutMeRequest $request, Customer $customer)
+    {
+    }
 }
