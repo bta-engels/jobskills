@@ -102,8 +102,15 @@ class CustomerController extends Controller
         }
         return view('customers.resend', compact('customer'));
     }
-    public function resend (Customer $customer) {
+    public function resend(Customer $customer)
+    {
         Notification::send($customer, new CustomerConfirm($customer));
         return back()->with('success',__('Confirmation mail successful sent'));
+    }
+
+    public function cvLink(Customer $customer)
+    {
+        dd($customer->cv);
+
     }
 }

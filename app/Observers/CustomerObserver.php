@@ -4,7 +4,8 @@ namespace App\Observers;
 
 use App\Events\NewCustomerHasRegisteredEvent;
 use App\Models\Customer;
-use App\Models\Cv;
+use App\Notifications\CustomerConfirmNotify;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\URL;
 
 class CustomerObserver
