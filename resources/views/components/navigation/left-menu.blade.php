@@ -1,3 +1,4 @@
+
 <div class="navbar-light">
     <ul class="navbar-nav">
         @foreach(config('nav.cv') as $item)
