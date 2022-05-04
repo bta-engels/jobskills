@@ -113,6 +113,7 @@ class CvController extends Controller
         if($file) {
             $imgName = $file->hashName();
             $file->storeAs('', $imgName, ['disk' => 'image']);
+            $validated['img'] = $imgName;
         }
         $customer->update($validated);
     }
