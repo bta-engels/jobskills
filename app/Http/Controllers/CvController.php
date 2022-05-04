@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cv;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCvRequest;
 use App\Http\Requests\UpdateCvRequest;
+use App\Models\Cv;
 use Illuminate\Http\Response;
 
 class CvController extends Controller
@@ -88,11 +87,12 @@ class CvController extends Controller
 
     public function personalData(Cv $cv)
     {
-        return view('left-menu');
+
     }
 
     public function personalDataStore(Cv $cv)
     {
 
     }
+
 }

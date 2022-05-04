@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('content')
     <h3> {{ __('Profile Data') }}</h3>
     <x-form action="{{ route('customers.update', $customer) }}" enctype="multipart/form-data" >

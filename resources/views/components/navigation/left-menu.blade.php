@@ -1,4 +1,5 @@
-  <div class="navbar-light">
+
+<div class="navbar-light">
     <ul class="navbar-nav">
         @foreach(config('nav.cv') as $item)
             <li class="navbar-item">
@@ -6,4 +7,4 @@
             </li>
         @endforeach
     </ul>
-  </div>
+</div>

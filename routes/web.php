@@ -51,6 +51,7 @@ Route::get('', [HomeController::class, 'index'])->name('home');
 
 Route::get('cvLink/{customer}', [CustomerController::class, 'cvLink'])->name('cvLink');
 
+
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 
 
