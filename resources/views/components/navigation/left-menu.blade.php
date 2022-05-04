@@ -5,7 +5,7 @@
             @php
                 $route = 'cv.'.Str::camel($item).'Edit'
             @endphp
-            <li class="navbar-item">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route($route, auth('customer')->user()) }}">{{ __($item) }}</a>
             </li>
         @endforeach
