@@ -1,17 +1,26 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
 .form-profile {
-  .label {
-    font-weight: 700;
-    color: red;
-  }
+	.label {
+		font-weight: 700;
+		color: red;
+	}
+}
+.navbar-nav {
+	.nav-item {
+		&.active {
+			background-color: #ddd;
+			a {
+				margin-left: 1.0rem;
+				color: #d00;
+			}
+		}
+	}
 }
 .navbar-nav {
   .nav-item{

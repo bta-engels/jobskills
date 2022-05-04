@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('sidebar')
-   <x-navigation.left-menu />
-@endsection
-
 @section('content')
    <h3>{{$customer->name}}</h3>
    <table class="table table-striped">
