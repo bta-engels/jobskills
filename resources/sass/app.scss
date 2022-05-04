@@ -13,3 +13,15 @@
     color: red;
   }
 }
+.navbar-nav {
+  .nav-item{
+    &.active {
+      background-color: #ddd;
+      a {
+        margin-left: 1.0rem;
+        color: #d00;
+      }
+    }
+
+  }
+}
