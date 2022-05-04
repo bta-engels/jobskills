@@ -108,5 +108,12 @@ class CvController extends Controller
 
     public function aboutMeStore(AboutMeRequest $request, Customer $customer)
     {
+        $file = $request->file('img');
+        if($file) {
+            $img = $file->hashName();
+            $file->storePubliclyAs('', 'image');
+            dd($img);
+        }
+        $customer->update($request->validated());
     }
 }
