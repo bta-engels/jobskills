@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CvController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LocaleController;
@@ -56,6 +57,19 @@ Route::get('', [HomeController::class, 'index'])->name('home');
 
 Route::get('cvLink/{customer}', [CustomerController::class, 'cvLink'])->name('cvLink');
 
+Route::group([
+    'prefix'    => 'cv',
+    'as'        => 'cv.',
+], function () {
+    foreach (config('nav.cv') as $item) {
+        $name = Str::camel($item);
+        $editFunction = $name . 'Edit';
+        $storeFunction = $name . 'Store';
+
+        Route::get("$name/{customer}", [CvController::class, $editFunction])->name($editFunction);
+        Route::post("$name/{customer}", [CvController::class, $storeFunction])->name($storeFunction);
+    }
+});
 
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 

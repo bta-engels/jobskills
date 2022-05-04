@@ -30,7 +30,7 @@ class PersonalDataRequest extends FormRequest
             'street'    => 'string|min:3',
             'city'      => 'string|min:3',
             'postcode'  => 'digits:5',
-            'birthdate' => 'date',
+            'birthdate' => 'nullable|date',
         ];
     }
 }
