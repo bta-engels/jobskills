@@ -10,6 +10,5 @@
         </li>
     @endauth
 
-
     <!-- auth checks -->
 </ul>
