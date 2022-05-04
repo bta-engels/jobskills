@@ -111,7 +111,7 @@ class CustomerController extends Controller
         return back()->with('success',__('Confirmation mail successful sent'));
     }
 
-    public function cvLink(Customer $customer)
+    public function cvLink (Customer $customer)
     {
         dd($customer->cv);
     }

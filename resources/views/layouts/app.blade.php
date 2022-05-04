@@ -41,8 +41,12 @@
 
         <main class="container py-4">
             <div class="row">
-                <aside class="col-3">@yield('sidebar')</aside>
-                <section class="col-9">@yield('content')</section>
+                @auth('customer')
+                    <aside class="col-3">@yield('sidebar')</aside>
+                    <section class="col-9">@yield('content')</section>
+                @else
+                    @yield('content')
+                @endauth
             </div>
         </main>
     </div>

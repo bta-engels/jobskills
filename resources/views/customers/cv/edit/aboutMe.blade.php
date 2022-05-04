@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h3> {{ __('Personal data') }}</h3>
+    <h3> {{ __('About me') }}</h3>
     <x-form method="post" action="{{ route('cv.aboutMeStore', $customer) }}" enctype="multipart/form-data" >
         @bind($customer)
         <x-form-input type="file" class="mb-3" name="img" label="{{ __('Profile image') }}" />
