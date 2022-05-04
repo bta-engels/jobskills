@@ -49,4 +49,5 @@ class CustomerLoginController extends Controller
     {
         return $request->only($this->username(), 'password') + ['confirmed' => true];
     }
+
 }

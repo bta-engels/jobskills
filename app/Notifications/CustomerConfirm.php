@@ -21,7 +21,7 @@ class CustomerConfirm extends Notification
      */
     public function __construct(Customer $customer)
     {
-        $this->customer = $customer;
+       $this->customer = $customer;
     }
 
     /**

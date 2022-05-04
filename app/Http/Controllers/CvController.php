@@ -90,15 +90,17 @@ class CvController extends Controller
 
     public function personalDataEdit(Customer $customer)
     {
-
+        return view('customers.cv.edit.personalData', compact('customer'));
     }
 
     public function personalDataStore(PersonalDataRequest $request, Customer $customer)
     {
+
     }
 
     public function aboutMeEdit(Customer $customer)
     {
+        return view('customers.cv.edit.aboutMe', compact('customer'));
     }
 
     public function aboutMeStore(AboutMeRequest $request, Customer $customer)
