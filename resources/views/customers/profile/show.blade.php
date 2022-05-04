@@ -6,7 +6,7 @@
       @if($customer->img)
       <tr>
          <td>{{ __('Image') }}:</td>
-         <td><img src="{{ asset('storage/images/' . $customer->img) }}" height="200" alt=""></td>
+         <td><img src="{{ asset('/storage/images/' . $customer->img) }}" height="200" alt=""></td>
       </tr>
       @endif
       <tr>
