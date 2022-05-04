@@ -108,5 +108,20 @@ class CvController extends Controller
 
     public function aboutMeStore(AboutMeRequest $request, Customer $customer)
     {
+        $file = $request->file('img');
+        if($file){
+            $img = $file->hashName();
+            $path = $request->file('img')->storePubliclyAs(
+                'avatars',
+                'image'
+                $request->user()->id,
+                's3'
+            )
+
+            //$img = $file->store ('img');
+            dd($img);
+        }
+        $customer->update($request->validated());
+
     }
 }
