@@ -85,7 +85,7 @@ class CvController extends Controller
         //
     }
 
-    public function personalData(Cv $cv)
+    public function personalDataEdit(Cv $cv)
     {
 
     }
