@@ -40,7 +40,10 @@
         </nav>
 
         <main class="container py-4">
-            @yield('content')
+            <div class="row">
+                <aside class="col-3">@yield('sidebar')</aside>
+                <section class="col-9">@yield('content')</section>
+            </div>
         </main>
     </div>
     {{-- phpinfo() --}}

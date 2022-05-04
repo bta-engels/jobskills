@@ -54,6 +54,8 @@ Route::get('cvLink/{customer}', [CustomerController::class, 'cvLink'])->name('cv
 Route::get('lang/{locale}',[LocaleController::class,'set'])->name('locale');
 Route::get('', [HomeController::class, 'index'])->name('home');
 
+Route::get('cvLink/{customer}', [CustomerController::class, 'cvLink'])->name('cvLink');
+
 
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 

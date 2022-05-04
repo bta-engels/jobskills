@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Events\NewCustomerHasRegisteredEvent;
 use App\Models\Customer;
 use Illuminate\Support\Facades\URL;
+use App\Models\Cv;
 
 class CustomerObserver
 {
