@@ -3,10 +3,12 @@
 @section('content')
    <h3>{{$customer->name}}</h3>
    <table class="table table-striped">
+      @if($customer->img)
       <tr>
-         <td>{{ __('Image') }}:</td>
-         <td>{{ $customer->img }}</td>
+         <td>{{ __('') }}</td>
+         <td><img src="{{ asset('storage/images/' . $customer->img) }}" style="width: 200px; height: 200px; border-radius: 50%; margin-right: 25px;"></td>
       </tr>
+      @endif
       <tr>
          <td>{{ __('First- and Lastname') }}:</td>
          <td>{{ $customer->name }}</td>
