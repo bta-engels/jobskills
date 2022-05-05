@@ -7,7 +7,9 @@
 @section('content')
     <h3> {{ __('About me') }}</h3>
     @if($customer->img)
-    <img src="{{ asset('storage/images/' . $customer->img) }}" height="200 " style="width: 200px; height: 200px; float: left; border-radius: 50%; margin-right: 700px; margin-bottom: 25px; margin-top: 10px;">
+        <div class="d-flex justify-content-left">
+    <img src="{{ asset('storage/images/' . $customer->img) }}" height="200 " style="width: 200px; height: 200px; border-radius: 50%;   ">
+        </div>
     @endif
 
     <x-form method="post" action="{{ route('cv.aboutMeStore', $customer) }}" enctype="multipart/form-data" >

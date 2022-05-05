@@ -16,7 +16,8 @@ class AdminFrameworkController extends Controller
      */
     public function index()
     {
-        //
+        $data = Framework::all();
+        return view('admin/frameworks/index', ['frameworks'=>$data]);
     }
 
     /**
@@ -48,7 +49,8 @@ class AdminFrameworkController extends Controller
      */
     public function show(Framework $framework)
     {
-        //
+        $data = Framework::find($framework);
+        return view('admin/frameworks/edit', ['framework'=>$data]);
     }
 
     /**
@@ -59,7 +61,7 @@ class AdminFrameworkController extends Controller
      */
     public function edit(Framework $framework)
     {
-        //
+
     }
 
     /**
