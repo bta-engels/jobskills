@@ -6,6 +6,7 @@ use App\Models\Language;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Lang;
 
 class AdminLanguageController extends Controller
 {
@@ -16,7 +17,8 @@ class AdminLanguageController extends Controller
      */
     public function index()
     {
-        //
+        $data = Language::all();
+        return view('admin.languages.index', ['languages'=>$data]);
     }
 
     /**
@@ -57,9 +59,11 @@ class AdminLanguageController extends Controller
      * @param Language $language
      * @return Response
      */
-    public function edit(Language $language)
+    public function edit(Language $language, Request $request)
     {
-        //
+        $id = $request->all();
+        $data = Language::all();
+        return view('admin.languages.edit', ['id'=>$id, 'data'=>$data]);
     }
 
     /**

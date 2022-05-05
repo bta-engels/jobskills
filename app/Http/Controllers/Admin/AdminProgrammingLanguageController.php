@@ -16,7 +16,8 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function index()
     {
-        //
+        $data = ProgrammingLanguage::all();
+        return view('admin.programming_languages.index', ['programming_languages'=>$data]);
     }
 
     /**
