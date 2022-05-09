@@ -114,8 +114,6 @@ class CvController extends Controller
         $file = $request->file('img');
         if($file) {
             $imgName = $file->hashName();
-//            $file->storeAs('', $imgName, ['disk' => 'image']);
-            // oder über storage disk
             Storage::disk('image')->putFileAs('', $file, $imgName);
             $validated['img'] = $imgName;
         }
