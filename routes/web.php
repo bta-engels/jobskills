@@ -38,16 +38,10 @@ Route::group([
 
 //admin
 Route::match(['get','post'],'admin/register', fn() => redirect('/'))->name('remove.admin.register');
+Route::resource('/languages',AdminLanguageController::class );
+Route::resource('/frameworks',AdminFrameworkController::class );
+Route::resource('/programming_languages',AdminProgrammingLanguageController::class );
 
-Route::get('admin/frameworks', [AdminFrameworkController::class, 'index'])->name('admin.frameworks');
-Route::get('admin/frameworks/edit/{framework}', [AdminFrameworkController::class, 'show'])->name('admin.frameworks.edit');
-
-Route::get('admin/languages', [AdminLanguageController::class, 'index'])->name('admin.languages');
-Route::get('admin/languages/edit/{language}', [AdminLanguageController::class, 'show'])->name('admin.languages.edit');
-Route::post('update', [AdminLanguageController::class, 'update'])->name('update');
-
-Route::get('admin/programming_languages', [AdminProgrammingLanguageController::class, 'index'])->name('admin.programming_languages');
-Route::get('admin/programming_languages/edit/{programmingLanguage}', [AdminProgrammingLanguageController::class, 'show'])->name('admin.programming_languages.edit');
 
 //customer
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');

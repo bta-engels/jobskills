@@ -2,26 +2,27 @@
 @section('content')
     <h1>Languages</h1>
 
+    <div class="col-md-12 text-end mt-4" style="margin-bottom: 10px;">
+        <a class="btn btn-primary" href="{{ route('languages.create') }}">
+            {{ __('Add New Language') }}
+        </a>
+    </div>
 
         <table class="table table-striped">
             @foreach($languages as $language)
             <tr>
-                <td>{{ $language['id']}}</td>
                 <td>{{ $language['name']}}</td>
-                <td> <a class="btn btn-primary" href="{{route('admin.languages.edit', $language)}}">
-                        {{ __('Edit') }}
-                    </a></td>
-                <td> <a class="btn btn-danger" href="">
-                        {{ __('Delete') }}
-                    </a></td>
+                <td>
+                    <form action="{{ route('languages.destroy', $language) }}">
+                        <a class="btn btn-info" href="{{ route('languages.show', $language) }}">{{ __('View') }}</a>
+                        <a class="btn btn-primary" href="{{ route('languages.edit', $language) }}">{{ __('Edit') }}</a>
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+
+                    </form>
+                </td>
 
             @endforeach
         </table>
-
-    <div>
-        <a class="btn btn-primary" href="">
-            {{ __('Add') }}
-        </a>
-    </div>
-
 @endsection

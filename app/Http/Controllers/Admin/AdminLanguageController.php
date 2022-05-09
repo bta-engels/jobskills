@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\LanguagesRequest;
 use App\Models\Language;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -27,18 +28,19 @@ class AdminLanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.languages.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param LanguagesRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(LanguagesRequest $request)
     {
-        //
+        Language::create($request->validated());
+        return redirect('/languages')->with('success', 'Language created successfully');
     }
 
     /**
@@ -47,10 +49,9 @@ class AdminLanguageController extends Controller
      * @param Language $language
      * @return Response
      */
-    public function show($language)
+    public function show()
     {
-        $data = Language::find($language);
-        return view('admin/languages/edit', ['language'=>$data]);
+        //
     }
 
     /**
@@ -59,38 +60,36 @@ class AdminLanguageController extends Controller
      * @param Language $language
      * @return Response
      */
-    public function edit()
+    public function edit($language)
     {
-
+        $data = Language::find($language);
+        return view('admin.languages.edit', ['language'=>$data]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param LanguagesRequest $request
      * @param Language $language
      * @return Response
      */
-    public function update(Request $request, Language $language)
+    public function update(LanguagesRequest $request, Language $language)
     {
-       // return $request->input();
-        $data = Language::findOrFail($language);
-        $data->name = $request->input('language');
-        dd($data);
-        $data->update();
-        return redirect('/')->with('success','Language updated Successfully');
-
-
+        $language->update($request->validated());
+        return redirect('/languages')->with('success', 'Language updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Language $language
-     * @return Response
-     */
+   /**
+    * Remove the specified resource from storage.
+    *
+    * @param Language $language
+    * @return Response
+    */
     public function destroy(Language $language)
     {
-        //
+
+        $language->delete();
+        return redirect('/languages')->with('success', 'Language deleted successfully');
+
     }
 }

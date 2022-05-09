@@ -2,26 +2,26 @@
 @section('content')
     <h1>Programming Languages</h1>
 
+    <div class="col-md-12 text-end mt-4" style="margin-bottom: 10px;">
+        <a class="btn btn-primary" href="{{ route('programming_languages.create') }}">
+            {{ __('Add New Programming Language') }}
+        </a>
+    </div>
 
     <table class="table table-striped">
         @foreach($programmingLanguages as $programmingLanguage)
             <tr>
-                <td>{{ $programmingLanguage['id']}}</td>
                 <td>{{ $programmingLanguage['name']}}</td>
-                <td> <a class="btn btn-primary" href="{{route('admin.programming_languages.edit', $programmingLanguage)}}">
-                        {{ __('Edit') }}
-                    </a></td>
-                <td> <a class="btn btn-danger" href="">
-                        {{ __('Delete') }}
-                    </a></td>
+                <td>
+                    <form action="{{ route('programming_languages.destroy', $programmingLanguage) }}" method="post">
+                        <a class="btn btn-info" href="{{ route('programming_languages.show', $programmingLanguage) }}">{{ __('View') }}</a>
+                        <a class="btn btn-primary" href="{{ route('programming_languages.edit', $programmingLanguage) }}">{{ __('Edit') }}</a>
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+                    </form>
+                </td>
 
         @endforeach
     </table>
-
-    <div>
-        <a class="btn btn-primary" href="">
-            {{ __('Add') }}
-        </a>
-    </div>
-
 @endsection

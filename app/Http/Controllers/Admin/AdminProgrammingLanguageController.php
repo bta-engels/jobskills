@@ -17,7 +17,7 @@ class AdminProgrammingLanguageController extends Controller
     public function index()
     {
         $data = ProgrammingLanguage::all();
-        return view('admin/programming_languages/index', ['programmingLanguages'=>$data]);
+        return view('admin.programming_languages.index', ['programmingLanguages'=>$data]);
     }
 
     /**
@@ -27,7 +27,7 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.programming_languages.create');
     }
 
     /**
@@ -38,7 +38,11 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required'
+        ]);
+        ProgrammingLanguage::create($data);
+        return redirect('/programming_languages')->with('success', 'Programming Language created successfully');
     }
 
     /**
@@ -47,10 +51,9 @@ class AdminProgrammingLanguageController extends Controller
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function show(ProgrammingLanguage $programmingLanguage)
+    public function show()
     {
-        $data = ProgrammingLanguage::find($programmingLanguage);
-        return view('admin/programming_languages/edit', ['programmingLanguage'=>$data]);
+
     }
 
     /**
@@ -59,9 +62,10 @@ class AdminProgrammingLanguageController extends Controller
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function edit(ProgrammingLanguage $programmingLanguage)
+    public function edit($programmingLanguage)
     {
-        //
+        $data = ProgrammingLanguage::find($programmingLanguage);
+        return view('admin.programming_languages.edit', ['programmingLanguage'=>$data]);
     }
 
     /**
@@ -73,7 +77,9 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function update(Request $request, ProgrammingLanguage $programmingLanguage)
     {
-        //
+        $data = $request->input();
+        $programmingLanguage->update($data);
+        return redirect('/programming_languages')->with('success', 'Programming Language updated successfully');
     }
 
     /**
@@ -82,8 +88,10 @@ class AdminProgrammingLanguageController extends Controller
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function destroy(ProgrammingLanguage $programmingLanguage)
+    public function destroy($programmingLanguage)
     {
-        //
+        $data = ProgrammingLanguage::findOrFail($programmingLanguage);
+        $data->delete();
+        return redirect('/programming_languages')->with('success', 'Programming Language deleted successfully');
     }
 }

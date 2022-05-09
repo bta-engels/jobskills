@@ -2,25 +2,26 @@
 @section('content')
     <h1>Frameworks</h1>
 
+    <div class="col-md-12 text-end mt-4" style="margin-bottom: 10px;">
+        <a class="btn btn-primary" href="{{ route('frameworks.create') }}">
+            {{ __('Add New Framework') }}
+        </a>
+    </div>
 
     <table class="table table-striped">
         @foreach($frameworks as $framework)
             <tr>
-                <td>{{ $framework['id']}}</td>
                 <td>{{ $framework['name']}}</td>
-                <td> <a class="btn btn-primary" href="">
-                        {{ __('Edit') }}
-                    </a></td>
-                <td> <a class="btn btn-danger" href="">
-                        {{ __('Delete') }}
-                    </a></td>
+                <td>
+                    <form action="{{ route('frameworks.destroy', $framework) }}" method="post">
+                        <a class="btn btn-info" href="{{ route('frameworks.show', $framework) }}">{{ __('View') }}</a>
+                        <a class="btn btn-primary" href="{{ route('frameworks.edit', $framework) }}">{{ __('Edit') }}</a>
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+                    </form>
+                </td>
 
         @endforeach
     </table>
-
-    <div>
-        <a class="btn btn-primary" href="">
-            {{ __('Add') }}
-        </a>
-    </div>
 @endsection
