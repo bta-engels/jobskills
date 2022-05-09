@@ -39,7 +39,7 @@ class AdminLanguageController extends Controller
     public function store(LanguageRequest $request)
     {
         Language::create($request->validated());
-        return $this->index();
+        return redirect('/languages')->with('success', 'Language created successfully');
     }
 
     /**
@@ -63,7 +63,7 @@ class AdminLanguageController extends Controller
     public function update(LanguageRequest $request, Language $language)
     {
         $language->update($request->validated());
-        return $this->index();
+        return redirect('/languages')->with('success', 'Language updated successfully');
     }
 
     /**
@@ -75,6 +75,6 @@ class AdminLanguageController extends Controller
     public function destroy(Language $language)
     {
         $language->delete();
-        return $this->index();
+        return redirect('/languages')->with('success', 'Language deleted successfully');
     }
 }
