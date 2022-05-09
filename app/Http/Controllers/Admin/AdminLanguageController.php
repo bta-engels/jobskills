@@ -44,17 +44,6 @@ class AdminLanguageController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param Language $language
-     * @return Response
-     */
-    public function show()
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param Language $language

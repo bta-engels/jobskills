@@ -44,18 +44,7 @@ class AdminProgrammingLanguageController extends Controller
         ProgrammingLanguage::create($data);
         return redirect('/programming_languages')->with('success', 'Programming Language created successfully');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param ProgrammingLanguage $programmingLanguage
-     * @return Response
-     */
-    public function show()
-    {
-
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      *

@@ -14,7 +14,6 @@
                 <td>{{ $framework['name']}}</td>
                 <td>
                     <form action="{{ route('frameworks.destroy', $framework) }}" method="post">
-                        <a class="btn btn-info" href="{{ route('frameworks.show', $framework) }}">{{ __('View') }}</a>
                         <a class="btn btn-primary" href="{{ route('frameworks.edit', $framework) }}">{{ __('Edit') }}</a>
                         @csrf
                         @method('delete')
