@@ -4,7 +4,7 @@
     <h3>{{ __('Frameworks') }}</h3>
     <div>
         <a class="btn btn-primary"
-           href="{{ route('admin.frameworks.create') }}">{{ __('Create new item') }}</a>
+           href="{{ route('frameworks.create') }}">{{ __('Create new item') }}</a>
     </div>
     {{ $data->links() }}
     <table class="table table-sm table-striped">
@@ -22,9 +22,9 @@
                 <td>{{ $item->name }}</td>
                 <td>
                     <a class="btn btn-sm btn-primary me-3"
-                       href="{{ route('admin.frameworks.edit', $item) }}"
+                       href="{{ route('frameworks.edit', $item) }}"
                     >{{ __('edit') }}</a>
-                    <x-form class="d-inline m-0 p-9" action="{{ route('admin.frameworks.destroy', $item) }}">
+                    <x-form class="d-inline m-0 p-9" action="{{ route('frameworks.destroy', $item) }}">
                         @method('delete')
                         <x-form-submit class="btn btn-sm btn-danger me-3 delsoft">{{ __('delete') }}</x-form-submit>
                     </x-form>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-form action="{{ route('admin.languages.update', $language) }}">
+    <x-form action="{{ route('languages.update', $language) }}">
         @method('put')
         @bind($language)
         <x-form-input name="name" label="{{ __('Name') }}"/>
