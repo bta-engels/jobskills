@@ -44,17 +44,6 @@ class AdminFrameworkController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param Framework $framework
-     * @return Response
-     */
-    public function show()
-    {
-
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param Framework $framework

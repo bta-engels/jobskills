@@ -18,7 +18,7 @@ class AdminLanguageController extends Controller
     public function index()
     {
         $data = Language::all();
-        return view('admin/languages/index', ['languages'=>$data]);
+        return view('admin.languages.index', ['languages'=>$data]);
     }
 
     /**
@@ -41,17 +41,6 @@ class AdminLanguageController extends Controller
     {
         Language::create($request->validated());
         return redirect('/languages')->with('success', 'Language created successfully');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param Language $language
-     * @return Response
-     */
-    public function show()
-    {
-        //
     }
 
     /**

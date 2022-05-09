@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
@@ -50,6 +51,9 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Customer whereStreet($value)
  * @method static Builder|Customer whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property-read Cv|null $cv
+ * @property-read Collection|CustomerEducation[] $education
+ * @property-read int|null $education_count
  */
 class Customer extends Authenticatable
 {
@@ -70,5 +74,10 @@ class Customer extends Authenticatable
     public function cv()
     {
         return $this->hasOne(Cv::class);
+    }
+
+    public function educations()
+    {
+        return $this->hasMany(CustomerEducation::class);
     }
 }

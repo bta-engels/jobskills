@@ -38,10 +38,14 @@ Route::group([
 
 //admin
 Route::match(['get','post'],'admin/register', fn() => redirect('/'))->name('remove.admin.register');
-Route::resource('/languages',AdminLanguageController::class );
-Route::resource('/frameworks',AdminFrameworkController::class );
-Route::resource('/programming_languages',AdminProgrammingLanguageController::class );
 
+Route::group([
+    'middleware' => 'auth:admin',
+], function () {
+    Route::resource('languages',AdminLanguageController::class )->except(['show']);
+    Route::resource('frameworks',AdminFrameworkController::class )->except(['show']);
+    Route::resource('programming_languages',AdminProgrammingLanguageController::class )->except(['show']);
+});
 
 //customer
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');

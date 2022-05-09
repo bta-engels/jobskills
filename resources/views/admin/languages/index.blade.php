@@ -14,7 +14,6 @@
                 <td>{{ $language->name }}</td>
                 <td>
                     <form action="{{ route('languages.destroy', $language) }}">
-                        <a class="btn btn-info" href="{{ route('languages.show', $language) }}">{{ __('View') }}</a>
                         <a class="btn btn-primary" href="{{ route('languages.edit', $language) }}">{{ __('Edit') }}</a>
                         @csrf
                         @method('delete')
