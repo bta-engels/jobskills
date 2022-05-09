@@ -8,12 +8,10 @@ use App\Http\Requests\StoreCustomerEducationRequest;
 use App\Http\Requests\StoreCvRequest;
 use App\Http\Requests\UpdateCvRequest;
 use App\Models\Customer;
+use App\Models\CustomerEducation;
 use App\Models\Cv;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class CvController extends Controller
 {
@@ -93,63 +91,40 @@ class CvController extends Controller
         //
     }
 
-    /**
-     * @param Customer $customer
-     * @return Application|Factory|View
-     */
     public function personalDataEdit(Customer $customer)
     {
         return view('customers.cv.edit.personalData', compact('customer'));
 
     }
 
-    /**
-     * @param PersonalDataRequest $request
-     * @param Customer $customer
-     * @return RedirectResponse
-     */
     public function personalDataStore(PersonalDataRequest $request, Customer $customer)
     {
         $customer->update($request->validated());
         return redirect()->route('cv.aboutMeEdit', $customer);
     }
 
-    /**
-     * @param Customer $customer
-     * @return Application|Factory|View
-     */
     public function aboutMeEdit(Customer $customer)
     {
         return view('customers.cv.edit.aboutMe', compact('customer'));
 
     }
 
-    /**
-     * @param AboutMeRequest $request
-     * @param Customer $customer
-     * @return void
-     */
     public function aboutMeStore(AboutMeRequest $request, Customer $customer)
     {
         $validated = $request->validated();
+
         $file = $request->file('img');
         if($file) {
             $imgName = $file->hashName();
-            $file->storeAs('', $imgName, ['disk' => 'image']);
+            Storage::disk('image')->putFileAs('', $file, $imgName);
             $validated['img'] = $imgName;
         }
         $customer->update($validated);
     }
 
-
-    /**
-     * @param Customer $customer
-     * @return Application|Factory|View
-     */
     public function educationEdit(Customer $customer)
     {
         return view('customers.cv.edit.education', compact('customer'));
-
     }
 
     public function educationStore(StoreCustomerEducationRequest $request, Customer $customer)

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCustomerEducationRequest extends FormRequest
+class FrameworkRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdateCustomerEducationRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth('admin')->check();
     }
 
     /**
@@ -24,10 +24,7 @@ class UpdateCustomerEducationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required',
-            'description'   => '',
-            'from'          => 'required|date|before:until',
-            'until'         => 'required|date|after:from'
+            'name'  => 'required',
         ];
     }
 }

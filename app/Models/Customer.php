@@ -52,8 +52,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Customer whereUpdatedAt($value)
  * @mixin Eloquent
  * @property-read Cv|null $cv
- * @property-read Collection|CustomerEducation[] $education
- * @property-read int|null $education_count
+ * @property-read Collection|CustomerEducation[] $educations
+ * @property-read int|null $educations_count
  */
 class Customer extends Authenticatable
 {

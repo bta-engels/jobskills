@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CustomerEducation;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCustomerEducationRequest;
 use App\Http\Requests\UpdateCustomerEducationRequest;
+use App\Models\CustomerEducation;
 use Illuminate\Http\Response;
 
 class CustomerEducationController extends Controller

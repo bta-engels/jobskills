@@ -31,7 +31,6 @@ use Illuminate\Database\Eloquent\Model;
 class CustomerEducation extends Model
 {
     use HasFactory;
-
     protected $table = 'education';
     public $timestamps = false;
     protected $guarded = ['id'];
@@ -40,6 +39,4 @@ class CustomerEducation extends Model
     {
         return $this->belongsTo(Customer::class);
     }
-
-
 }
