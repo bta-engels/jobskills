@@ -13,6 +13,9 @@ use App\Http\Controllers\AuthCustomer\CustomerForgotPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\AdminFrameworkController;
+use App\Http\Controllers\Admin\AdminLanguageController;
+use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +36,23 @@ Route::group([
 });
 
 Route::match(['get','post'],'admin/register', fn() => redirect('/'))->name('remove.admin.register');
+
+//admin
+Route::resource('languages', AdminLanguageController::class);
+Route::resource('frameworks', AdminFrameworkController::class);
+Route::resource('programming_languages', AdminProgrammingLanguageController::class);
+
+
+//Route::get('admin/frameworks', [AdminFrameworkController::class, 'index'])->name('admin.frameworks');
+//Route::get('admin/frameworks/edit{framework}', [AdminFrameworkController::class, 'show'])->name('admin.frameworks.edit');
+//Route::post('admin/frameworks/edit{framework}', [AdminFrameworkController::class, 'update'])->name('admin.frameworks.edit');
+
+//Route::get('admin/languages', [AdminLanguageController::class, 'index'])->name('admin.languages');
+//Route::get('admin/languages/edit{language}', [AdminLanguageController::class, 'show'])->name('admin.languages.edit');
+
+//Route::get('admin/programming_languages', [AdminProgrammingLanguageController::class, 'index'])->name('admin.programming_languages');
+//Route::get('admin/programming_languages/edit{programmingLanguage}', [AdminProgrammingLanguageController::class, 'show'])->name('admin.programming_languages.edit');
+
 
 //customer
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');
@@ -71,6 +91,8 @@ Route::group([
     }
 });
 
+
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
+
 
 

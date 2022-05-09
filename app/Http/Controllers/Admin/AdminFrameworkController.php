@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\FrameworkRequest;
+use App\Http\Requests\LanguageRequest;
 use App\Models\Framework;
+use App\Models\Language;
+use Dompdf\Frame;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -16,7 +20,8 @@ class AdminFrameworkController extends Controller
      */
     public function index()
     {
-        //
+        $data = Framework::all();
+        return view('admin.frameworks.index', ['frameworks'=>$data]);
     }
 
     /**
@@ -26,7 +31,7 @@ class AdminFrameworkController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.frameworks.create');
     }
 
     /**
@@ -35,9 +40,10 @@ class AdminFrameworkController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(FrameworkRequest $request)
     {
-        //
+        FrameworkRequest::create($request->validated());
+        return redirect('/frameworks')->with('success', 'Framework created successfully');
     }
 
     /**
@@ -46,9 +52,9 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function show(Framework $framework)
+    public function show($framework)
     {
-        //
+
     }
 
     /**
@@ -57,9 +63,10 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function edit(Framework $framework)
+    public function edit($framework)
     {
-        //
+        $data = Framework::find($framework);
+        return view('admin.frameworks.edit', ['framework'=>$data]);
     }
 
     /**
@@ -69,9 +76,12 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function update(Request $request, Framework $framework)
+    public function update(LanguageRequest $request, Framework $framework)
     {
-        //
+
+        //$data = $request->input();
+        $framework->update($request->validated());
+        return redirect('/frameworks')->with('success', 'Framework updated successfully');
     }
 
     /**
@@ -82,6 +92,7 @@ class AdminFrameworkController extends Controller
      */
     public function destroy(Framework $framework)
     {
-        //
+        $framework->delete();
+        return redirect('/frameworks')->with('success', 'Framework deleted successfully');
     }
 }

@@ -16,7 +16,9 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function index()
     {
-        //
+        $data = ProgrammingLanguage::all();
+        return view('admin.programming_languages.index', ['programmingLanguages'=>$data]);
+
     }
 
     /**
@@ -46,9 +48,9 @@ class AdminProgrammingLanguageController extends Controller
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function show(ProgrammingLanguage $programmingLanguage)
+    public function show($programmingLanguage)
     {
-        //
+
     }
 
     /**
@@ -57,9 +59,10 @@ class AdminProgrammingLanguageController extends Controller
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function edit(ProgrammingLanguage $programmingLanguage)
+    public function edit($programmingLanguage)
     {
-        //
+        $data = ProgrammingLanguage::find($programmingLanguage);
+        return view('admin.programming_languages.edit', ['programmingLanguage'=>$data]);
     }
 
     /**
@@ -71,7 +74,14 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function update(Request $request, ProgrammingLanguage $programmingLanguage)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $programmingLanguage->update($request->all());
+        dd($request);
+        return redirect()->route('/')-with('success', 'Programming Language updated successfully');
+
     }
 
     /**
