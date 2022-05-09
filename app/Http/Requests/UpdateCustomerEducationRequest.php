@@ -28,8 +28,6 @@ class UpdateCustomerEducationRequest extends FormRequest
              'description' => '',
             'from' => 'required|date|before|until',
             'until' => 'required|date|after:from'
-
-
-        ];
+         ];
     }
 }
