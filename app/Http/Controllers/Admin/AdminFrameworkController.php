@@ -39,7 +39,7 @@ class AdminFrameworkController extends Controller
     public function store(FrameworkRequest $request)
     {
         Framework::create($request->validated());
-        return $this->index();
+        return redirect()->route('admin.frameworks.index')->with('success', '');
     }
 
     /**

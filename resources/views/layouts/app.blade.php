@@ -41,6 +41,9 @@
 
         <main class="container py-4">
             <div class="row">
+
+                <x-flash-message />
+
                 @auth('customer')
                     <aside class="col-3">@yield('sidebar')</aside>
                     <section class="col-9">@yield('content')</section>
