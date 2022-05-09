@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\FrameworkRequest;
-use App\Http\Requests\LanguageRequest;
 use App\Models\Framework;
-use App\Models\Language;
-use Dompdf\Frame;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -40,9 +36,12 @@ class AdminFrameworkController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(FrameworkRequest $request)
+    public function store(Request $request)
     {
-        FrameworkRequest::create($request->validated());
+        $data = $request->validate([
+            'name' => 'required'
+        ]);
+        Framework::create($data);
         return redirect('/frameworks')->with('success', 'Framework created successfully');
     }
 
@@ -52,7 +51,7 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function show($framework)
+    public function show()
     {
 
     }
@@ -76,11 +75,10 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function update(LanguageRequest $request, Framework $framework)
+    public function update(Request $request, Framework $framework)
     {
-
-        //$data = $request->input();
-        $framework->update($request->validated());
+        $data = $request->input();
+        $framework->update($data);
         return redirect('/frameworks')->with('success', 'Framework updated successfully');
     }
 
@@ -90,9 +88,10 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function destroy(Framework $framework)
+    public function destroy($framework)
     {
-        $framework->delete();
+        $data = Framework::findOrFail($framework);
+        $data->delete();
         return redirect('/frameworks')->with('success', 'Framework deleted successfully');
     }
 }

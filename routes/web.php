@@ -35,7 +35,13 @@ Route::group([
     Auth::routes();
 });
 
+
+//admin
 Route::match(['get','post'],'admin/register', fn() => redirect('/'))->name('remove.admin.register');
+Route::resource('/languages',AdminLanguageController::class );
+Route::resource('/frameworks',AdminFrameworkController::class );
+Route::resource('/programming_languages',AdminProgrammingLanguageController::class );
+
 
 //admin
 Route::resource('languages', AdminLanguageController::class);

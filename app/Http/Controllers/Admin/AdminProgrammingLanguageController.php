@@ -18,7 +18,6 @@ class AdminProgrammingLanguageController extends Controller
     {
         $data = ProgrammingLanguage::all();
         return view('admin.programming_languages.index', ['programmingLanguages'=>$data]);
-
     }
 
     /**
@@ -28,7 +27,7 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.programming_languages.create');
     }
 
     /**
@@ -39,7 +38,11 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required'
+        ]);
+        ProgrammingLanguage::create($data);
+        return redirect('/programming_languages')->with('success', 'Programming Language created successfully');
     }
 
     /**
@@ -48,7 +51,7 @@ class AdminProgrammingLanguageController extends Controller
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function show($programmingLanguage)
+    public function show()
     {
 
     }
@@ -74,14 +77,9 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function update(Request $request, ProgrammingLanguage $programmingLanguage)
     {
-        $request->validate([
-            'name' => 'required',
-        ]);
-
-        $programmingLanguage->update($request->all());
-        dd($request);
-        return redirect()->route('/')-with('success', 'Programming Language updated successfully');
-
+        $data = $request->input();
+        $programmingLanguage->update($data);
+        return redirect('/programming_languages')->with('success', 'Programming Language updated successfully');
     }
 
     /**
@@ -90,8 +88,10 @@ class AdminProgrammingLanguageController extends Controller
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function destroy(ProgrammingLanguage $programmingLanguage)
+    public function destroy($programmingLanguage)
     {
-        //
+        $data = ProgrammingLanguage::findOrFail($programmingLanguage);
+        $data->delete();
+        return redirect('/programming_languages')->with('success', 'Programming Language deleted successfully');
     }
 }

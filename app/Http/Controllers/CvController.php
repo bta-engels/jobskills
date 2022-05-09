@@ -117,4 +117,11 @@ class CvController extends Controller
         }
         $customer->update($validated);
     }
+
+    public function educationEdit(Customer $customer)
+    {
+        return view('customers.cv.edit.education', compact('customer'));
+
+    }
+
 }

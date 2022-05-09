@@ -24,7 +24,7 @@ class Framework extends Model
     use HasFactory;
     public $timestamps = false;
 
-   // protected $table = 'frameworks';
-    // protected $primaryKey = 'id';
+    protected $table = 'frameworks';
+    protected $primaryKey = 'id';
     protected $fillable = ['name'];
 }

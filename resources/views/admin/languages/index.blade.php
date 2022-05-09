@@ -1,27 +1,28 @@
 @extends('layouts.app')
-
 @section('content')
-    <p>Index languages</p>
+    <h1>Languages</h1>
 
+    <div class="col-md-12 text-end mt-4" style="margin-bottom: 10px;">
+        <a class="btn btn-primary" href="{{ route('languages.create') }}">
+            {{ __('Add New Language') }}
+        </a>
+    </div>
 
         <table class="table table-striped">
             @foreach($languages as $language)
             <tr>
-                <td>{{ $language ['id'] }}</td>
-                <td>{{ $language ['name'] }}</td>
+                <td>{{ $language['name']}}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ route('languages.edit', $language) }}">
-                        {{ __('Edit') }}
-                    </a>
+                    <form action="{{ route('languages.destroy', $language) }}">
+                        <a class="btn btn-info" href="{{ route('languages.show', $language) }}">{{ __('View') }}</a>
+                        <a class="btn btn-primary" href="{{ route('languages.edit', $language) }}">{{ __('Edit') }}</a>
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+
+                    </form>
                 </td>
-                <td>
-                    <a class="btn btn-danger delsoft" href="{{ route('languages.destroy', $language) }}">
-                        {{ __('Delete') }}
-                    </a>
-                </td>
-            </tr>
+
             @endforeach
         </table>
-
-
 @endsection

@@ -5,8 +5,8 @@
    <table class="table table-striped">
       @if($customer->img)
       <tr>
-         <td>{{ __('Image') }}:</td>
-         <td><img src="{{ asset('/storage/images/' . $customer->img) }}" height="200" alt=""></td>
+         <td>{{ __('') }}</td>
+         <td><img src="{{ asset('storage/images/' . $customer->img) }}" style="width: 200px; height: 200px; border-radius: 50%; margin-right: 25px;"></td>
       </tr>
       @endif
       <tr>

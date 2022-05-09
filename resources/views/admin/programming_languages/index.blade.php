@@ -1,27 +1,27 @@
 @extends('layouts.app')
-
 @section('content')
-    <p>Index Programming languages</p>
+    <h1>Programming Languages</h1>
 
+    <div class="col-md-12 text-end mt-4" style="margin-bottom: 10px;">
+        <a class="btn btn-primary" href="{{ route('programming_languages.create') }}">
+            {{ __('Add New Programming Language') }}
+        </a>
+    </div>
 
     <table class="table table-striped">
         @foreach($programmingLanguages as $programmingLanguage)
             <tr>
-                <td>{{ $programmingLanguage ['id'] }}</td>
-                <td>{{ $programmingLanguage ['name'] }}</td>
+                <td>{{ $programmingLanguage['name']}}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ route('programming_languages.edit', $programmingLanguage) }}">
-                        {{ __('Edit') }}
-                    </a>
+                    <form action="{{ route('programming_languages.destroy', $programmingLanguage) }}" method="post">
+                        <a class="btn btn-info" href="{{ route('programming_languages.show', $programmingLanguage) }}">{{ __('View') }}</a>
+                        <a class="btn btn-primary" href="{{ route('programming_languages.edit', $programmingLanguage) }}">{{ __('Edit') }}</a>
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+                    </form>
                 </td>
-                <td>
-                    <a class="btn btn-danger delsoft" href="{{ route('programming_languages.destroy', $programmingLanguage) }}">
-                        {{ __('Delete') }}
-                    </a>
-                </td>
-            </tr>
+
         @endforeach
     </table>
-
-
 @endsection
