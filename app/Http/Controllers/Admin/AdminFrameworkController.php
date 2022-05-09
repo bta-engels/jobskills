@@ -39,7 +39,7 @@ class AdminFrameworkController extends Controller
     public function store(FrameworkRequest $request)
     {
         Framework::create($request->validated());
-        return redirect()->route('admin.frameworks.index')->with('success', '');
+        return redirect('/frameworks')->with('success', 'Language created successfully');
     }
 
     /**
@@ -63,7 +63,7 @@ class AdminFrameworkController extends Controller
     public function update(FrameworkRequest $request, Framework $framework)
     {
         $framework->update($request->validated());
-        return $this->index();
+        return redirect('/frameworks')->with('success', 'Language updated successfully');
     }
 
     /**
@@ -75,6 +75,6 @@ class AdminFrameworkController extends Controller
     public function destroy(Framework $framework)
     {
         $framework->delete();
-        return $this->index();
+        return redirect('/frameworks')->with('success', 'Language deleted successfully');
     }
 }

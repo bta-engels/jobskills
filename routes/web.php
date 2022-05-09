@@ -77,9 +77,7 @@ Route::group([
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 
 Route::group([
-    'middleware'    => 'auth:admin',
-    'prefix'        => 'admin',
-    'as'            => 'admin.',
+    'middleware' => 'auth:admin,customer',
 ], function () {
     Route::resource('frameworks', AdminFrameworkController::class)->except('show');
     Route::resource('languages', AdminLanguageController::class)->except('show');
