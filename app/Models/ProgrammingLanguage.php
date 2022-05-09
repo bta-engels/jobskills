@@ -24,7 +24,5 @@ class ProgrammingLanguage extends Model
     use HasFactory;
     public $timestamps = false;
 
-    protected $table = 'programming_languages';
-    protected $primaryKey = 'id';
     protected $fillable = ['name'];
 }

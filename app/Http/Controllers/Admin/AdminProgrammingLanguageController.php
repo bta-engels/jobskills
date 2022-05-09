@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProgrammingLanguagesRequest;
 use App\Models\ProgrammingLanguage;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -36,12 +37,9 @@ class AdminProgrammingLanguageController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(ProgrammingLanguagesRequest $request)
     {
-        $data = $request->validate([
-            'name' => 'required'
-        ]);
-        ProgrammingLanguage::create($data);
+        ProgrammingLanguage::create($request->validated());
         return redirect('/programming_languages')->with('success', 'Programming Language created successfully');
     }
 
@@ -62,10 +60,9 @@ class AdminProgrammingLanguageController extends Controller
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function edit($programmingLanguage)
+    public function edit(ProgrammingLanguage $programmingLanguage)
     {
-        $data = ProgrammingLanguage::find($programmingLanguage);
-        return view('admin.programming_languages.edit', ['programmingLanguage'=>$data]);
+        return view('admin.programming_languages.edit', compact('programmingLanguage'));
     }
 
     /**
@@ -75,10 +72,9 @@ class AdminProgrammingLanguageController extends Controller
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function update(Request $request, ProgrammingLanguage $programmingLanguage)
+    public function update(ProgrammingLanguagesRequest $request, ProgrammingLanguage $programmingLanguage)
     {
-        $data = $request->input();
-        $programmingLanguage->update($data);
+        $programmingLanguage->update($request->validated());
         return redirect('/programming_languages')->with('success', 'Programming Language updated successfully');
     }
 
@@ -88,10 +84,9 @@ class AdminProgrammingLanguageController extends Controller
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function destroy($programmingLanguage)
+    public function destroy(ProgrammingLanguage $programmingLanguage)
     {
-        $data = ProgrammingLanguage::findOrFail($programmingLanguage);
-        $data->delete();
+        $programmingLanguage->delete();
         return redirect('/programming_languages')->with('success', 'Programming Language deleted successfully');
     }
 }

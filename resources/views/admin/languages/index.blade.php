@@ -11,7 +11,7 @@
         <table class="table table-striped">
             @foreach($languages as $language)
             <tr>
-                <td>{{ $language['name']}}</td>
+                <td>{{ $language->name }}</td>
                 <td>
                     <form action="{{ route('languages.destroy', $language) }}">
                         <a class="btn btn-info" href="{{ route('languages.show', $language) }}">{{ __('View') }}</a>

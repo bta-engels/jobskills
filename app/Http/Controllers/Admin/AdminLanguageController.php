@@ -60,10 +60,9 @@ class AdminLanguageController extends Controller
      * @param Language $language
      * @return Response
      */
-    public function edit($language)
+    public function edit(Language $language)
     {
-        $data = Language::find($language);
-        return view('admin.languages.edit', ['language'=>$data]);
+        return view('admin.languages.edit', compact('language'));
     }
 
     /**

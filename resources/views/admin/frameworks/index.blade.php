@@ -11,7 +11,7 @@
     <table class="table table-striped">
         @foreach($frameworks as $framework)
             <tr>
-                <td>{{ $framework['name']}}</td>
+                <td>{{ $framework->name}}</td>
                 <td>
                     <form action="{{ route('frameworks.destroy', $framework) }}" method="post">
                         <a class="btn btn-info" href="{{ route('frameworks.show', $framework) }}">{{ __('View') }}</a>

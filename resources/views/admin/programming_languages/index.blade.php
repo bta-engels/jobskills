@@ -11,7 +11,7 @@
     <table class="table table-striped">
         @foreach($programmingLanguages as $programmingLanguage)
             <tr>
-                <td>{{ $programmingLanguage['name']}}</td>
+                <td>{{ $programmingLanguage->name }}</td>
                 <td>
                     <form action="{{ route('programming_languages.destroy', $programmingLanguage) }}" method="post">
                         <a class="btn btn-info" href="{{ route('programming_languages.show', $programmingLanguage) }}">{{ __('View') }}</a>

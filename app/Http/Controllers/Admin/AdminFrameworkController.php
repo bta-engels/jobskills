@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\FrameworksRequest;
 use App\Models\Framework;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -36,12 +37,9 @@ class AdminFrameworkController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(FrameworksRequest $request)
     {
-        $data = $request->validate([
-            'name' => 'required'
-        ]);
-        Framework::create($data);
+        Framework::create($request->validated());
         return redirect('/frameworks')->with('success', 'Framework created successfully');
     }
 
@@ -62,10 +60,9 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function edit($framework)
+    public function edit(Framework $framework)
     {
-        $data = Framework::find($framework);
-        return view('admin.frameworks.edit', ['framework'=>$data]);
+        return view('admin.frameworks.edit', compact('framework'));
     }
 
     /**
@@ -75,10 +72,9 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function update(Request $request, Framework $framework)
+    public function update(FrameworksRequest $request, Framework $framework)
     {
-        $data = $request->input();
-        $framework->update($data);
+        $framework->update($request->validated());
         return redirect('/frameworks')->with('success', 'Framework updated successfully');
     }
 
@@ -88,10 +84,9 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function destroy($framework)
+    public function destroy(Framework $framework)
     {
-        $data = Framework::findOrFail($framework);
-        $data->delete();
+        $framework->delete();
         return redirect('/frameworks')->with('success', 'Framework deleted successfully');
     }
 }
