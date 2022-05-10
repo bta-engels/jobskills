@@ -7,4 +7,5 @@
         <x-form-input type="text" class="mb-3" name="name" value="" label="{{ __('Programming Language') }}:" />
         <x-form-submit class="mt-3" >{{ __('Create') }}</x-form-submit>
     </x-form>
+
 @endsection
