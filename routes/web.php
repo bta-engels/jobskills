@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminFrameworkController;
-use App\Http\Controllers\Admin\AdminLanguageController;
-use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CvController;
 use Illuminate\Support\Facades\Route;
