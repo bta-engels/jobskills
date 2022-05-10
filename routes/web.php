@@ -16,9 +16,7 @@ use App\Http\Controllers\AuthCustomer\CustomerForgotPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Admin\AdminFrameworkController;
-use App\Http\Controllers\Admin\AdminLanguageController;
-use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -89,11 +87,4 @@ Route::group([
 
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 
-Route::group([
-    'middleware' => 'auth:admin,customer',
-], function () {
-    Route::resource('frameworks', AdminFrameworkController::class)->except('show');
-    Route::resource('languages', AdminLanguageController::class)->except('show');
-    Route::resource('programmingLanguages', AdminProgrammingLanguageController::class)->except('show');
-});
 
