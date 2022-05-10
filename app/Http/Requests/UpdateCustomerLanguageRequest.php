@@ -13,7 +13,7 @@ class UpdateCustomerLanguageRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth('customer')->check();
     }
 
     /**
