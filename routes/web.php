@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminFrameworkController;
-use App\Http\Controllers\Admin\AdminLanguageController;
-use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CustomerEducationController;
 use App\Http\Controllers\CvController;
@@ -17,6 +14,9 @@ use App\Http\Controllers\AuthCustomer\CustomerForgotPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\AdminFrameworkController;
+use App\Http\Controllers\Admin\AdminLanguageController;
+use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
 
 
 /*

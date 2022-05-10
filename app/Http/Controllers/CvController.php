@@ -133,7 +133,7 @@ class CvController extends Controller
     {
 //        CustomerEducation::create($request->validated() + ['customer_id' => $customer->id]);
         $customer->educations()->create($request->validated());
-        return redirect()->route('cv.aboutMeEdit', $customer);
+        return redirect()->route('cv.educationEdit', $customer);
     }
 
 }
