@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AboutMeRequest;
 use App\Http\Requests\PersonalDataRequest;
+use App\Http\Requests\StoreCustomerEducationRequest;
 use App\Http\Requests\StoreCvRequest;
 use App\Http\Requests\UpdateCvRequest;
 use App\Models\Customer;
@@ -121,7 +122,12 @@ class CvController extends Controller
     public function educationEdit(Customer $customer)
     {
         return view('customers.cv.edit.education', compact('customer'));
-
     }
 
+    public function educationStore (StoreCustomerEducationRequest $request, Customer $customer)
+    {
+        $customer->educations()->create($request->validated());
+        return redirect()->route('cv.aboutMeEdit', $customer);
+
+    }
 }
