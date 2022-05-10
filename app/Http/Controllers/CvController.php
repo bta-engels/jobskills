@@ -112,6 +112,7 @@ class CvController extends Controller
     public function aboutMeStore(AboutMeRequest $request, Customer $customer)
     {
         $validated = $request->validated();
+
         $file = $request->file('img');
         if($file) {
             $imgName = $file->hashName();
@@ -119,12 +120,13 @@ class CvController extends Controller
             $validated['img'] = $imgName;
         }
         $customer->update($validated);
+        return redirect()->route('cv.educationEdit', $customer);
     }
 
     public function educationEdit(Customer $customer)
     {
         $educations = CustomerEducation::orderBy('from')->get();
-        return view('customers.cv.edit.education', compact('customer'));
+        return view('customers.cv.edit.education', compact('customer','educations'));
     }
 
     public function educationStore(StoreCustomerEducationRequest $request, Customer $customer)

@@ -22,14 +22,9 @@ ul.navbar-nav {
 		}
 	}
 }
-.navbar-nav {
-  .nav-item{
-    &.active {
-      background-color: #ddd;
-      a {
-        margin-left: 1.0rem;
-        color: #d00;
-      }
-    }
-  }
+.profile-img {
+	img {
+		height: 200px;
+		border-radius: 50%;
+	}
 }
