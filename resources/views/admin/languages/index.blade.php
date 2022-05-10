@@ -8,12 +8,12 @@
         <tr>
             <td>{{ $language->name }}</td>
             <td>
-                <a class="btn btn-primary" href="{{ route('admin.languages.edit', $language) }}">
+                <a class="btn btn-primary" href="{{ route('languages.edit', $language) }}">
                     {{ __('Edit') }}
                 </a>
             </td>
             <td>
-                <a class="btn btn-danger" href="{{ route('admin.languages.edit', $language) }}">
+                <a class="btn btn-danger" href="{{ route('languages.destroy', $language) }}">
                     {{ __('Remove') }}
                 </a>
             </td>
