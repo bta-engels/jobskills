@@ -40,7 +40,7 @@ class AdminProgrammingLanguageController extends Controller
     public function store(ProgrammingLanguagesRequest $request)
     {
         ProgrammingLanguage::create($request->validated());
-        return redirect('/programming_languages')->with('success', 'Programming Language created successfully');
+        return redirect('/programmingLanguages')->with('success', 'Programming Language created successfully');
     }
 
     /**
@@ -64,7 +64,7 @@ class AdminProgrammingLanguageController extends Controller
     public function update(ProgrammingLanguagesRequest $request, ProgrammingLanguage $programmingLanguage)
     {
         $programmingLanguage->update($request->validated());
-        return redirect('/programming_languages')->with('success', 'Programming Language updated successfully');
+        return redirect('/programmingLanguages')->with('success', 'Programming Language updated successfully');
     }
 
     /**
@@ -76,6 +76,6 @@ class AdminProgrammingLanguageController extends Controller
     public function destroy(ProgrammingLanguage $programmingLanguage)
     {
         $programmingLanguage->delete();
-        return redirect('/programming_languages')->with('success', 'Programming Language deleted successfully');
+        return redirect('/programmingLanguages')->with('success', 'Programming Language deleted successfully');
     }
 }
