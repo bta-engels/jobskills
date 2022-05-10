@@ -42,7 +42,7 @@
         <main class="container py-4">
             <div class="row">
 
-                <x-flash-message/>
+                <x-flash-message />
 
                 @auth('customer')
                     <aside class="col-3">@yield('sidebar')</aside>

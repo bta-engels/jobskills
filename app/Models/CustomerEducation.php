@@ -34,10 +34,10 @@ class CustomerEducation extends Model
     protected $table = 'education';
     public $timestamps = false;
     protected $guarded = ['id'];
-    protected $dates = ['from','until'];
+    protected $dates = ['from', 'until'];
     protected $casts = [
-        'from' => 'date:Y-m-d',
-        'until' => 'date:Y-m-d',
+        'from'  => 'date:Y-m-d',
+        'until'  => 'date:Y-m-d',
     ];
 
     public function customer()
