@@ -21,7 +21,7 @@
 
                     </form>
                 </td>
-
+            </tr>
             @endforeach
         </table>
 @endsection

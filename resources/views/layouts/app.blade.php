@@ -42,9 +42,7 @@
         <main class="container py-4">
             <div class="row">
 
-                @if(session('success'))
-                    <h3 class="alert alert-success">{{ session('success') }}</h3>
-                @endif
+                <x-flash-message/>
 
                 @auth('customer')
                     <aside class="col-3">@yield('sidebar')</aside>

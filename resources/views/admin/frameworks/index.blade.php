@@ -20,7 +20,7 @@
                         <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
                     </form>
                 </td>
-
+            </tr>
         @endforeach
     </table>
 @endsection

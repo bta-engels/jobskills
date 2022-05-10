@@ -124,9 +124,8 @@ class CvController extends Controller
 
     public function educationEdit(Customer $customer)
     {
-        $data = CustomerEducation::all();
-        $data2 = $customer;
-        return view('customers.cv.edit.education', ['educations'=>$data, 'customer'=>$data2]);
+        $educations = CustomerEducation::orderBy('from')->get();
+        return view('customers.cv.edit.education', compact('customer','educations'));
     }
 
     public function educationStore(StoreCustomerEducationRequest $request, Customer $customer)
