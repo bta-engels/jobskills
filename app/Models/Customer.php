@@ -86,7 +86,7 @@ class Customer extends Authenticatable
         return $this->belongsToMany(Language::class, 'customer_languages');
     }
 
-    public function languagesLevels()
+    public function languageLevels()
     {
         return $this->hasMany(CustomerLanguage::class);
     }
