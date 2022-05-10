@@ -86,5 +86,9 @@ class Customer extends Authenticatable
         return $this->hasManyThrough('languages', CustomerLanguage::class);
     }
 
+    public function languagesLevels()
+    {
+        return $this->hasMany(CustomerLanguage::class);
+    }
 
 }
