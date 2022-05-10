@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CustomerEducationController;
 use App\Http\Controllers\CvController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -85,6 +86,8 @@ Route::group([
     }
 });
 
-Route::resource('customers', CustomerController::class)->middleware('auth:customer');
-
+Route::group(['middleware' => 'auth:customer'], function () {
+    Route::resource('customers', CustomerController::class);
+    Route::resource('customer_educations', CustomerEducationController::class);
+});
 
