@@ -7,7 +7,23 @@
 @section('content')
     <h3>{{ __('Education') }}</h3>
 
-    <!-- tabelle mit educations anzeigen, wenn vorhanden  -->
+    <table class="table table-striped">
+        @foreach($educations as $education)
+            <tr>
+                <td>{{ $education->name}}</td>
+                <td>{{ $education->from}}</td>
+                <td>{{ $education->until}}</td>
+                <td>
+                    <form action="" method="post">
+                        <a class="btn btn-primary" href="">{{ __('Edit') }}</a>
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+                    </form>
+                </td>
+
+        @endforeach
+    </table>
 
     <x-form method="post" action="{{ route('cv.educationStore', $customer) }}">
         <x-form-input type="text" class="mb-3" name="name" label="{{ __('School') }}" />

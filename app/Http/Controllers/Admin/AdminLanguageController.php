@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\LanguagesRequest;
 use App\Models\Language;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Requests\LanguageRequest;
 
 class AdminLanguageController extends Controller
 {
@@ -16,8 +17,8 @@ class AdminLanguageController extends Controller
      */
     public function index()
     {
-        $data = Language::paginate($this->paginationLimit);
-        return view('admin.languages.index', compact('data'));
+        $data = Language::all();
+        return view('admin.languages.index', ['languages'=>$data]);
     }
 
     /**
@@ -33,10 +34,10 @@ class AdminLanguageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param LanguageRequest $request
+     * @param LanguagesRequest $request
      * @return Response
      */
-    public function store(LanguageRequest $request)
+    public function store(LanguagesRequest $request)
     {
         Language::create($request->validated());
         return redirect('/languages')->with('success', 'Language created successfully');
@@ -56,25 +57,27 @@ class AdminLanguageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param LanguageRequest $request
+     * @param LanguagesRequest $request
      * @param Language $language
      * @return Response
      */
-    public function update(LanguageRequest $request, Language $language)
+    public function update(LanguagesRequest $request, Language $language)
     {
         $language->update($request->validated());
         return redirect('/languages')->with('success', 'Language updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Language $language
-     * @return Response
-     */
+   /**
+    * Remove the specified resource from storage.
+    *
+    * @param Language $language
+    * @return Response
+    */
     public function destroy(Language $language)
     {
+
         $language->delete();
         return redirect('/languages')->with('success', 'Language deleted successfully');
+
     }
 }
