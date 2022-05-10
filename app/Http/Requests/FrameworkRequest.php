@@ -13,7 +13,7 @@ class FrameworkRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth('admin')->check();
     }
 
     /**
@@ -24,7 +24,7 @@ class FrameworkRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'  => 'required',
         ];
     }
 }

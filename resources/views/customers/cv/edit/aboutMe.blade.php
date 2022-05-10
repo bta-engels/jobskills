@@ -7,8 +7,8 @@
 @section('content')
     <h3> {{ __('About me') }}</h3>
 
-    @if($customer->img)
-    <img src="{{ asset('storage/images/' . $customer->img) }}" height="200" alt="">
+    @if($customer->img && Storage::disk('image')->exists($customer->img))
+        <img src="{{ asset('storage/images/' . $customer->img) }}" height="200" alt="">
     @endif
 
     <x-form method="post" action="{{ route('cv.aboutMeStore', $customer) }}" enctype="multipart/form-data" >

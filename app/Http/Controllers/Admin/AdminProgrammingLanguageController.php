@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\ProgrammingLanguage;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App\Http\Requests\ProgrammingLanguageRequest;
 
 class AdminProgrammingLanguageController extends Controller
 {
@@ -16,8 +16,8 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function index()
     {
-        $data = ProgrammingLanguage::all();
-        return view('admin.programming_languages.index', ['programming_languages'=>$data]);
+        $data = ProgrammingLanguage::paginate($this->paginationLimit);
+        return view('admin.programmingLanguages.index', compact('data'));
     }
 
     /**
@@ -27,29 +27,19 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.programmingLanguages.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param ProgrammingLanguageRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(ProgrammingLanguageRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param ProgrammingLanguage $programmingLanguage
-     * @return Response
-     */
-    public function show(ProgrammingLanguage $programmingLanguage)
-    {
-        //
+        ProgrammingLanguage::create($request->validated());
+        return redirect('/programmingLanguages')->with('success', 'Programming language created successfully');
     }
 
     /**
@@ -60,19 +50,20 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function edit(ProgrammingLanguage $programmingLanguage)
     {
-        //
+        return view('admin.programmingLanguages.edit', compact('programmingLanguage'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param ProgrammingLanguageRequest $request
      * @param ProgrammingLanguage $programmingLanguage
      * @return Response
      */
-    public function update(Request $request, ProgrammingLanguage $programmingLanguage)
+    public function update(ProgrammingLanguageRequest $request, ProgrammingLanguage $programmingLanguage)
     {
-        //
+        $programmingLanguage->update($request->validated());
+        return redirect('/programmingLanguages')->with('success', 'Programming language updated successfully');
     }
 
     /**
@@ -83,6 +74,7 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function destroy(ProgrammingLanguage $programmingLanguage)
     {
-        //
+        $programmingLanguage->delete();
+        return redirect('/programmingLanguages')->with('success', 'Programming language deleted successfully');
     }
 }

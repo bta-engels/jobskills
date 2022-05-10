@@ -3,7 +3,7 @@
 @section('content')
    <h3>{{$customer->name}}</h3>
    <table class="table table-striped">
-      @if($customer->img)
+      @if($customer->img && Storage::disk('image')->exists($customer->img))
       <tr>
          <td>{{ __('Image') }}:</td>
          <td><img src="{{ asset('/storage/images/' . $customer->img) }}" height="200" alt=""></td>

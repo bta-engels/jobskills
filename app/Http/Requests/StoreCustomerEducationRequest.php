@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProgrammingLanguageRequest extends FormRequest
+class StoreCustomerEducationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ProgrammingLanguageRequest extends FormRequest
      */
     public function authorize()
     {
-        return auth('admin')->check();
+        return auth('customer')->check();
     }
 
     /**
@@ -24,7 +24,10 @@ class ProgrammingLanguageRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  => 'required',
+            'name'          => 'required',
+            'description'   => '',
+            'from'          => 'required|date|before:until',
+            'until'         => 'required|date|after:from'
         ];
     }
 }

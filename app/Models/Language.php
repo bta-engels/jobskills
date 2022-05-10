@@ -23,8 +23,5 @@ class Language extends Model
 {
     use HasFactory;
     public $timestamps = false;
-
-    protected $table = 'languages';
-    protected $primaryKey = 'id';
-    protected $fillable = ['name'];
+    protected $guarded = ['id'];
 }
