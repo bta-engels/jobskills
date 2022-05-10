@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\FrameworksRequest;
 use App\Models\Framework;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FrameworkRequest;
 
 class AdminFrameworkController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +18,8 @@ class AdminFrameworkController extends Controller
      */
     public function index()
     {
-        $data = Framework::paginate($this->paginationLimit);
-        return view('admin.frameworks.index', compact('data'));
+        $data = Framework::all();
+        return view('admin.frameworks.index', ['frameworks'=>$data]);
     }
 
     /**
@@ -33,10 +35,10 @@ class AdminFrameworkController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param FrameworkRequest $request
+     * @param Request $request
      * @return Response
      */
-    public function store(FrameworkRequest $request)
+    public function store(FrameworksRequest $request)
     {
         Framework::create($request->validated());
         return redirect('/frameworks')->with('success', 'Framework created successfully');
@@ -56,11 +58,11 @@ class AdminFrameworkController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param FrameworkRequest $request
+     * @param Request $request
      * @param Framework $framework
      * @return Response
      */
-    public function update(FrameworkRequest $request, Framework $framework)
+    public function update(FrameworksRequest $request, Framework $framework)
     {
         $framework->update($request->validated());
         return redirect('/frameworks')->with('success', 'Framework updated successfully');

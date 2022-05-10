@@ -120,11 +120,13 @@ class CvController extends Controller
             $validated['img'] = $imgName;
         }
         $customer->update($validated);
+        return redirect()->route('cv.educationEdit', $customer);
     }
 
     public function educationEdit(Customer $customer)
     {
-        return view('customers.cv.edit.education', compact('customer'));
+        $educations = CustomerEducation::orderBy('from')->get();
+        return view('customers.cv.edit.education', compact('customer','educations'));
     }
 
     public function educationStore(StoreCustomerEducationRequest $request, Customer $customer)

@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\AdminFrameworkController;
 use App\Http\Controllers\Admin\AdminLanguageController;
 use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,12 +36,17 @@ Route::group([
     Auth::routes();
 });
 
-Route::match(['get','post'],'admin/register', fn() => redirect('/'))->name('remove.admin.register');
 
 //admin
-Route::resource('languages', AdminLanguageController::class);
-Route::resource('frameworks', AdminFrameworkController::class);
-Route::resource('programming_languages', AdminProgrammingLanguageController::class);
+Route::match(['get','post'],'admin/register', fn() => redirect('/'))->name('remove.admin.register');
+
+Route::group([
+    'middleware' => 'auth:admin',
+], function () {
+    Route::resource('languages',AdminLanguageController::class )->except(['show']);
+    Route::resource('frameworks',AdminFrameworkController::class )->except(['show']);
+    Route::resource('programming_languages',AdminProgrammingLanguageController::class )->except(['show']);
+});
 
 //customer
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');
@@ -81,11 +87,4 @@ Route::group([
 
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 
-Route::group([
-    'middleware' => 'auth:admin,customer',
-], function () {
-    Route::resource('frameworks', AdminFrameworkController::class)->except('show');
-    Route::resource('languages', AdminLanguageController::class)->except('show');
-    Route::resource('programmingLanguages', AdminProgrammingLanguageController::class)->except('show');
-});
 

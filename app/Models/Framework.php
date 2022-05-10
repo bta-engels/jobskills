@@ -23,5 +23,6 @@ class Framework extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $guarded = ['id'];
+
+    protected $fillable = ['name'];
 }

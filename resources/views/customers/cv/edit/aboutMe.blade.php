@@ -6,9 +6,10 @@
 
 @section('content')
     <h3> {{ __('About me') }}</h3>
-
     @if($customer->img && Storage::disk('image')->exists($customer->img))
-        <img src="{{ asset('storage/images/' . $customer->img) }}" height="200" alt="">
+        <div class="profile-img d-flex justify-content-left">
+            <img src="{{ asset('storage/images/' . $customer->img) }}" />
+        </div>
     @endif
 
     <x-form method="post" action="{{ route('cv.aboutMeStore', $customer) }}" enctype="multipart/form-data" >
