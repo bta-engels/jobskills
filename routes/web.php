@@ -16,6 +16,7 @@ use App\Http\Controllers\AuthCustomer\CustomerForgotPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CustomerEducationController;
 
 
 /*
@@ -85,6 +86,9 @@ Route::group([
     }
 });
 
-Route::resource('customers', CustomerController::class)->middleware('auth:customer');
+Route::group(['middleware' => 'auth:customer'], function () {
+    Route::resource('customers', CustomerController::class);
+    Route::resource('customer_educations', CustomerEducationController::class);
+});
 
 

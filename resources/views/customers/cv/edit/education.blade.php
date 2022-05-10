@@ -15,8 +15,8 @@
                     <td>{{ $education->from->format('d.m.Y') }}</td>
                     <td>{{ $education->until->format('d.m.Y') }}</td>
                     <td>
-                        <x-form action="">
-                            <a class="btn btn-sm btn-primary" href="">{{ __('Edit') }}</a>
+                        <x-form action="{{ route('customer_educations.destroy', $education) }}">
+                            <a class="btn btn-sm btn-primary" href="{{ route('customer_educations.edit', $education)}}">{{ __('Edit') }}</a>
                             @method('delete')
                             <x-form-submit class="btn btn-sm btn-danger delsoft">{{ __('Delete') }}</x-form-submit>
                         </x-form>

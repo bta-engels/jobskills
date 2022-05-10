@@ -132,7 +132,6 @@ class CvController extends Controller
     public function educationStore(StoreCustomerEducationRequest $request, Customer $customer)
     {
         $customer->educations()->create($request->validated());
-        return redirect()->route('cv.aboutMeEdit', $customer);
+        return redirect()->route('cv.educationEdit', $customer);
     }
-
 }
