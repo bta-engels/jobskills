@@ -18,7 +18,7 @@ class AdminLanguageController extends Controller
      */
     public function index()
     {
-        $data = Language::all();
+        $data = Language::paginate($this->paginationLimit);
         return view('admin.languages.index', ['languages'=>$data]);
     }
 

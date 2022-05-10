@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 
 class AdminProgrammingLanguageController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +18,8 @@ class AdminProgrammingLanguageController extends Controller
      */
     public function index()
     {
-        $data = ProgrammingLanguage::all();
-        return view('admin.programming_languages.index', ['programmingLanguages'=>$data]);
+        $data = ProgrammingLanguage::paginate($this->paginationLimit);
+        return view('admin.programming_languages.index', ['programmingLanguages' => $data]);
     }
 
     /**

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <h1>Create Programming Language</h1>
 
     <x-form method="post" action="{{ route('programming_languages.store') }}" >
