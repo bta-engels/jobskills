@@ -120,6 +120,7 @@ class CvController extends Controller
             $validated['img'] = $imgName;
         }
         $customer->update($validated);
+        return redirect()->route('cv.educationEdit', $customer);
     }
 
     public function educationEdit(Customer $customer)

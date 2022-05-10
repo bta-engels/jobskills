@@ -33,7 +33,17 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
-            'throw' => false,
+            'throw' => true,
+            'permissions' => [
+                'file' => [
+                    'public' => 0666,
+                    'private' => 0600,
+                ],
+                'dir' => [
+                    'public' => 0777,
+                    'private' => 0700,
+                ],
+            ],
         ],
 
         'public' => [
@@ -50,16 +60,6 @@ return [
             'url' => env('APP_URL').'/storage/images',
             'visibility' => 'public',
             'throw' => false,
-            'permissions' => [
-                'file' => [
-                    'public' => 0666,
-                    'private' => 0600,
-                ],
-                'dir' => [
-                    'public' => 0777,
-                    'private' => 0700,
-                ],
-            ],
         ],
 
         's3' => [
