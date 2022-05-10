@@ -11,8 +11,8 @@
 		color: red;
 	}
 }
-.navbar-nav {
-	.nav-item {
+ul.navbar-nav {
+	li.nav-item {
 		&.active {
 			background-color: #ddd;
 			a {

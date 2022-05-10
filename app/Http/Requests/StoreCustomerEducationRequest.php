@@ -24,10 +24,10 @@ class StoreCustomerEducationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'description' => '',
-            'from' => 'required|date|before:until',
-            'until' => 'required|date|after:from'
+            'name'          => 'required',
+            'description'   => '',
+            'from'          => 'required|date|before:until',
+            'until'         => 'required|date|after:from'
         ];
     }
 }

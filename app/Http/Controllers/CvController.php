@@ -8,8 +8,10 @@ use App\Http\Requests\StoreCustomerEducationRequest;
 use App\Http\Requests\StoreCvRequest;
 use App\Http\Requests\UpdateCvRequest;
 use App\Models\Customer;
+use App\Models\CustomerEducation;
 use App\Models\Cv;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class CvController extends Controller
 {
@@ -113,7 +115,7 @@ class CvController extends Controller
         $file = $request->file('img');
         if($file) {
             $imgName = $file->hashName();
-            $file->storeAs('', $imgName, ['disk' => 'image']);
+            Storage::disk('image')->putFileAs('', $file, $imgName);
             $validated['img'] = $imgName;
         }
         $customer->update($validated);
@@ -124,10 +126,10 @@ class CvController extends Controller
         return view('customers.cv.edit.education', compact('customer'));
     }
 
-    public function educationStore (StoreCustomerEducationRequest $request, Customer $customer)
+    public function educationStore(StoreCustomerEducationRequest $request, Customer $customer)
     {
         $customer->educations()->create($request->validated());
         return redirect()->route('cv.aboutMeEdit', $customer);
-
     }
+
 }

@@ -16,8 +16,8 @@ class AdminFrameworkController extends Controller
      */
     public function index()
     {
-        $data = Framework::all();
-        return view('admin.frameworks.index', ['frameworks'=>$data]);
+        $data = Framework::paginate($this->paginationLimit);
+        return view('admin.frameworks.index', compact('data'));
     }
 
     /**
@@ -27,21 +27,18 @@ class AdminFrameworkController extends Controller
      */
     public function create()
     {
-        return view('admin.frameworks.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param FrameworkRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(FrameworkRequest $request)
     {
-        $data = $request->validate([
-            'name' => 'required'
-        ]);
-        Framework::create($data);
+        Framework::create($request->validated());
         return redirect('/frameworks')->with('success', 'Framework created successfully');
     }
 
@@ -51,23 +48,21 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function edit($framework)
+    public function edit(Framework $framework)
     {
-        $data = Framework::find($framework);
-        return view('admin.frameworks.edit', ['framework'=>$data]);
+        return view('admin.frameworks.edit', compact('framework'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param FrameworkRequest $request
      * @param Framework $framework
      * @return Response
      */
-    public function update(Request $request, Framework $framework)
+    public function update(FrameworkRequest $request, Framework $framework)
     {
-        $data = $request->input();
-        $framework->update($data);
+        $framework->update($request->validated());
         return redirect('/frameworks')->with('success', 'Framework updated successfully');
     }
 
@@ -77,10 +72,9 @@ class AdminFrameworkController extends Controller
      * @param Framework $framework
      * @return Response
      */
-    public function destroy($framework)
+    public function destroy(Framework $framework)
     {
-        $data = Framework::findOrFail($framework);
-        $data->delete();
+        $framework->delete();
         return redirect('/frameworks')->with('success', 'Framework deleted successfully');
     }
 }
