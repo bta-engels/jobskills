@@ -59,7 +59,7 @@ class CustomerEducationController extends Controller
      */
     public function edit(CustomerEducation $customerEducation)
     {
-        return view('customers.customer_education.edit', compact('customerEducation'));
+        return view('customers.customer_educations.edit', compact('customerEducation'));
     }
 
     /**
