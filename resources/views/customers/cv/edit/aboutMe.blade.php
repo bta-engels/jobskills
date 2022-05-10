@@ -6,9 +6,9 @@
 
 @section('content')
     <h3> {{ __('About me') }}</h3>
-    @if($customer->img)
-        <div class="d-flex justify-content-left">
-    <img src="{{ asset('storage/images/' . $customer->img) }}" height="200 " style="width: 200px; height: 200px; border-radius: 50%;   ">
+    @if($customer->img && Storage::disk('image')->exists($customer->img))
+        <div class="profile-img d-flex justify-content-left">
+            <img src="{{ asset('storage/images/' . $customer->img) }}" />
         </div>
     @endif
 

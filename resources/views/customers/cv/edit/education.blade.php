@@ -8,23 +8,22 @@
     <h3>{{ __('Education') }}</h3>
 
     @if($educations->count() > 0)
-    <table class="table table-striped">
-        @foreach($educations as $education)
-            <tr>
-                <td>{{ $education->name }}</td>
-                <td>{{ $education->from->format('d.m.Y') }}</td>
-                <td>{{ $education->until->format('d.m.Y') }}</td>
-                <td>
-                    <form action="" method="post">
-                        <a class="btn btn-primary" href="">{{ __('Edit') }}</a>
-                        @csrf
-                        @method('delete')
-                        <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-    </table>
+        <table class="table table-striped">
+            @foreach($educations as $education)
+                <tr>
+                    <td>{{ $education->name }}</td>
+                    <td>{{ $education->from->format('d.m.Y') }}</td>
+                    <td>{{ $education->until->format('d.m.Y') }}</td>
+                    <td>
+                        <x-form action="">
+                            <a class="btn btn-sm btn-primary" href="">{{ __('Edit') }}</a>
+                            @method('delete')
+                            <x-form-submit class="btn btn-sm btn-danger delsoft">{{ __('Delete') }}</x-form-submit>
+                        </x-form>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
     @endif
 
     <x-form method="post" action="{{ route('cv.educationStore', $customer) }}">
