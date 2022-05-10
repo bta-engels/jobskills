@@ -13,13 +13,12 @@
             <tr>
                 <td>{{ $language->name }}</td>
                 <td>
-                    <form action="{{ route('languages.destroy', $language) }}">
+                    <x-form action="{{ route('languages.destroy', $language) }}">
                         <a class="btn btn-primary" href="{{ route('languages.edit', $language) }}">{{ __('Edit') }}</a>
-                        @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+                        <x-form-submit class="btn btn-danger delsoft">{{ __('Delete') }}</x-form-submit>
 
-                    </form>
+                    </x-form>
                 </td>
 
             @endforeach
