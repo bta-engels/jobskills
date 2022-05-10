@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CustomerEducationController;
+use App\Http\Controllers\CustomerLanguageController;
 use App\Http\Controllers\CvController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -89,5 +90,6 @@ Route::group([
 Route::group(['middleware' => 'auth:customer'], function () {
     Route::resource('customers', CustomerController::class);
     Route::resource('customer_educations', CustomerEducationController::class);
+    Route::resource('customer_languages', CustomerLanguageController::class);
 });
 
