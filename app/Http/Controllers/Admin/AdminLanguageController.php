@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 
 class AdminLanguageController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
