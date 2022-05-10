@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `todos`;
 CREATE TABLE `todos` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `done` tinyint(1) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
@@ -41,8 +41,8 @@ CREATE TABLE `todos` (
 --
 
 INSERT IGNORE INTO `todos` (`title`, `done`, `created_at`, `updated_at`) VALUES
-('Zähneputzenn', 0, '2020-06-03 08:11:16', '2020-10-23 15:04:46'),
-('KNEIPE. cozy athmosphere, cheap beer, good ', 0, '2020-06-05 13:33:42', '2020-10-23 15:06:00'),
+('Zähneputzen', 0, '2020-06-03 08:11:16', '2020-10-23 15:04:46'),
+('Kaffee, Milch kaufen', 0, '2020-06-05 13:33:42', '2020-10-23 15:06:00'),
 ('Schlafen gehen und wieder aufstehen', 1, '2020-10-22 13:06:32', '2020-10-23 15:05:51');
 
 --
@@ -52,19 +52,8 @@ INSERT IGNORE INTO `todos` (`title`, `done`, `created_at`, `updated_at`) VALUES
 --
 -- Indizes für die Tabelle `todos`
 --
-ALTER TABLE `todos`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT für exportierte Tabellen
---
-
---
--- AUTO_INCREMENT für Tabelle `todos`
---
-ALTER TABLE `todos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
-COMMIT;
+-- ALTER TABLE `todos`
+--  ADD PRIMARY KEY (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
