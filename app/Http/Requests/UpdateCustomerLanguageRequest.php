@@ -25,6 +25,7 @@ class UpdateCustomerLanguageRequest extends FormRequest
     {
         return [
             'languages' => [],
+            'level' => '',
         ];
     }
 }
