@@ -9,14 +9,14 @@
     {{ $data->links() }}
     <table class="table table-sm table-striped">
         <thead>
-            <tr>
-                <th>{{ __('ID') }}</th>
-                <th>{{ __('Name') }}</th>
-                <th></th>
-            </tr>
+        <tr>
+            <th>{{ __('ID') }}</th>
+            <th>{{ __('Name') }}</th>
+            <th></th>
+        </tr>
         </thead>
         <tbody>
-            @foreach($data as $item)
+        @foreach($data as $item)
             <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
@@ -30,7 +30,7 @@
                     </x-form>
                 </td>
             </tr>
-            @endforeach
+        @endforeach
         </tbody>
     </table>
     {{ $data->links() }}

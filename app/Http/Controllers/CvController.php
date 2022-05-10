@@ -123,6 +123,7 @@ class CvController extends Controller
 
     public function educationEdit(Customer $customer)
     {
+        $educations = CustomerEducation::orderBy('from')->get();
         return view('customers.cv.edit.education', compact('customer'));
     }
 

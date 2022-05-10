@@ -16,9 +16,6 @@ use App\Http\Controllers\AuthCustomer\CustomerForgotPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Admin\AdminFrameworkController;
-use App\Http\Controllers\Admin\AdminLanguageController;
-use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,11 +42,10 @@ Route::match(['get','post'],'admin/register', fn() => redirect('/'))->name('remo
 Route::group([
     'middleware' => 'auth:admin',
 ], function () {
-    Route::resource('languages',AdminLanguageController::class )->except(['show']);
-    Route::resource('frameworks',AdminFrameworkController::class )->except(['show']);
-    Route::resource('programming_languages',AdminProgrammingLanguageController::class )->except(['show']);
+    Route::resource('frameworks', AdminFrameworkController::class)->except('show');
+    Route::resource('languages', AdminLanguageController::class)->except('show');
+    Route::resource('programmingLanguages', AdminProgrammingLanguageController::class)->except('show');
 });
-
 //customer
 Route::get('register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [CustomerRegisterController::class, 'register'])->name('register');
@@ -89,12 +85,6 @@ Route::group([
 
 Route::resource('customers', CustomerController::class)->middleware('auth:customer');
 
-Route::group([
-    'middleware' => 'auth:admin,customer',
-], function () {
-    Route::resource('frameworks', AdminFrameworkController::class)->except('show');
-    Route::resource('languages', AdminLanguageController::class)->except('show');
-    Route::resource('programmingLanguages', AdminProgrammingLanguageController::class)->except('show');
-});
+
 
 

@@ -38,7 +38,8 @@ class AdminLanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Language::create($request->validated());
+        return redirect('/languages')->with('success', 'Language created successfully');
     }
 
     /**
@@ -49,8 +50,7 @@ class AdminLanguageController extends Controller
      */
     public function show(Language $language)
     {
-        Language::create($request->validated());
-        return redirect('/languages')->with('success', 'Language created successfully');
+
     }
 
     /**

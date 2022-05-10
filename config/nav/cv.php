@@ -12,5 +12,4 @@ return [
     'Hard Skills',            // route: cvs.hardSkills method: CvController::hardSkills
     'Soft Skills',            // route: cvs.softSkills method: CvController::softSkills
     'Interests',              // route: cvs.interests method: CvController::interests
-*/
 ];
