@@ -146,7 +146,7 @@ class CvController extends Controller
 
     public function languagesStore(CustomerLanguageRequest $request, Customer $customer)
     {
-        
+
     }
 
 }
