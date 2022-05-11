@@ -24,7 +24,7 @@ class UpdateCustomerLanguageRequest extends FormRequest
     public function rules()
     {
         return [
-            'languages' => [],
+//            'languages' => [],
             'level' => '',
         ];
     }

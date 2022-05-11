@@ -23,7 +23,9 @@
             @foreach($customer->languageLevels as $item)
                 <tr>
                     <td>{{ $item->language->name }}</td>
-                    <td>{{ $item->level }}</td>
+                    <td>
+
+                    </td>
                 </tr>
             @endforeach
         </table>
