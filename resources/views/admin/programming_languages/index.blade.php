@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <h1>Programming Languages</h1>
 
     <div class="col-md-12 text-end mt-4" style="margin-bottom: 10px;">
@@ -7,7 +8,7 @@
             {{ __('Add New Programming Language') }}
         </a>
     </div>
-
+    {{ $programmingLanguages->links() }}
     <table class="table table-striped">
         @foreach($programmingLanguages as $programmingLanguage)
             <tr>
@@ -23,4 +24,5 @@
             </tr>
         @endforeach
     </table>
+    {{ $programmingLanguages->links() }}
 @endsection

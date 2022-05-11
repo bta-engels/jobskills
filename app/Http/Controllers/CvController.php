@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AboutMeRequest;
+use App\Http\Requests\CustomerLanguageRequest;
 use App\Http\Requests\PersonalDataRequest;
 use App\Http\Requests\StoreCustomerEducationRequest;
 use App\Http\Requests\StoreCustomerLanguageRequest;
@@ -12,10 +13,9 @@ use App\Models\Customer;
 use App\Models\CustomerEducation;
 use App\Models\CustomerLanguage;
 use App\Models\Cv;
+use App\Models\Language;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Language;
-
 
 class CvController extends Controller
 {
@@ -135,6 +135,7 @@ class CvController extends Controller
 
     public function educationStore(StoreCustomerEducationRequest $request, Customer $customer)
     {
+//        CustomerEducation::create($request->validated() + ['customer_id' => $customer->id]);
         $customer->educations()->create($request->validated());
         return redirect()->route('cv.educationEdit', $customer);
     }
@@ -147,7 +148,6 @@ class CvController extends Controller
 
     public function languagesStore(StoreCustomerLanguageRequest $request, Customer $customer)
     {
-
     }
 
 }

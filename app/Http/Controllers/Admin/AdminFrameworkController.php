@@ -18,7 +18,7 @@ class AdminFrameworkController extends Controller
      */
     public function index()
     {
-        $data = Framework::all();
+        $data = Framework::paginate($this->paginationLimit);
         return view('admin.frameworks.index', ['frameworks'=>$data]);
     }
 

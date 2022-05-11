@@ -8,20 +8,21 @@
         </a>
     </div>
 
-        <table class="table table-striped">
-            @foreach($languages as $language)
-            <tr>
-                <td>{{ $language->name }}</td>
-                <td>
-                    <x-form action="{{ route('languages.destroy', $language) }}" method="post">
-                        <a class="btn btn-primary" href="{{ route('languages.edit', $language) }}">{{ __('Edit') }}</a>
-                        @csrf
-                        @method('delete')
-                        <x-form-submit type="submit" class="btn btn-danger delsoft" >{{ __('Delete') }}</x-form-submit>
+    {{ $languages->links() }}
+    <table class="table table-striped">
+        @foreach($languages as $language)
+        <tr>
+            <td>{{ $language->name }}</td>
+            <td>
+                <x-form action="{{ route('languages.destroy', $language) }}">
+                    <a class="btn btn-primary" href="{{ route('languages.edit', $language) }}">{{ __('Edit') }}</a>
+                    @method('delete')
+                    <x-form-submit class="btn btn-danger delsoft">{{ __('Delete') }}</x-form-submit>
 
-                    </x-form>
-                </td>
-            </tr>
-            @endforeach
-        </table>
+                </x-form>
+            </td>
+
+        @endforeach
+    </table>
+    {{ $languages->links() }}
 @endsection

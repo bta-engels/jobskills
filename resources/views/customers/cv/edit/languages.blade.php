@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    Done
+<p>Hat funktioniert</p>
 @endsection

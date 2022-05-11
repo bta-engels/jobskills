@@ -8,6 +8,8 @@
         </a>
     </div>
 
+    {{ $frameworks->links() }}
+
     <table class="table table-striped">
         @foreach($frameworks as $framework)
             <tr>
@@ -23,4 +25,6 @@
             </tr>
         @endforeach
     </table>
+
+    {{ $frameworks->links() }}
 @endsection

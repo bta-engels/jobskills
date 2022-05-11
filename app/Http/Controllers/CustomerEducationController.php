@@ -72,7 +72,7 @@ class CustomerEducationController extends Controller
     public function update(UpdateCustomerEducationRequest $request, CustomerEducation $customerEducation)
     {
         $customerEducation->update($request->validated());
-        return redirect()->route('cv.educationEdit', $customerEducation->customer)->with('success', 'Education updated successfully');
+        return redirect()->route('cv.educationEdit', $customerEducation->customer)->with('success', 'Update successful');
     }
 
     /**
@@ -84,6 +84,6 @@ class CustomerEducationController extends Controller
     public function destroy(CustomerEducation $customerEducation)
     {
         $customerEducation->delete();
-        return redirect()->route('cv.educationEdit', $customerEducation->customer)->with('success', 'Education deleted successfully');
+        return redirect()->route('cv.educationEdit', $customerEducation->customer)->with('success', 'Deletion successful');
     }
 }

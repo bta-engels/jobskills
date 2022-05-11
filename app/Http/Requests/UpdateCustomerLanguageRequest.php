@@ -13,7 +13,7 @@ class UpdateCustomerLanguageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth('customer')->check();
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateCustomerLanguageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'languages' => [],
+            'level' => '',
         ];
     }
 }
