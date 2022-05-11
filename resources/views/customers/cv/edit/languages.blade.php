@@ -9,7 +9,7 @@
 
     <x-form method="post" action="{{ route('cv.languagesStore', $customer) }}">
         @bind($customer)
-        <x-form-select name="languages[]" multiple may-relation :options="$languages" label="Select your Languages:"/>
+        <x-form-select name="languages[]" multiple may-relation :options="$languages" />
         <x-form-submit class="mt-2">{{ __('Save') }}</x-form-submit>
         @endbind
     </x-form>
