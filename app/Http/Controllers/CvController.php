@@ -142,12 +142,15 @@ class CvController extends Controller
 
     public function languagesEdit(Customer $customer)
     {
-        $languages = Language::orderBy('name')->get();
+        $languages = Language::orderBy('name')->get()->keyBy('id')->map->name;
         return view('customers.cv.edit.languages', compact('customer','languages'));
     }
 
     public function languagesStore(StoreCustomerLanguageRequest $request, Customer $customer)
     {
+        $validated = $request->validated();
+        $customer->languages()->sync($validated['languages']);
+        return redirect()->route('cv.languagesEdit', $customer);
     }
 
 }
