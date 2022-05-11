@@ -54,6 +54,8 @@ use Illuminate\Support\Carbon;
  * @property-read Cv|null $cv
  * @property-read Collection|CustomerEducation[] $educations
  * @property-read int|null $educations_count
+ * @property-read Collection|Language[] $languages
+ * @property-read int|null $languages_count
  */
 class Customer extends Authenticatable
 {
@@ -79,5 +81,13 @@ class Customer extends Authenticatable
     public function educations()
     {
         return $this->hasMany(CustomerEducation::class);
+    }
+
+    public function languages() {
+        return $this->belongsToMany(Language::class, 'customer_languages');
+    }
+
+    public function languageLevels() {
+        return $this->hasMany(CustomerLanguage::class);
     }
 }
