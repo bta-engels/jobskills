@@ -15,4 +15,9 @@ class CustomerLanguage extends Model
     {
         return $this->belongsTo(Language::class);
     }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }
