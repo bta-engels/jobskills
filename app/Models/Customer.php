@@ -92,4 +92,14 @@ class Customer extends Authenticatable
     {
         return $this->hasMany(CustomerLanguage::class);
     }
+
+    public function programmingLanguages()
+    {
+        return $this->belongsToMany(ProgrammingLanguage::class, 'customer_programming_languages');
+    }
+
+    public function programmingLanguageLevels()
+    {
+        return $this->hasMany(CustomerProgrammingLanguage::class);
+    }
 }
