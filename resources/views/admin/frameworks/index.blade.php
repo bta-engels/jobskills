@@ -15,14 +15,14 @@
             <tr>
                 <td>{{ $framework->name}}</td>
                 <td>
-                    <form action="{{ route('frameworks.destroy', $framework) }}" method="post">
+                    <x-form action="{{ route('frameworks.destroy', $framework) }}" method="post">
                         <a class="btn btn-primary" href="{{ route('frameworks.edit', $framework) }}">{{ __('Edit') }}</a>
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
-                    </form>
+                        <x-form-submit type="submit" class="btn btn-danger delsoft">{{ __('Delete') }}</x-form-submit>
+                    </x-form>
                 </td>
-
+            </tr>
         @endforeach
     </table>
 
