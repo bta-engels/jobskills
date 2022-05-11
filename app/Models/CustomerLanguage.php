@@ -11,4 +11,8 @@ class CustomerLanguage extends Model
     public $timestamps = false;
     protected $guarded = ['id'];
 
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 }
