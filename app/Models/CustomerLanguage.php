@@ -38,5 +38,4 @@ class CustomerLanguage extends Model
     {
         return $this->belongsTo(Customer::class);
     }
-
 }

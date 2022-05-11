@@ -43,6 +43,8 @@ use Laravel\Sanctum\PersonalAccessToken;
  * @method static Builder|User whereRememberToken($value)
  * @method static Builder|User whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property-read Collection|Language[] $language
+ * @property-read int|null $language_count
  */
 class User extends Authenticatable
 {
@@ -77,4 +79,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function language()
+    {
+        return $this->hasMany(Language::class, 'user_id');
+    }
 }
+
