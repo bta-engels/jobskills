@@ -27,7 +27,7 @@
                         <form method="post" action="{{ route('customer_programming_languages.update', $item) }}">
                             @csrf
                             @method('put')
-                            <input type="range" name="level" value="{{ $item->level }}" steps="1" min="1" max="10" >
+                            <input type="range" name="level" value="{{ $item->level }}" steps="1" min="0" max="10" />
                             <button class="btn btn-sm btn-primary">{{ __('Submit') }}</button>
                         </form>
                     </td>
@@ -35,4 +35,5 @@
             @endforeach
         </table>
     @endif
+    <a class="btn btn-primary" href="{{ route('cv.frameworksEdit', $customer) }}">{{ __('Next') }}</a>
 @endsection

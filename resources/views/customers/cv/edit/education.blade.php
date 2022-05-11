@@ -32,5 +32,6 @@
         <x-form-input type="date" class="mb-3" name="from" label="{{ __('From') }}" />
         <x-form-input type="date" class="mb-3" name="until" label="{{ __('Until') }}" />
         <x-form-submit class="mt-3">{{ __('Add') }}</x-form-submit>
+        <a class="btn btn-primary ms-3 mt-3" href="{{ route('cv.languagesEdit', $education->customer) }}">{{ __('Next') }}</a>
     </x-form>
 @endsection
