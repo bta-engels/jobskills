@@ -10,8 +10,8 @@
     <x-form method="post" action="{{ route('cv.programmingLanguagesStore', $customer) }}" >
         @bind($customer)
         <x-form-select name="programmingLanguages[]" :options="$programmingLanguages" multiple many-relation label="Select your Languages:"/>
-        <x-form-submit class="mt-2">{{ __('Save') }}</x-form-submit>
         @endbind
+        <x-form-submit class="mt-2">{{ __('Save') }}</x-form-submit>
     </x-form>
 
     @if($customer->programmingLanguageLevels->count() > 0)
