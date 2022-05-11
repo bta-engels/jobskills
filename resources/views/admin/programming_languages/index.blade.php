@@ -17,8 +17,6 @@
                     <x-form action="{{ route('programming_languages.destroy', $programmingLanguage) }}" method="post">
                         <a class="btn btn-primary" href="{{ route('programming_languages.edit', $programmingLanguage) }}">{{ __('Edit') }}</a>
                         @method('delete')
-                        <x-form-submit type="submit" class="btn btn-danger delsoft">{{ __('Delete') }}</x-form-submit>
-                    </x-form>
                         <x-form-submit class="btn btn-danger delsoft">{{ __('Delete') }}</x-form-submit>
                     </x-form>
                 </td>
