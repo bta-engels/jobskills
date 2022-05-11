@@ -17,7 +17,7 @@
     @if($customer->languageLevels->count() > 0)
         <table class="table table-striped mt-2">
             <tr>
-                <th>{{__('Language')}}</th>
+                <th class="w-25">{{__('Language')}}</th>
                 <th>{{__('Level')}}</th>
             </tr>
             @foreach($customer->languageLevels as $item)
