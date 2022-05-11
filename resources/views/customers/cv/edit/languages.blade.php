@@ -5,6 +5,5 @@
 @endsection
 
 @section('content')
-    <h3>{{ __('Languages') }}</h3>
-
+<p>Hat funktioniert</p>
 @endsection

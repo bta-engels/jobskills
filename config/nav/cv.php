@@ -4,7 +4,6 @@ return [
     'About me',               // route: cvs.aboutMe method: CvController::aboutMe
     'Education',              // route: cvs.education method: CvController::education
     'Languages',              // route: cvs.languages method: CvController::languages
-
     /*
         'Work experience',        // route: cvs.workExperience method: CvController::workExperience
         'Voluntary',              // route: cvs.voluntary method: CvController::voluntary

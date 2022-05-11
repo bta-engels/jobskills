@@ -60,7 +60,6 @@ class CustomerEducationController extends Controller
     public function edit(CustomerEducation $customerEducation)
     {
         return view('customers.customer_educations.edit', compact('customerEducation'));
-
     }
 
     /**
@@ -85,6 +84,6 @@ class CustomerEducationController extends Controller
     public function destroy(CustomerEducation $customerEducation)
     {
         $customerEducation->delete();
-        return redirect()->route('cv.educationEdit', $customerEducation->customer)->with('success', 'Deleting successful');
+        return redirect()->route('cv.educationEdit', $customerEducation->customer)->with('success', 'Deletion successful');
     }
 }

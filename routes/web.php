@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminFrameworkController;
-use App\Http\Controllers\Admin\AdminLanguageController;
-use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CustomerEducationController;
+use App\Http\Controllers\CustomerLanguageController;
 use App\Http\Controllers\CvController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +15,9 @@ use App\Http\Controllers\AuthCustomer\CustomerForgotPasswordController;
 use App\Http\Controllers\AuthCustomer\CustomerResetPasswordController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\CustomerEducationController;
+use App\Http\Controllers\Admin\AdminFrameworkController;
+use App\Http\Controllers\Admin\AdminLanguageController;
+use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
 
 
 /*
@@ -89,6 +90,6 @@ Route::group([
 Route::group(['middleware' => 'auth:customer'], function () {
     Route::resource('customers', CustomerController::class);
     Route::resource('customer_educations', CustomerEducationController::class);
+    Route::resource('customer_languages', CustomerLanguageController::class);
 });
-
 

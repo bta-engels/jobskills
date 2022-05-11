@@ -6,6 +6,7 @@ use App\Http\Requests\AboutMeRequest;
 use App\Http\Requests\CustomerLanguageRequest;
 use App\Http\Requests\PersonalDataRequest;
 use App\Http\Requests\StoreCustomerEducationRequest;
+use App\Http\Requests\StoreCustomerLanguageRequest;
 use App\Http\Requests\StoreCvRequest;
 use App\Http\Requests\UpdateCvRequest;
 use App\Models\Customer;
@@ -134,6 +135,7 @@ class CvController extends Controller
 
     public function educationStore(StoreCustomerEducationRequest $request, Customer $customer)
     {
+//        CustomerEducation::create($request->validated() + ['customer_id' => $customer->id]);
         $customer->educations()->create($request->validated());
         return redirect()->route('cv.educationEdit', $customer);
     }
@@ -144,9 +146,8 @@ class CvController extends Controller
         return view('customers.cv.edit.languages', compact('customer','languages'));
     }
 
-    public function languagesStore(CustomerLanguageRequest $request, Customer $customer)
+    public function languagesStore(StoreCustomerLanguageRequest $request, Customer $customer)
     {
-
     }
 
 }
