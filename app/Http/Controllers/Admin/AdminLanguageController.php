@@ -76,9 +76,7 @@ class AdminLanguageController extends Controller
     */
     public function destroy(Language $language)
     {
-
         $language->delete();
         return redirect('/languages')->with('success', 'Language deleted successfully');
-
     }
 }
