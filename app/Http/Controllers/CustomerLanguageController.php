@@ -71,7 +71,8 @@ class CustomerLanguageController extends Controller
      */
     public function update(UpdateCustomerLanguageRequest $request, CustomerLanguage $customerLanguage)
     {
-        //
+        $customerLanguage->update($request->validated());
+        return redirect()->route('cv.languagesEdit', $customerLanguage->customer)->with('success', 'Update successful');
     }
 
     /**
