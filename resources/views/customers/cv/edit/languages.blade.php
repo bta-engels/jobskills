@@ -24,7 +24,12 @@
                 <tr>
                     <td>{{ $item->language->name }}</td>
                     <td>
-
+                        <form method="post" action="{{ route('customer_languages.update', $item) }}">
+                            @csrf
+                            @method('put')
+                            <input type="range" name="level" value="{{ $item->level }}" steps="1" min="0" max="10">
+                            <button class="btn btn-sm btn-primary">{{ __('Submit') }}</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
