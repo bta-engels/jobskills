@@ -7,6 +7,7 @@ use App\Http\Requests\CustomerLanguageRequest;
 use App\Http\Requests\PersonalDataRequest;
 use App\Http\Requests\StoreCustomerEducationRequest;
 use App\Http\Requests\StoreCustomerLanguageRequest;
+use App\Http\Requests\StoreCustomerProgrammingLanguageRequest;
 use App\Http\Requests\StoreCvRequest;
 use App\Http\Requests\UpdateCvRequest;
 use App\Models\Customer;
@@ -14,6 +15,7 @@ use App\Models\CustomerEducation;
 use App\Models\CustomerLanguage;
 use App\Models\Cv;
 use App\Models\Language;
+use App\Models\ProgrammingLanguage;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 
@@ -153,4 +155,16 @@ class CvController extends Controller
         return redirect()->route('cv.languagesEdit', $customer);
     }
 
+    public function programmingLanguagesEdit(Customer $customer)
+    {
+        $programmingLanguages = ProgrammingLanguage::orderBy('name')->get()->keyBy('id')->map->name;
+        return view('customers.cv.edit.programmingLanguages', compact('customer','programmingLanguages'));
+    }
+
+    public function programmingLanguagesStore(StoreCustomerProgrammingLanguageRequest $request, Customer $customer)
+    {
+        $validated = $request->validated();
+        $customer->programmingLanguages()->sync($validated['programmingLanguages']);
+        return redirect()->route('cv.programmingLanguagesEdit', $customer);
+    }
 }
