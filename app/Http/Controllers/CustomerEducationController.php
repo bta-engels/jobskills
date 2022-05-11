@@ -59,7 +59,7 @@ class CustomerEducationController extends Controller
      */
     public function edit(CustomerEducation $customerEducation)
     {
-        //
+        return view('customers.customer_educations.edit', compact('customerEducation'));
     }
 
     /**
@@ -71,7 +71,8 @@ class CustomerEducationController extends Controller
      */
     public function update(UpdateCustomerEducationRequest $request, CustomerEducation $customerEducation)
     {
-        //
+        $customerEducation->update($request->validated());
+        return redirect()->route('cv.educationEdit', $customerEducation->customer)->with('success', 'Education updated successfully');
     }
 
     /**
@@ -82,6 +83,7 @@ class CustomerEducationController extends Controller
      */
     public function destroy(CustomerEducation $customerEducation)
     {
-        //
+        $customerEducation->delete();
+        return redirect()->route('cv.educationEdit', $customerEducation->customer)->with('success', 'Education deleted successfully');
     }
 }
