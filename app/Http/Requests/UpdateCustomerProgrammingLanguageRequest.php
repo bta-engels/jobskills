@@ -24,7 +24,6 @@ class UpdateCustomerProgrammingLanguageRequest extends FormRequest
     public function rules()
     {
         return [
-            //    'programmingLanguages' => [],
             'level' => '',
         ];
     }

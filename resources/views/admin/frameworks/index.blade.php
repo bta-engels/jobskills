@@ -22,7 +22,7 @@
                         <x-form-submit type="submit" class="btn btn-danger delsoft">{{ __('Delete') }}</x-form-submit>
                     </x-form>
                 </td>
-
+            </tr>
         @endforeach
     </table>
 

@@ -151,7 +151,6 @@ class CvController extends Controller
     public function languagesStore(StoreCustomerLanguageRequest $request, Customer $customer)
     {
         $validated = $request->validated();
-        //dd($validated['languages']);
         $customer->languages()->sync($validated['languages']);
         return redirect()->route('cv.languagesEdit', $customer);
     }
@@ -165,9 +164,7 @@ class CvController extends Controller
     public function programmingLanguagesStore(StoreCustomerProgrammingLanguageRequest $request, Customer $customer)
     {
         $validated = $request->validated();
-        // dd($validated['programmingLanguages']);
         $customer->programmingLanguages()->sync($validated['programmingLanguages']);
         return redirect()->route('cv.programmingLanguagesEdit', $customer);
     }
-
 }

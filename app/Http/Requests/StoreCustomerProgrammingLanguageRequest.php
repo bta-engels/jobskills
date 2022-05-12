@@ -25,7 +25,6 @@ class StoreCustomerProgrammingLanguageRequest extends FormRequest
     {
         return [
             'programmingLanguages' => [],
-            //    'level' => '',
         ];
     }
 }

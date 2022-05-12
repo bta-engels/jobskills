@@ -29,3 +29,15 @@ ul.navbar-nav {
 		border-radius: 50%;
 	}
 }
+tr {
+	&.vmiddle {
+		td {
+			vertical-align: middle;
+			form {
+				input {
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+}
