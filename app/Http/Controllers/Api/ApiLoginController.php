@@ -35,8 +35,8 @@ class ApiLoginController extends Controller
         // json rückgabe: name, email, token
         $response = [
             'name'  => $user->name,
-            'email'  => $user->email,
-            'token'  => $token,
+            'email' => $user->email,
+            'token' => $token,
         ];
 
         return response()->json($response);
