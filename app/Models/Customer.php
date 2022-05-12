@@ -13,7 +13,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Laravel\Sanctum\HasApiTokens;
 
-
 /**
  * App\Models\Customer
  *
@@ -67,7 +66,9 @@ use Laravel\Sanctum\HasApiTokens;
  */
 class Customer extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
     public $timestamps = true;
     protected $guarded = ['id'];
