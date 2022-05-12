@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|CustomerProgrammingLanguage whereLevel($value)
  * @method static Builder|CustomerProgrammingLanguage whereProgrammingLanguageId($value)
  * @mixin Eloquent
- * @property-read \App\Models\ProgrammingLanguage|null $programmingLanguage
+ * @property-read ProgrammingLanguage|null $programmingLanguage
  */
 class CustomerProgrammingLanguage extends Model
 {

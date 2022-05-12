@@ -25,7 +25,7 @@ class UpdateTodoRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3',
-            'done' => '',
+            'done'  => '',
         ];
     }
 }

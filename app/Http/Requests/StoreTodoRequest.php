@@ -25,7 +25,7 @@ class StoreTodoRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3|unique:todos',
-            'done' => '',
+            'done'  => '',
         ];
     }
 }
