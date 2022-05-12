@@ -12,6 +12,7 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\PersonalAccessToken;
 
 /**
  * App\Models\Customer
@@ -63,6 +64,16 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read int|null $programming_language_levels_count
  * @property-read Collection|ProgrammingLanguage[] $programmingLanguages
  * @property-read int|null $programming_languages_count
+ * @property-read Collection|CustomerFramework[] $frameworkLevels
+ * @property-read int|null $framework_levels_count
+ * @property-read Collection|Framework[] $frameworks
+ * @property-read int|null $frameworks_count
+ * @property-read Collection|CustomerHardSkill[] $hardSkills
+ * @property-read int|null $hard_skills_count
+ * @property-read Collection|CustomerProject[] $projects
+ * @property-read int|null $projects_count
+ * @property-read Collection|PersonalAccessToken[] $tokens
+ * @property-read int|null $tokens_count
  */
 class Customer extends Authenticatable
 {
@@ -92,6 +103,16 @@ class Customer extends Authenticatable
         return $this->hasMany(CustomerEducation::class);
     }
 
+    public function projects()
+    {
+        return $this->hasMany(CustomerProject::class);
+    }
+
+    public function hardSkills()
+    {
+        return $this->hasMany(CustomerHardSkill::class);
+    }
+
     public function languages()
     {
         return $this->belongsToMany(Language::class, 'customer_languages');
@@ -110,5 +131,15 @@ class Customer extends Authenticatable
     public function programmingLanguageLevels()
     {
         return $this->hasMany(CustomerProgrammingLanguage::class);
+    }
+
+    public function frameworks()
+    {
+        return $this->belongsToMany(Framework::class, 'customer_frameworks');
+    }
+
+    public function frameworkLevels()
+    {
+        return $this->hasMany(CustomerFramework::class);
     }
 }

@@ -5,26 +5,26 @@
 @endsection
 
 @section('content')
-    <h3>{{__('Language')}}</h3>
+    <h3>{{__('Framework')}}</h3>
 
-    <x-form method="post" action="{{ route('cv.languagesStore', $customer) }}" >
+    <x-form method="post" action="{{ route('cv.frameworksStore', $customer) }}" >
         @bind($customer)
-        <x-form-select name="languages[]" :options="$languages" multiple many-relation label="Select your Languages:"/>
+        <x-form-select name="frameworks[]" :options="$frameworks" multiple many-relation label="Select your Frameworks:"/>
         <x-form-submit class="mt-2">{{ __('Save') }}</x-form-submit>
         @endbind
     </x-form>
 
-    @if($customer->languageLevels->count() > 0)
+    @if($customer->frameworkLevels->count() > 0)
         <table class="table table-striped mt-2">
             <tr>
-                <th class="w-25">{{__('Language')}}</th>
+                <th class="w-25">{{__('Framework')}}</th>
                 <th>{{__('Level')}}</th>
             </tr>
-            @foreach($customer->languageLevels as $item)
+            @foreach($customer->frameworkLevels as $item)
                 <tr class="vmiddle">
-                    <td>{{ $item->language->name }}</td>
+                    <td>{{ $item->framework->name }}</td>
                     <td>
-                        <form method="post" action="{{ route('customer_languages.update', $item) }}">
+                        <form method="post" action="{{ route('customer_frameworks.update', $item) }}">
                             @csrf
                             @method('put')
                             <input type="range" name="level" value="{{ $item->level }}" steps="1" min="0" max="10" />
@@ -35,7 +35,5 @@
             @endforeach
         </table>
     @endif
-    <div class="mt-2">
-        <a class="btn btn-primary" href="{{ route('cv.programmingLanguagesEdit', $customer) }}">{{ __('Next') }}</a>
-    </div>
+    <a class="btn btn-primary" href="{{ route('cv.projectsEdit', $customer) }}">{{ __('Next') }}</a>
 @endsection

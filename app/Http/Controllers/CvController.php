@@ -6,14 +6,20 @@ use App\Http\Requests\AboutMeRequest;
 use App\Http\Requests\CustomerLanguageRequest;
 use App\Http\Requests\PersonalDataRequest;
 use App\Http\Requests\StoreCustomerEducationRequest;
+use App\Http\Requests\StoreCustomerFrameworkRequest;
+use App\Http\Requests\StoreCustomerHardSkillRequest;
 use App\Http\Requests\StoreCustomerLanguageRequest;
 use App\Http\Requests\StoreCustomerProgrammingLanguageRequest;
+use App\Http\Requests\StoreCustomerProjectRequest;
 use App\Http\Requests\StoreCvRequest;
 use App\Http\Requests\UpdateCvRequest;
 use App\Models\Customer;
 use App\Models\CustomerEducation;
+use App\Models\CustomerHardSkill;
 use App\Models\CustomerLanguage;
+use App\Models\CustomerProject;
 use App\Models\Cv;
+use App\Models\Framework;
 use App\Models\Language;
 use App\Models\ProgrammingLanguage;
 use Illuminate\Http\Response;
@@ -166,5 +172,42 @@ class CvController extends Controller
         $validated = $request->validated();
         $customer->programmingLanguages()->sync($validated['programmingLanguages']);
         return redirect()->route('cv.programmingLanguagesEdit', $customer);
+    }
+
+    public function frameworksEdit(Customer $customer)
+    {
+        $frameworks = Framework::orderBy('name')->get()->keyBy('id')->map->name;
+        return view('customers.cv.edit.frameworks', compact('customer','frameworks'));
+    }
+
+    public function frameworksStore(StoreCustomerFrameworkRequest $request, Customer $customer)
+    {
+        $validated = $request->validated();
+        $customer->frameworks()->sync($validated['frameworks']);
+        return redirect()->route('cv.projectsEdit', $customer);
+    }
+
+    public function projectsEdit(Customer $customer)
+    {
+        $projects = CustomerProject::orderBy('from')->get();
+        return view('customers.cv.edit.projects', compact('customer','projects'));
+    }
+
+    public function projectsStore(StoreCustomerProjectRequest $request, Customer $customer)
+    {
+        $customer->projects()->create($request->validated());
+        return redirect()->route('cv.hardSkillsEdit', $customer);
+    }
+
+    public function hardSkillsEdit(Customer $customer)
+    {
+        $hardSkills = CustomerHardSkill::orderBy('name')->get();
+        return view('customers.cv.edit.hardSkills', compact('customer','hardSkills'));
+    }
+
+    public function hardSkillsStore(StoreCustomerHardSkillRequest $request, Customer $customer)
+    {
+        $customer->hardSkills()->create($request->validated());
+        return redirect()->route('cv.hardSkillsEdit', $customer);
     }
 }
