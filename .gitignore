@@ -9,6 +9,8 @@ mix-manifest.json
 .env
 .env.backup
 .htaccess
+/.vscode
+.DS_Store
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
