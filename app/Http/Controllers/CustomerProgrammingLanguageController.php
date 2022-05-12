@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCustomerProgrammingLanguageRequest;
 use App\Http\Requests\UpdateCustomerProgrammingLanguageRequest;
 use App\Models\CustomerProgrammingLanguage;
+use Illuminate\Http\Response;
 
 class CustomerProgrammingLanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -21,7 +22,7 @@ class CustomerProgrammingLanguageController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -31,8 +32,8 @@ class CustomerProgrammingLanguageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCustomerProgrammingLanguageRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreCustomerProgrammingLanguageRequest $request
+     * @return Response
      */
     public function store(StoreCustomerProgrammingLanguageRequest $request)
     {
@@ -42,8 +43,8 @@ class CustomerProgrammingLanguageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CustomerProgrammingLanguage  $customerProgrammingLanguage
-     * @return \Illuminate\Http\Response
+     * @param CustomerProgrammingLanguage $customerProgrammingLanguage
+     * @return Response
      */
     public function show(CustomerProgrammingLanguage $customerProgrammingLanguage)
     {
@@ -53,8 +54,8 @@ class CustomerProgrammingLanguageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CustomerProgrammingLanguage  $customerProgrammingLanguage
-     * @return \Illuminate\Http\Response
+     * @param CustomerProgrammingLanguage $customerProgrammingLanguage
+     * @return Response
      */
     public function edit(CustomerProgrammingLanguage $customerProgrammingLanguage)
     {
@@ -64,9 +65,9 @@ class CustomerProgrammingLanguageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCustomerProgrammingLanguageRequest  $request
-     * @param  \App\Models\CustomerProgrammingLanguage  $customerProgrammingLanguage
-     * @return \Illuminate\Http\Response
+     * @param UpdateCustomerProgrammingLanguageRequest $request
+     * @param CustomerProgrammingLanguage $customerProgrammingLanguage
+     * @return Response
      */
     public function update(UpdateCustomerProgrammingLanguageRequest $request, CustomerProgrammingLanguage $customerProgrammingLanguage)
     {
@@ -77,8 +78,8 @@ class CustomerProgrammingLanguageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CustomerProgrammingLanguage  $customerProgrammingLanguage
-     * @return \Illuminate\Http\Response
+     * @param CustomerProgrammingLanguage $customerProgrammingLanguage
+     * @return Response
      */
     public function destroy(CustomerProgrammingLanguage $customerProgrammingLanguage)
     {

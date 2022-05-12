@@ -157,8 +157,8 @@ class CvController extends Controller
 
     public function programmingLanguagesEdit(Customer $customer)
     {
-        $programming_languages = ProgrammingLanguage::orderBy('name')->get()->keyBy('id')->map->name;
-        return view('customers.cv.edit.programming_languages', compact('customer','programming_languages'));
+        $programmingLanguages = ProgrammingLanguage::orderBy('name')->get()->keyBy('id')->map->name;
+        return view('customers.cv.edit.programmingLanguages', compact('customer','programmingLanguages'));
     }
 
     public function programmingLanguagesStore(StoreCustomerProgrammingLanguageRequest $request, Customer $customer)
@@ -167,5 +167,4 @@ class CvController extends Controller
         $customer->programmingLanguages()->sync($validated['programmingLanguages']);
         return redirect()->route('cv.programmingLanguagesEdit', $customer);
     }
-
 }
