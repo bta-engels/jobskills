@@ -16,10 +16,10 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+.DS_Store
 /.editorconfig
 /database/seeders/MyUserSeeder.php
 .phpstorm.meta.php
 _ide_helper.php
 /clearme
 /perms
-.DS_Store
