@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,11 +19,11 @@ class ApiLoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+            'email'     => 'required|email',
+            'password'  => 'required',
         ]);
 
-        $user = User::whereEmail($request->email)->first();
+        $user = Customer::whereEmail($request->email)->first();
 
         if ( ! $user || ! Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
