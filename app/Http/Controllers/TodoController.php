@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Todo;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTodoRequest;
 use App\Http\Requests\UpdateTodoRequest;
+use App\Models\Todo;
 use Exception;
 use Illuminate\Http\Response;
 
@@ -25,7 +24,6 @@ class TodoController extends Controller
     {
         $todos = Todo::orderBy('done')->orderBy('created_at','desc')->get();
         return response()->json($todos);
-
     }
 
     /**
@@ -36,7 +34,15 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
-        return response()->json($todo);
+        try {
+            // probiere php code auzuführen
+            $this->response['data'] = $todo;
+        } catch (Exception $e) {
+            // wenns schief läuft, dann hier fehlerbehandlung
+            $this->response['error'] = $e->getMessage();
+        }
+
+        return response()->json($this->response);
     }
 
     /**
@@ -47,11 +53,11 @@ class TodoController extends Controller
      */
     public function store(StoreTodoRequest $request)
     {
-        try{
-            //probiere php code
+        try {
+            // probiere php code auzuführen
             $this->response['data'] = Todo::create($request->validated());
         } catch (Exception $e) {
-            //wenns schief läuft
+            // wenns schief läuft, dann hier fehlerbehandlung
             $this->response['error'] = $e->getMessage();
         }
         return response()->json($this->response);
@@ -66,12 +72,12 @@ class TodoController extends Controller
      */
     public function update(UpdateTodoRequest $request, Todo $todo)
     {
-        try{
-            //probiere php code
+        try {
+            // probiere php code auzuführen
             $todo->update($request->validated());
             $this->response['data'] = $todo->refresh();
         } catch (Exception $e) {
-            //wenns schief läuft
+            // wenns schief läuft, dann hier fehlerbehandlung
             $this->response['error'] = $e->getMessage();
         }
         return response()->json($this->response);
@@ -85,12 +91,12 @@ class TodoController extends Controller
      */
     public function destroy(Todo $todo)
     {
-        try{
-            //probiere php code
+        try {
+            // probiere php code auzuführen
             $this->response['data'] = $todo;
             $todo->delete();
         } catch (Exception $e) {
-            //wenns schief läuft
+            // wenns schief läuft, dann hier fehlerbehandlung
             $this->response['error'] = $e->getMessage();
         }
         return response()->json($this->response);
