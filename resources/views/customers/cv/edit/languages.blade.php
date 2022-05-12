@@ -10,8 +10,9 @@
     <x-form method="post" action="{{ route('cv.languagesStore', $customer) }}" >
         @bind($customer)
         <x-form-select name="languages[]" :options="$languages" multiple many-relation label="Select your Languages:"/>
-        <x-form-submit class="mt-2">{{ __('Save') }}</x-form-submit>
         @endbind
+        <x-form-submit class="mt-2">{{ __('Save') }}</x-form-submit>
+
     </x-form>
 
     @if($customer->languageLevels->count() > 0)
@@ -27,7 +28,7 @@
                         <form method="post" action="{{ route('customer_languages.update', $item) }}">
                             @csrf
                             @method('put')
-                            <input type="range" name="level" value="{{ $item->level }}" steps="1" min="1" max="10" >
+                            <input type="range" name="level" value="{{ $item->level }}" steps="1" min="0" max="10">
                             <button class="btn btn-sm btn-primary">{{ __('Submit') }}</button>
                         </form>
                     </td>

@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\AdminFrameworkController;
 use App\Http\Controllers\Admin\AdminLanguageController;
 use App\Http\Controllers\Admin\AdminProgrammingLanguageController;
+use App\Http\Controllers\CustomerProgrammingLanguageController;
 
 
 /*
@@ -91,5 +92,6 @@ Route::group(['middleware' => 'auth:customer'], function () {
     Route::resource('customers', CustomerController::class);
     Route::resource('customer_educations', CustomerEducationController::class);
     Route::resource('customer_languages', CustomerLanguageController::class);
+    Route::resource('customer_programming_languages', CustomerProgrammingLanguageController::class);
 });
 
