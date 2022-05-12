@@ -22,4 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [ApiLoginController::class, 'login']);
 
-Route::resource('todos', TodoController::class);
+Route::resource('todos', TodoController::class)->only(['index','show']);
+Route::resource('todos', TodoController::class)
+    ->except(['index','show'])
+    ->middleware('auth:sanctum')
+;
