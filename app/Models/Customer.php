@@ -56,6 +56,12 @@ use Illuminate\Support\Carbon;
  * @property-read int|null $educations_count
  * @property-read Collection|Language[] $languages
  * @property-read int|null $languages_count
+ * @property-read Collection|CustomerLanguage[] $languageLevels
+ * @property-read int|null $language_levels_count
+ * @property-read Collection|CustomerProgrammingLanguage[] $programmingLanguageLevels
+ * @property-read int|null $programming_language_levels_count
+ * @property-read Collection|ProgrammingLanguage[] $programmingLanguages
+ * @property-read int|null $programming_languages_count
  */
 class Customer extends Authenticatable
 {
@@ -83,7 +89,7 @@ class Customer extends Authenticatable
         return $this->hasMany(CustomerEducation::class);
     }
 
-    public function languages ()
+    public function languages()
     {
         return $this->belongsToMany(Language::class, 'customer_languages');
     }
@@ -93,7 +99,7 @@ class Customer extends Authenticatable
         return $this->hasMany(CustomerLanguage::class);
     }
 
-    public function programmingLanguages ()
+    public function programmingLanguages()
     {
         return $this->belongsToMany(ProgrammingLanguage::class, 'customer_programming_languages');
     }

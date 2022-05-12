@@ -3,6 +3,7 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CustomerEducationController;
 use App\Http\Controllers\CustomerLanguageController;
+use App\Http\Controllers\CustomerProgrammingLanguageController;
 use App\Http\Controllers\CvController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;

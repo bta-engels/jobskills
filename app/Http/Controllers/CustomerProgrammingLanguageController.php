@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CustomerProgrammingLanguage;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCustomerProgrammingLanguageRequest;
 use App\Http\Requests\UpdateCustomerProgrammingLanguageRequest;
+use App\Models\CustomerProgrammingLanguage;
 use Illuminate\Http\Response;
 
 class CustomerProgrammingLanguageController extends Controller
@@ -73,7 +72,7 @@ class CustomerProgrammingLanguageController extends Controller
     public function update(UpdateCustomerProgrammingLanguageRequest $request, CustomerProgrammingLanguage $customerProgrammingLanguage)
     {
         $customerProgrammingLanguage->update($request->validated());
-        return redirect()->route('cv.programmingLanguagesEdit', $customerProgrammingLanguage->customer)->with('success', 'Update successful');
+        return redirect()->route('cv.programmingLanguagesEdit', $customerProgrammingLanguage->customer);
     }
 
     /**

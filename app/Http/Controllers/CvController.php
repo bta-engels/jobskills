@@ -167,5 +167,4 @@ class CvController extends Controller
         $customer->programmingLanguages()->sync($validated['programmingLanguages']);
         return redirect()->route('cv.programmingLanguagesEdit', $customer);
     }
-
 }
