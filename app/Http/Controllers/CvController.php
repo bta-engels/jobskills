@@ -9,11 +9,13 @@ use App\Http\Requests\StoreCustomerEducationRequest;
 use App\Http\Requests\StoreCustomerFrameworkRequest;
 use App\Http\Requests\StoreCustomerLanguageRequest;
 use App\Http\Requests\StoreCustomerProgrammingLanguageRequest;
+use App\Http\Requests\StoreCustomerProjectRequest;
 use App\Http\Requests\StoreCvRequest;
 use App\Http\Requests\UpdateCvRequest;
 use App\Models\Customer;
 use App\Models\CustomerEducation;
 use App\Models\CustomerLanguage;
+use App\Models\CustomerProject;
 use App\Models\Cv;
 use App\Models\Framework;
 use App\Models\Language;
@@ -181,5 +183,17 @@ class CvController extends Controller
         $validated = $request->validated();
         $customer->frameworks()->sync($validated['frameworks']);
         return redirect()->route('cv.frameworksEdit', $customer);
+    }
+
+    public function projectsEdit(Customer $customer)
+    {
+        $projects = CustomerProject::orderBy('from')->get();
+        return view('customers.cv.edit.projects', compact('customer','projects'));
+    }
+
+    public function projectsStore(StoreCustomerProjectRequest $request, Customer $customer)
+    {
+        $customer->projects()->create($request->validated());
+        return redirect()->route('cv.projectsEdit', $customer);
     }
 }

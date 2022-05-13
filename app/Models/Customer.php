@@ -119,4 +119,9 @@ class Customer extends Authenticatable
     {
         return $this->hasMany(CustomerFramework::class);
     }
+
+    public function projects()
+    {
+        return $this->hasMany(CustomerProject::class);
+    }
 }
