@@ -109,4 +109,14 @@ class Customer extends Authenticatable
     {
         return $this->hasMany(CustomerProgrammingLanguage::class);
     }
+
+    public function frameworks()
+    {
+        return $this->belongsToMany(Framework::class, 'customer_frameworks');
+    }
+
+    public function frameworkLevels()
+    {
+        return $this->hasMany(CustomerFramework::class);
+    }
 }
