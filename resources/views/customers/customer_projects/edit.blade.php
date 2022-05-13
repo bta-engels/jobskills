@@ -5,12 +5,12 @@
 @endsection
 
 @section('content')
-    <h3>{{ __('Edit education') }}</h3>
+    <h3>{{ __('Edit project') }}</h3>
 
-    <x-form method="post" action="{{ route('customer_educations.update', $customerEducation) }}">
+    <x-form method="post" action="{{ route('customer_projects.update', $customerProject) }}">
         @method('put')
-        @bind($customerEducation)
-        <x-form-input type="text" class="mb-3" name="name" label="{{ __('Name') }}" />
+        @bind($customerProject)
+        <x-form-input type="text" class="mb-3" name="name" label="{{ __('Project name') }}" />
         <x-form-textarea class="mb-3" name="description" label="{{ __('Description') }}" />
         <x-form-input type="date" class="mb-3" name="from" label="{{ __('From') }}" />
         <x-form-input type="date" class="mb-3" name="until" label="{{ __('Until') }}" />

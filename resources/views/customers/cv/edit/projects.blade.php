@@ -5,18 +5,18 @@
 @endsection
 
 @section('content')
-    <h3>{{ __('Education') }}</h3>
+    <h3>{{ __('Project') }}</h3>
 
-    @if($educations->count() > 0)
+    @if($projects->count() > 0)
         <table class="table table-striped">
-            @foreach($educations as $education)
+            @foreach($projects as $project)
                 <tr>
-                    <td>{{ $education->name }}</td>
-                    <td>{{ $education->from->format('d.m.Y') }}</td>
-                    <td>{{ $education->until->format('d.m.Y') }}</td>
+                    <td>{{ $project->name }}</td>
+                    <td>{{ $project->from->format('d.m.Y') }}</td>
+                    <td>{{ $project->until->format('d.m.Y') }}</td>
                     <td>
-                        <x-form action="{{ route('customer_educations.destroy', $education) }}">
-                            <a class="btn btn-sm btn-primary" href="{{ route('customer_educations.edit', $education) }}">{{ __('Edit') }}</a>
+                        <x-form action="{{ route('customer_projects.destroy', $project) }}">
+                            <a class="btn btn-sm btn-primary" href="{{ route('customer_projects.edit', $project) }}">{{ __('Edit') }}</a>
                             @method('delete')
                             <x-form-submit class="btn btn-sm btn-danger delsoft">{{ __('Delete') }}</x-form-submit>
                         </x-form>
@@ -26,12 +26,12 @@
         </table>
     @endif
 
-    <x-form method="post" action="{{ route('cv.educationStore', $customer) }}">
-        <x-form-input type="text" class="mb-3" name="name" label="{{ __('Name') }}" />
+    <x-form method="post" action="{{ route('cv.projectsStore', $customer) }}">
+        <x-form-input type="text" class="mb-3" name="name" label="{{ __('Project Name') }}" />
         <x-form-textarea class="mb-3" name="description" label="{{ __('Description') }}" />
         <x-form-input type="date" class="mb-3" name="from" label="{{ __('From') }}" />
         <x-form-input type="date" class="mb-3" name="until" label="{{ __('Until') }}" />
         <x-form-submit class="mt-3">{{ __('Add') }}</x-form-submit>
-        <a class="btn btn-primary ms-3 mt-3" href="{{ route('cv.languagesEdit', $education->customer) }}">{{ __('Next') }}</a>
+        <a class="btn btn-primary ms-3 mt-3" href="{{ route('cv.hardSkillsEdit', $project->customer) }}">{{ __('Next') }}</a>
     </x-form>
 @endsection
