@@ -124,4 +124,9 @@ class Customer extends Authenticatable
     {
         return $this->hasMany(CustomerProject::class);
     }
+
+    public function hardskills()
+    {
+        return $this->hasMany(CustomerHardskill::class);
+    }
 }

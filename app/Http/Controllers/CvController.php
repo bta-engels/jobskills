@@ -7,6 +7,7 @@ use App\Http\Requests\CustomerLanguageRequest;
 use App\Http\Requests\PersonalDataRequest;
 use App\Http\Requests\StoreCustomerEducationRequest;
 use App\Http\Requests\StoreCustomerFrameworkRequest;
+use App\Http\Requests\StoreCustomerHardskillRequest;
 use App\Http\Requests\StoreCustomerLanguageRequest;
 use App\Http\Requests\StoreCustomerProgrammingLanguageRequest;
 use App\Http\Requests\StoreCustomerProjectRequest;
@@ -14,6 +15,7 @@ use App\Http\Requests\StoreCvRequest;
 use App\Http\Requests\UpdateCvRequest;
 use App\Models\Customer;
 use App\Models\CustomerEducation;
+use App\Models\CustomerHardskill;
 use App\Models\CustomerLanguage;
 use App\Models\CustomerProject;
 use App\Models\Cv;
@@ -195,5 +197,17 @@ class CvController extends Controller
     {
         $customer->projects()->create($request->validated());
         return redirect()->route('cv.projectsEdit', $customer);
+    }
+
+    public function hardSkillsEdit(Customer $customer)
+    {
+        $hardskills = CustomerHardskill::orderBy('name')->get();
+        return view('customers.cv.edit.hardSkills', compact('customer','hardskills'));
+    }
+
+    public function hardSkillsStore(StoreCustomerHardskillRequest $request, Customer $customer)
+    {
+        $customer->hardskills()->create($request->validated());
+        return redirect()->route('cv.hardSkillsEdit', $customer);
     }
 }

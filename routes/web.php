@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomerLanguageController;
 use App\Http\Controllers\CustomerProgrammingLanguageController;
 use App\Http\Controllers\CustomerFrameworkController;
 use App\Http\Controllers\CustomerProjectController;
+use App\Http\Controllers\CustomerHardskillController;
 use App\Http\Controllers\CvController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -97,5 +98,6 @@ Route::group(['middleware' => 'auth:customer'], function () {
     Route::resource('customer_programming_languages', CustomerProgrammingLanguageController::class);
     Route::resource('customer_frameworks', CustomerFrameworkController::class);
     Route::resource('customer_projects', CustomerProjectController::class);
+    Route::resource('customer_hardskills', CustomerHardskillController::class);
 });
 
