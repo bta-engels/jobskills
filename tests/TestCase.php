@@ -4,15 +4,10 @@ namespace Tests;
 
 use App\Models\Customer;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Route;
 
 abstract class TestCase extends BaseTestCase
 {
-    /**
-     * @var Collection
-     */
-    protected $routes;
+    use CreatesApplication;
 
     protected $customer = [
         'name'      => 'Paul Panther',
@@ -20,13 +15,4 @@ abstract class TestCase extends BaseTestCase
         'password'  => 'password',
         'password_confirmation' => 'password',
     ];
-
-    protected function setUp():void
-    {
-        parent::setUp();
-        $this->routes = collect(Route::getRoutes()->getRoutesByName());
-    }
-
-    use CreatesApplication;
-
 }
