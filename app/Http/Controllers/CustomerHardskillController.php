@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CustomerHardskill;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCustomerHardskillRequest;
-use App\Http\Requests\UpdateCustomerHardskillRequest;
+use App\Http\Requests\StoreCustomerHardSkillRequest;
+use App\Http\Requests\UpdateCustomerHardSkillRequest;
+use App\Models\CustomerHardSkill;
 use Illuminate\Http\Response;
 
-class CustomerHardskillController extends Controller
+class CustomerHardSkillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,10 +32,10 @@ class CustomerHardskillController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreCustomerHardskillRequest $request
+     * @param StoreCustomerHardSkillRequest $request
      * @return Response
      */
-    public function store(StoreCustomerHardskillRequest $request)
+    public function store(StoreCustomerHardSkillRequest $request)
     {
         //
     }
@@ -44,10 +43,10 @@ class CustomerHardskillController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param CustomerHardskill $customerHardskill
+     * @param CustomerHardSkill $customerHardSkill
      * @return Response
      */
-    public function show(CustomerHardskill $customerHardskill)
+    public function show(CustomerHardSkill $customerHardSkill)
     {
         //
     }
@@ -55,36 +54,40 @@ class CustomerHardskillController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param CustomerHardskill $customerHardskill
+     * @param CustomerHardSkill $customerHardSkill
      * @return Response
      */
-    public function edit(CustomerHardskill $customerHardskill)
+    public function edit(CustomerHardSkill $customerHardSkill)
     {
-        return view('customers.customer_hardskills.edit', compact('customerHardskill'));
+        return view('customers.customer_hard_skills.edit', compact('customerHardSkill'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateCustomerHardskillRequest $request
-     * @param CustomerHardskill $customerHardskill
+     * @param UpdateCustomerHardSkillRequest $request
+     * @param CustomerHardSkill $customerHardSkill
      * @return Response
      */
-    public function update(UpdateCustomerHardskillRequest $request, CustomerHardskill $customerHardskill)
+    public function update(UpdateCustomerHardSkillRequest $request, CustomerHardSkill $customerHardSkill)
     {
-        $customerHardskill->update($request->validated());
-        return redirect()->route('cv.hardSkillsEdit', $customerHardskill->customer)->with('success', 'Update successful');
+        $customerHardSkill->update($request->validated());
+        return redirect()
+            ->route('cv.hardSkillsEdit', $customerHardSkill->customer)
+            ->with('success', 'Update successful');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param CustomerHardskill $customerHardskill
+     * @param CustomerHardSkill $customerHardSkill
      * @return Response
      */
-    public function destroy(CustomerHardskill $customerHardskill)
+    public function destroy(CustomerHardSkill $customerHardSkill)
     {
-        $customerHardskill->delete();
-        return redirect()->route('cv.hardSkillsEdit', $customerHardskill->customer)->with('success', 'Deletion successful');
+        $customerHardSkill->delete();
+        return redirect()
+            ->route('cv.hardSkillsEdit', $customerHardSkill->customer)
+            ->with('success', 'Delete successful');
     }
 }

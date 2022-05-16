@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCustomerHardskillRequest extends FormRequest
+class StoreCustomerHardSkillRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class StoreCustomerHardskillRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required',
+            'name'  => 'required|unique:hard_skills',
             'description'   => '',
         ];
     }

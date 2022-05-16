@@ -202,13 +202,13 @@ class CvController extends Controller
 
     public function hardSkillsEdit(Customer $customer)
     {
-        $hardskills = CustomerHardskill::orderBy('name')->get();
-        return view('customers.cv.edit.hardskills', compact('customer', 'hardskills'));
+        $hardSkills = CustomerHardskill::orderBy('name')->get();
+        return view('customers.cv.edit.hardSkills', compact('customer', 'hardSkills'));
     }
 
     public function hardSkillsStore(StoreCustomerHardskillRequest $request, Customer $customer)
     {
-        $customer->hardskills()->create($request->validated());
+        $customer->hardSkills()->create($request->validated());
         return redirect()->route('cv.hardSkillsEdit', $customer);
     }
 
