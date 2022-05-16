@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Notifications;
 
-use Illuminate\Support\Str;
 use Tests\TestCase;
 use App\Models\Customer;
 
