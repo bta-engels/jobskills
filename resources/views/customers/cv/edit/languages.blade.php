@@ -35,5 +35,7 @@
             @endforeach
         </table>
     @endif
-    <a class="btn btn-primary" href="{{ route('cv.programmingLanguagesEdit', $customer) }}">{{ __('Next') }}</a>
+    <div class="mt-2">
+        <a class="btn btn-primary" href="{{ route('cv.programmingLanguagesEdit', $customer) }}">{{ __('Next') }}</a>
+    </div>
 @endsection

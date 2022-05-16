@@ -41,7 +41,7 @@ class CustomerEducation extends Model
         'until'  => 'date:Y-m-d',
     ];
 
-    public function customer ()
+    public function customer()
     {
         return $this->belongsTo(Customer::class);
     }
