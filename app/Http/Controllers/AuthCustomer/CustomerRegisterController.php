@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers\AuthCustomer;
 
-use App\Events\NewCustomerHasRegisteredEvent;
-use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\RegistrationRequest;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
+/**
+ *
+ */
 class CustomerRegisterController extends Controller
 {
     /*
@@ -45,24 +50,12 @@ class CustomerRegisterController extends Controller
         $this->middleware('guest');
     }
 
+    /**
+     * @return Application|Factory|View
+     */
     public function showRegistrationForm()
     {
         return view('customers.auth.register');
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
     }
 
     /**
@@ -82,11 +75,13 @@ class CustomerRegisterController extends Controller
         return $customer;
     }
 
-    public function register(Request $request)
+    /**
+     * @param RegistrationRequest $request
+     * @return Application|JsonResponse|RedirectResponse|Redirector|mixed
+     */
+    public function register(RegistrationRequest $request)
     {
-        $this->validator($request->all())->validate();
-
-        $customer = $this->create($request->all());
+        $customer = $this->create($request->validated());
 
         if ($response = $this->registered($request, $customer)) {
             return $response;
@@ -96,6 +91,4 @@ class CustomerRegisterController extends Controller
             ? new JsonResponse([], 201)
             : redirect($this->redirectPath());
     }
-
-
 }
