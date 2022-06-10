@@ -101,3 +101,4 @@ Route::group(['middleware' => 'auth:customer'], function () {
     Route::resource('customer_hard_skills', CustomerHardSkillController::class);
 });
 
+Route::get('react/todos', fn () => view('react.todos'))->name('react.todos');

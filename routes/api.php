@@ -27,5 +27,5 @@ Route::resource('todos', ApiTodoController::class)
 ;
 Route::resource('todos', ApiTodoController::class)
     ->except(['index','show','edit'])
-    ->middleware('auth:sanctum')
+//    ->middleware('auth:sanctum,customer')
 ;

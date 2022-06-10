@@ -16,5 +16,8 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('cv.personalDataEdit', auth('customer')->user()) }}">{{ __('My CV') }}</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('react.todos') }}">{{ __('Todos') }}</a>
+        </li>
     @endauth
 </ul>
