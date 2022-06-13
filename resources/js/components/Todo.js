@@ -28,7 +28,7 @@ class Todo extends Component {
 		const target = e.target;
 		const value = target.type === 'checkbox' ? target.checked : target.value;
 		this.setState({ todo: {
-//				...this.state.todo,
+				...this.state.todo,
 				[target.name]: value
 			}
 		}, () => this.props.update(this.state.todo));
@@ -41,7 +41,6 @@ class Todo extends Component {
 					<input type="checkbox" name="done"
 					       checked={this.state.todo.done}
 					       onChange={this.change}
-					       value={this.state.todo.done}
 					/>
 					<input name="title" className="border-0 w-75 ms-3"
 					       onChange={this.change}
