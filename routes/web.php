@@ -43,8 +43,8 @@ Route::group([
 });
 
 
-//admin
-//Route::match(['get','post'],'admin/register', fn() => redirect('/'))->name('remove.admin.register');
+// admin
+Route::match(['get','post'],'admin/register', fn() => redirect('/'))->name('remove.admin.register');
 
 Route::group([
     'middleware' => 'auth:admin',
